@@ -3,16 +3,16 @@
         {
             "name": "Opt",
             "includePath": [
-                "d:\\Work\\华录易云_文件\\部门产品\\产品软件相关\\C\\Hal_code\\HAL_Opt\\USER",
-                "d:\\Work\\华录易云_文件\\部门产品\\产品软件相关\\C\\Hal_code\\HAL_Opt\\CORE",
-                "d:\\Work\\华录易云_文件\\部门产品\\产品软件相关\\C\\Hal_code\\HAL_Opt\\HALLib\\Inc",
-                "d:\\Work\\华录易云_文件\\部门产品\\产品软件相关\\C\\Hal_code\\HAL_Opt\\SYSTEM\\delay",
-                "d:\\Work\\华录易云_文件\\部门产品\\产品软件相关\\C\\Hal_code\\HAL_Opt\\SYSTEM\\sys",
-                "d:\\Work\\华录易云_文件\\部门产品\\产品软件相关\\C\\Hal_code\\HAL_Opt\\SYSTEM\\usart",
-                "d:\\Work\\华录易云_文件\\部门产品\\产品软件相关\\C\\Hal_code\\HAL_Opt\\OBJ",
-                "D:\\Work\\MDK\\Core\\ARM\\ARMCC\\include",
-                "D:\\Work\\MDK\\Core\\ARM\\ARMCC\\include\\rw",
-                "d:\\Work\\华录易云_文件\\部门产品\\产品软件相关\\C\\Hal_code\\HAL_Opt\\HALLib\\Src"
+                "d:\\Github\\ATC-HLYY\\HAL_Opt\\USER",
+                "d:\\Github\\ATC-HLYY\\HAL_Opt\\CORE",
+                "d:\\Github\\ATC-HLYY\\HAL_Opt\\HALLib\\Inc",
+                "d:\\Github\\ATC-HLYY\\HAL_Opt\\SYSTEM\\delay",
+                "d:\\Github\\ATC-HLYY\\HAL_Opt\\SYSTEM\\sys",
+                "d:\\Github\\ATC-HLYY\\HAL_Opt\\SYSTEM\\usart",
+                "d:\\Github\\ATC-HLYY\\HAL_Opt\\OBJ",
+                "D:\\ebedded_system\\Keil5\\Core\\ARM\\ARMCC\\include",
+                "D:\\ebedded_system\\Keil5\\Core\\ARM\\ARMCC\\include\\rw",
+                "d:\\Github\\ATC-HLYY\\HAL_Opt\\HALLib\\Src"
             ],
             "defines": [
                 "USE_HAL_DRIVER",
