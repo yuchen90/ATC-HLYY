@@ -54,6 +54,7 @@ typedef __I uint8_t vuc8;
 //具体实现思想,参考<<CM3权威指南>>第五章(87页~92页).
 //IO口操作宏定义
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
+//AliasAddr＝ 0x42000000+((A‐0x40000000)*8+n)*4 =0x42000000+ (A‐0x40000000)*32 + n*4
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
 #define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 //IO口地址映射
