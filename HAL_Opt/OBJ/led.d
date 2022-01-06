@@ -53,3 +53,6 @@
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_ll_usb.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
+..\obj\led.o: ..\HARDWARE\led.h
+..\obj\led.o: ..\SYSTEM\sys\sys.h
+..\obj\led.o: ..\SYSTEM\delay\delay.h

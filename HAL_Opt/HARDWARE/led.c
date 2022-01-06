@@ -1,5 +1,8 @@
 //灯控板点灯引脚初始化
 #include "stm32f1xx_hal.h"
+#include "led.h"
+#include "sys.h"
+#include "delay.h"
 
 //灯组相关引脚初始化
 void Led_Init(void)
@@ -33,7 +36,43 @@ void Led_Init(void)
 
 }
 
+//灯组点灯信息
 void Light(void)
 {
-
+    	R1=LED_ON;
+		delay_ms(1000);
+		Y1=LED_ON;
+		delay_ms(1000);
+		G1=LED_ON;
+		delay_ms(1000);	
+        R2=LED_ON;
+		delay_ms(1000);
+		Y2=LED_ON;
+		delay_ms(1000);
+		G2=LED_ON;
+		delay_ms(1000);	
+        R3=LED_ON;
+		delay_ms(1000);
+		Y3=LED_ON;
+		delay_ms(1000);
+		G3=LED_ON;
+		delay_ms(1000);	
+        R4=LED_ON;
+		delay_ms(1000);
+		Y4=LED_ON;
+		delay_ms(1000);
+		G4=LED_ON;
+		delay_ms(1000);	
+        R1=LED_OFF;
+		Y1=LED_OFF;
+		G1=LED_OFF;
+        R2=LED_OFF;
+		Y2=LED_OFF;
+		G2=LED_OFF;
+        R3=LED_OFF;
+		Y3=LED_OFF;
+		G3=LED_OFF;
+        R4=LED_OFF;
+		Y4=LED_OFF;
+		G4=LED_OFF;
 }

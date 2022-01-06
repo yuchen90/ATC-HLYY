@@ -3,6 +3,34 @@
 #ifndef __LED_H__
 #define __LED_H__
 
+//灯组1对应bit-band地址
+#define R1 PCout(13)
+#define Y1 PCout(15)
+#define G1 PCout(1)
+
+//灯组2对应bit-band地址
+#define R2 PCout(3)
+#define Y2 PAout(3)
+#define G2 PAout(5)
+
+//灯组3对应bit-band地址
+#define R3 PAout(7)
+#define Y3 PCout(5)
+#define G3 PBout(1)
+
+//灯组4对应bit-band地址
+#define R4 PBout(11)
+#define Y4 PBout(13)
+#define G4 PBout(15)
+
+//灯色状态定义
+typedef enum
+{
+    LED_OFF = 0u,
+    LED_ON
+}LED_STATE;
+
+/* 不适合如下定义，因为点灯由CAN协议解析上位机信息得到，只需对应地址，不需要赋值
 //灯组1点灯与灭灯定义
 #define R1_ON PCout(13)=1
 #define Y1_ON PCout(15)=1
@@ -34,5 +62,5 @@
 #define R4_OFF PBout(11)=0
 #define Y4_OFF PBout(13)=0
 #define G4_OFF PBout(15)=0
-
+*/
 #endif
