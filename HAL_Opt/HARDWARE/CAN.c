@@ -125,7 +125,7 @@ void OPT_CAN_Send(uint32_t SID,uint8_t data[8])
 }
 
 //如果你用的CAN引脚是PA11和PA12，接收中断用CAN1_RX0_IRQn。如果CAN引脚用的是PB8和PB9，也就是用重定义的引脚，接收中断用CAN1_RX1_IRQn。
-//CAN接收中断，接收到报文后，按协议把报文解析出来并赋值
+//CAN接收中断，接收到报文后，按协议把报文解析出来并赋值到CAN_Buff[8]
 void USB_LP_CAN1_RX0_IRQHandler(void)
 {
 
