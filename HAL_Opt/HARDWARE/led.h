@@ -27,8 +27,10 @@
 typedef enum
 {
     LED_OFF = 0u,
-    LED_ON
+    LED_ON  = 1u
 }LED_STATE;
+
+
 
 /* 不适合如下定义，因为点灯由CAN协议解析上位机信息得到，只需对应地址，不需要赋值
 //灯组1点灯与灭灯定义
@@ -63,4 +65,18 @@ typedef enum
 #define Y4_OFF PBout(13)=0
 #define G4_OFF PBout(15)=0
 */
+
+//灯控板地址对应管脚
+#define ADDR0 PBin(9)
+#define ADDR1 PBin(8)
+#define ADDR2 PBin(7)
+#define ADDR3 PBin(6)
+
+//灯控板工作指示灯显示
+#define MCU_RUN PAout(9)
+
+//CAN收，发指示灯
+#define CAN_Tx_LED PAout(0)
+#define CAN_Rx_LED PAout(1)
+
 #endif

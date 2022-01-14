@@ -56,3 +56,4 @@
 ..\obj\led.o: ..\HARDWARE\led.h
 ..\obj\led.o: ..\SYSTEM\sys\sys.h
 ..\obj\led.o: ..\SYSTEM\delay\delay.h
+..\obj\led.o: ..\USER\main.h

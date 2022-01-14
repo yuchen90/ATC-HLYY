@@ -1,33 +1,25 @@
-/**
-  ******************************************************************************
-  * @file    Templates/Inc/main.h 
-  * @author  MCD Application Team
-  * @brief   Header for main.c module
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  ******************************************************************************
-  */
-  
-/* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
+//声明需要使用的全局变量
+#ifndef __MAIN_H__
+#define __MAIN_H__
 
-/* Includes ------------------------------------------------------------------*/
-#include "stm32f1xx_hal.h"
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */
+extern unsigned int Timer_Fg;        //计时器重载累加值
+extern unsigned int Timer_Fg1; 
+extern unsigned char Blink_Id;       //点灯闪烁标识 1：闪烁 0：长亮
+extern unsigned char Blink_Id_Old;   //上一次点灯闪烁标识
+extern unsigned char BOARD_ADDRESS; //灯控板地址
+extern unsigned char Can_Buff[8];    //CAN通讯解析后数据缓存
+extern unsigned char Light_Buff[4]; //灯控板四个灯组的点灯信息缓存
+extern unsigned char CAN_Send_Fg;   //CAN 发送flag
 
-#endif /* __MAIN_H */
+//函数声明
+//led.c
+void Led_Init(void);
+void Light(void);
+//Board_Address.c
+void Board_Address_Init(void);
+uint8_t Board_Address_Get(void);
+//CAN.c
+void OPT_CAN_Init(void);
+void OPT_CAN_Send(uint32_t SID,uint8_t data[8]);
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+#endif

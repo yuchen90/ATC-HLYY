@@ -8,6 +8,7 @@
 "..\obj\led.o"
 "..\obj\systick.o"
 "..\obj\vacheck.o"
+"..\obj\board_address.o"
 "..\obj\startup_stm32f103xb.o"
 "..\obj\stm32f1xx_hal.o"
 "..\obj\stm32f1xx_hal_adc.o"

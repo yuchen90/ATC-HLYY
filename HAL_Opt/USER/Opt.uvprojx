@@ -434,9 +434,9 @@
               <FilePath>..\HARDWARE\VACheck.c</FilePath>
             </File>
             <File>
-              <FileName>led.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\led.h</FilePath>
+              <FileName>Board_Address.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\Board_Address.c</FilePath>
             </File>
           </Files>
         </Group>
