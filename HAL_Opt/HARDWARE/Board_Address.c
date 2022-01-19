@@ -1,7 +1,5 @@
-#include "sys.h"
-#include "delay.h"
-#include "led.h"
 #include "main.h"
+#include "declaration.h"
 
 //灯控板地址对应管脚初始化
 void Board_Address_Init(void)

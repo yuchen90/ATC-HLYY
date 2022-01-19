@@ -21,8 +21,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm32f1xx_it.h"
-   
+
+extern CAN_HandleTypeDef CAN_Handle;
+
 /** @addtogroup STM32F1xx_HAL_Examples
   * @{
   */
@@ -138,7 +139,7 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-  extern HAL_IncTick();
+  HAL_IncTick();
 }
 
 /******************************************************************************/
@@ -147,6 +148,17 @@ void SysTick_Handler(void)
 /*  available peripheral interrupt handler's name please refer to the startup */
 /*  file (startup_stm32f1xx.s).                                               */
 /******************************************************************************/
+
+/**
+* @brief  This function handles CAN1 RX0 interrupt request.
+* @param  None
+* @retval None
+*/
+
+void USB_LP_CAN1_RX0_IRQHandler(void)
+{
+  HAL_CAN_IRQHandler(&CAN_Handle);
+}
 
 /**
   * @brief  This function handles PPP interrupt request.

@@ -1,9 +1,6 @@
 //灯控板点灯引脚初始化
-#include "stm32f1xx_hal.h"
-#include "led.h"
-#include "sys.h"
-#include "delay.h"
 #include "main.h"
+#include "declaration.h"
 
 //灯组相关引脚初始化
 void Led_Init(void)
@@ -14,7 +11,7 @@ void Led_Init(void)
 	__HAL_RCC_GPIOB_CLK_ENABLE();               //开启GPIOB时钟
     __HAL_RCC_GPIOC_CLK_ENABLE();               //开启GPIOC时钟
 
-    //PA3,PA5,PA7,PA9(mcu_run) PA0,PA1(CAN_TX&CAN_Rx)
+    //PA3,PA5,PA7,PA9(mcu_run) PA0,PA1(CAN_TX_LED&CAN_Rx_LED)
     GPIO_Init.Pin=GPIO_PIN_3|GPIO_PIN_5|GPIO_PIN_7|GPIO_PIN_9|GPIO_PIN_0|GPIO_PIN_1; 	
     GPIO_Init.Mode=GPIO_MODE_OUTPUT_PP;  	//推挽输出
     GPIO_Init.Pull=GPIO_PULLUP;          	//上拉
@@ -39,30 +36,30 @@ void Led_Init(void)
 
 
 //灯组点灯信息，根据CAN协议确认单个灯组点灯状态
-void Light(void)
+void Led_Display(void)
 {
-	uint64_t Lightdata=0;
+	uint64_t Lightdata=0u;
 	uint32_t i;
 	//先把CAN缓存信息读出来
-	for (i=0;i<8;i++)
+	for (i=0u;i<8u;i++)
 	{
-		Lightdata=Lightdata<<8;
+		Lightdata=Lightdata<<8u;
 		Lightdata=Lightdata+Can_Buff[7-i];
 	}
 	BOARD_ADDRESS=BOARD_ADDRESS%5; //下面从CAN缓存提取灯组点灯信息，编号0-4与5-9 提取方法一致，所有先把高位变回低位
 	//按CAN协议提取
-	Light_Buff[0]=(Lightdata>>(BOARD_ADDRESS*12))&0x07;
-	Light_Buff[1]=(Lightdata>>(BOARD_ADDRESS*12+3))&0x07;
-	Light_Buff[2]=(Lightdata>>(BOARD_ADDRESS*12+6))&0x07;
-	Light_Buff[3]=(Lightdata>>(BOARD_ADDRESS*12+9))&0x07;
-	Blink_Id=(Lightdata>>60)&0x01;
+	Light_Buff[0]=(Lightdata>>(BOARD_ADDRESS*12u))&0x07u;
+	Light_Buff[1]=(Lightdata>>(BOARD_ADDRESS*12u+3u))&0x07u;
+	Light_Buff[2]=(Lightdata>>(BOARD_ADDRESS*12u+6u))&0x07u;
+	Light_Buff[3]=(Lightdata>>(BOARD_ADDRESS*12u+9u))&0x07u;
+	Blink_Id=(Lightdata>>60u)&0x01u;
 
 	//此处在原函数加了如下的条件判断，暂时不知用意
 	//if((Blink_Id==1)&&(Blink_Id_Old==0))	Timer_Fg1=0;
 	Blink_Id_Old=Blink_Id;		  //当前闪烁指示变为旧的标识，用于下一次的对比
 
 	//测试函数
-	Light_Buff[0]=0;Light_Buff[1]=1;Light_Buff[2]=2;Light_Buff[3]=3;
+	//Light_Buff[0]=0u;Light_Buff[1]=1u;Light_Buff[2]=2u;Light_Buff[3]=3u;
 
 	//当前灯控板的4个灯组点灯
 	switch(Light_Buff[0])//灯组1输出

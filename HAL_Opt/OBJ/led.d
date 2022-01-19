@@ -1,4 +1,5 @@
 ..\obj\led.o: ..\HARDWARE\led.c
+..\obj\led.o: ..\USER\main.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal.h
 ..\obj\led.o: ..\USER\stm32f1xx_hal_conf.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal_rcc.h
@@ -53,7 +54,5 @@
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_ll_usb.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
-..\obj\led.o: ..\HARDWARE\led.h
 ..\obj\led.o: ..\SYSTEM\sys\sys.h
-..\obj\led.o: ..\SYSTEM\delay\delay.h
-..\obj\led.o: ..\USER\main.h
+..\obj\led.o: ..\USER\declaration.h

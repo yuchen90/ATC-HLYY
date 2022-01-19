@@ -1,5 +1,9 @@
 ..\obj\board_address.o: ..\HARDWARE\Board_Address.c
-..\obj\board_address.o: ..\SYSTEM\sys\sys.h
+..\obj\board_address.o: ..\USER\main.h
+..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_hal.h
+..\obj\board_address.o: ..\USER\stm32f1xx_hal_conf.h
+..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_hal_rcc.h
+..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_hal_def.h
 ..\obj\board_address.o: ..\USER\stm32f1xx.h
 ..\obj\board_address.o: ..\USER\stm32f103xb.h
 ..\obj\board_address.o: ..\CORE\core_cm3.h
@@ -9,10 +13,6 @@
 ..\obj\board_address.o: ..\CORE\cmsis_armcc.h
 ..\obj\board_address.o: ..\USER\system_stm32f1xx.h
 ..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_hal.h
-..\obj\board_address.o: ..\USER\stm32f1xx_hal_conf.h
-..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_hal_rcc.h
-..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_hal_def.h
-..\obj\board_address.o: ..\USER\stm32f1xx.h
 ..\obj\board_address.o: ..\HALLib\Inc\Legacy/stm32_hal_legacy.h
 ..\obj\board_address.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_hal_rcc_ex.h
@@ -54,6 +54,5 @@
 ..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_ll_usb.h
 ..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\board_address.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
-..\obj\board_address.o: ..\SYSTEM\delay\delay.h
-..\obj\board_address.o: ..\HARDWARE\led.h
-..\obj\board_address.o: ..\USER\main.h
+..\obj\board_address.o: ..\SYSTEM\sys\sys.h
+..\obj\board_address.o: ..\USER\declaration.h

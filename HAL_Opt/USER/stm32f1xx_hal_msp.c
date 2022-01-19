@@ -20,71 +20,60 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/** @addtogroup STM32F1xx_HAL_Examples
-  * @{
-  */
-
-/** @addtogroup Templates
-  * @{
-  */
-
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
-/* Private functions ---------------------------------------------------------*/
-
-/** @defgroup HAL_MSP_Private_Functions
-  * @{
-  */
-
 /**
-  * @brief  Initializes the Global MSP.
-  * @param  None
+  * @brief CAN MSP Initialization
+  *        This function configures the hardware resources used in this example:
+  *           - Peripheral's clock enable
+  *           - Peripheral's GPIO Configuration
+  *           - NVIC configuration for DMA interrupt request enable
+  * @param hcan: CAN handle pointer
   * @retval None
   */
-void HAL_MspInit(void)
+void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan)
 {
+    GPIO_InitTypeDef GPIO_Init;
+
+  // Enable CAN1 & GPIOA CLK
+  __HAL_RCC_CAN1_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  //PA11 Rx
+  GPIO_Init.Pin = CANx_RX_PIN;
+  GPIO_Init.Mode = GPIO_MODE_INPUT;
+  GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;
+  // GPIO_Init.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(CANx_TX_GPIO_PORT,&GPIO_Init);
+
+  //PA12 Tx
+  GPIO_Init.Pin = CANx_TX_PIN;
+  GPIO_Init.Mode = GPIO_MODE_AF_PP;
+  GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;
+  // GPIO_Init.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(CANx_TX_GPIO_PORT,&GPIO_Init); 
+
+  //CAN1 Rx Interrupt Init
+  HAL_NVIC_SetPriority(USB_LP_CAN1_RX0_IRQn,1,0); //抢占优先级：1 
+  HAL_NVIC_EnableIRQ(USB_LP_CAN1_RX0_IRQn);
 }
 
 /**
-  * @brief  DeInitializes the Global MSP.
-  * @param  None  
+  * @brief CAN MSP De-Initialization
+  *        This function frees the hardware resources used in this example:
+  *          - Disable the Peripheral's clock
+  *          - Revert GPIO to their default state
+  * @param hcan: CAN handle pointer
   * @retval None
   */
-void HAL_MspDeInit(void)
+void HAL_CAN_MspDeInit(CAN_HandleTypeDef *hcan)
 {
+  // 重置外设
+  __HAL_RCC_CAN1_FORCE_RESET();
+  __HAL_RCC_CAN1_RELEASE_RESET();
+
+  // 失能外设时钟
+  HAL_GPIO_DeInit(CANx_TX_GPIO_PORT, CANx_TX_PIN);
+  HAL_GPIO_DeInit(CANx_RX_GPIO_PORT, CANx_RX_PIN);
+
+  // 失能中断
+  HAL_NVIC_DisableIRQ(USB_LP_CAN1_RX0_IRQn);
 }
-
-/**
-  * @brief  Initializes the PPP MSP.
-  * @param  None
-  * @retval None
-  */
-/*void HAL_PPP_MspInit(void)
-{*/
-/*}*/
-
-/**
-  * @brief  DeInitializes the PPP MSP.
-  * @param  None  
-  * @retval None
-  */
-/*void HAL_PPP_MspDeInit(void)
-{*/
-/*}*/
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
