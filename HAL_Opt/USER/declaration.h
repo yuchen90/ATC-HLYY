@@ -13,5 +13,6 @@ extern uint8_t Light_Buff[4];
 extern uint8_t CAN_Send_Fg;   
 extern uint8_t CAN_Data_Read_Fg; 
 extern uint8_t LED_FeedBack_Fg; 
+extern uint8_t LED_Check_Fg; 
 
 #endif

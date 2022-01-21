@@ -163,7 +163,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   * @brief  This function handles TIM interrupt request.
   * @retval None
   */
-void TIM2_IRQHandler(void)
+void TIMx_IRQHandler(void)
 {
   HAL_TIM_IRQHandler(&TimHandle);
 }

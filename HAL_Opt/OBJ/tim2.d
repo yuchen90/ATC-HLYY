@@ -1,4 +1,4 @@
-..\obj\tim2.o: ..\HARDWARE\Tim2.c
+..\obj\tim2.o: ..\HARDWARE\TIM2.c
 ..\obj\tim2.o: ..\USER\main.h
 ..\obj\tim2.o: ..\HALLib\Inc\stm32f1xx_hal.h
 ..\obj\tim2.o: ..\USER\stm32f1xx_hal_conf.h

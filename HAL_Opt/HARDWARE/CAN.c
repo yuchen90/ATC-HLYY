@@ -1,4 +1,5 @@
 //CAN 通讯初始化 已经 CAN 接收和 CAN发送函数
+//主控板1s 匀发4次 每次2帧（一帧控5块板子）； 若常亮那么4次报文一样， 若闪烁 前半秒2次一样为灭灯，后半秒2次一样为亮灯
 #include "main.h"
 #include "declaration.h"
 
@@ -8,13 +9,17 @@ CAN_RxHeaderTypeDef CAN_RxHeader;
 
 void Error_Handler(void);
 
-//灯控板CAN初始化
+/**
+  * @brief  CAN对应外设功能初始化
+  * @param  None
+  * @retval None
+  */
 void OPT_CAN_Init(void)
 {
 
     CAN_FilterTypeDef CAN_Filter;
     //初始化CAN 模式以及基准时间长度 600Kbps
-    CAN_Handle.Instance = CAN1;                            //选择CAN1的相关地址为寄存器地址
+    CAN_Handle.Instance = CANx;                            //选择CAN1的相关地址为寄存器地址
     //SS=1,TS1=7,TS2=2,得到80%的采样率。适合500k到800k 间的baud-rate 
     CAN_Handle.Init.TimeTriggeredMode = DISABLE;         //禁止时间触发通信模式
     CAN_Handle.Init.AutoBusOff = DISABLE;                //禁止自动离线管理
@@ -47,15 +52,15 @@ void OPT_CAN_Init(void)
     //CAN_Filter.SlaveStartFilterBank= 14; For single CAN instances, this parameter is meaningless. stm32f103r8t6 单CAN: CAN1
     
     //Configures the CAN reception filter according to the specified parameters in the CAN_FilterInitStruct. 
-    if(HAL_CAN_ConfigFilter(&CAN_Handle,&CAN_Filter)!= HAL_OK) 
+    if(HAL_CAN_ConfigFilter(&CAN_Handle,&CAN_Filter) != HAL_OK) 
     Error_Handler(); 
         
     //Start the CAN module
-    if(HAL_CAN_Start(&CAN_Handle)!= HAL_OK)
+    if(HAL_CAN_Start(&CAN_Handle) != HAL_OK)
     Error_Handler(); 
 
     //Active CAN Rx notification(interrupt). 
-    if(HAL_CAN_ActivateNotification(&CAN_Handle,CAN_IT_RX_FIFO0_MSG_PENDING)!= HAL_OK)   //FIFO 0  receive interrupt
+    if(HAL_CAN_ActivateNotification(&CAN_Handle,CAN_IT_RX_FIFO0_MSG_PENDING) != HAL_OK)   //FIFO 0  receive interrupt
     Error_Handler(); 
     /*Enable Bus-off interrupts
     if(HAL_CAN_ActivateNotification(&CAN_Handle,CAN_IT_BUSOFF)!= HAL_OK)   
@@ -63,8 +68,13 @@ void OPT_CAN_Init(void)
     */
 }
 
-//灯控板发送的CAN 报文
-void OPT_CAN_Send(uint32_t SID,uint8_t data[])
+/**
+  * @brief  把CAN发生报文，装载至对应寄存器，发送对应CAN报文
+  * @param  SID:标准标识符对应数据
+  * @param  data:数据数组对应的指针
+  * @retval None
+  */
+void OPT_CAN_Send(uint32_t SID,uint8_t data[8])
 {
     uint16_t i=0u;               //从杭州代码复制
     uint32_t CAN_Tx_Mailboxes;
@@ -81,7 +91,7 @@ void OPT_CAN_Send(uint32_t SID,uint8_t data[])
     //等待直到有空mailbox 且 i<0x7FFF, 0x7FFF这个值从杭州代码复制过来，推测代表等待时长，但不知具体时间，需调试查看
     do{
         i++;
-    }while((HAL_CAN_GetTxMailboxesFreeLevel(&CAN_Handle) == 0u)&&(i<0x7FFFu));  
+    }while((HAL_CAN_GetTxMailboxesFreeLevel(&CAN_Handle) == 0u) && (i < 0x7FFFu));  
     
     //如果在规定i范围内，没等到空mailbox, 那么就退出发送函数
     if(i==0x7FFFu)
@@ -89,7 +99,7 @@ void OPT_CAN_Send(uint32_t SID,uint8_t data[])
     
     //查看CAN_Tx_Mailboxes 对应mailbox 的 状态，等待直到其不处于Pending state,  ！！！！！但如果一直在pending该怎么处理？ 
     i=0u;
-    while((HAL_CAN_IsTxMessagePending(&CAN_Handle,CAN_Tx_Mailboxes)!=0u)&&(i<0x7FFF))
+    while((HAL_CAN_IsTxMessagePending(&CAN_Handle,CAN_Tx_Mailboxes) != 0u) && (i < 0x7FFF))
     i++;
    
     CAN_Send_Fg = 1u;   //确认发送完毕后赋值
@@ -98,19 +108,24 @@ void OPT_CAN_Send(uint32_t SID,uint8_t data[])
 //如果你用的CAN引脚是PA11和PA12，接收中断用CAN1_RX0_IRQn。如果CAN引脚用的是PB8和PB9，也就是用重定义的引脚，接收中断用CAN1_RX1_IRQn。
 //CAN接收中断，接收到报文后，按协议把报文解析出来并赋值到CAN_Buff[8]
 //使能的是CAN_IT_RX_FIFO0_MSG_PENDING 在line 55
+/**
+  * @brief  FIFO 0 的pending中断回调函数，按协议解析接收到的CAN报文并把合法数据装入Can_Buff[]中
+  * @param  hcan:CAN句柄对应指针，为形参。由HAL_CAN_IRQHandler()函数对应的实参指针替换
+  * @retval None
+  */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
     uint8_t Rx_data[8],CAN_Frame_Type,CAN_Frame_ID,i;
 
     //利用HAL_CAN_GetRxMessage()函数接收对应CAN报文,数据保存在Rx_data[8]中
-    if(HAL_CAN_GetRxMessage(hcan,CAN_RX_FIFO0,&CAN_RxHeader,Rx_data)!=HAL_OK)//Get an CAN frame from the Rx FIFO zone into the message RAM. release fifox after read
+    if(HAL_CAN_GetRxMessage(hcan,CAN_RX_FIFO0,&CAN_RxHeader,Rx_data) != HAL_OK)//Get an CAN frame from the Rx FIFO zone into the message RAM. release fifox after read
     Error_Handler();
 
     //判断接收的CAN报文是否合法，若合法则取出赋值给CAN_Buff[]，CAN_Data_Read_Fg 置1， 点亮CAN收指示灯
     if(CAN_RxHeader.IDE == 0u)
     {
-        CAN_Frame_Type = ((CAN_RxHeader.StdId>>7)&0x0F);
-        CAN_Frame_ID = ((CAN_RxHeader.StdId>>5)&0x03);
+        CAN_Frame_Type = ((CAN_RxHeader.StdId>>7u)&0x0Fu);
+        CAN_Frame_ID = ((CAN_RxHeader.StdId>>5u)&0x03u);
         if(CAN_Frame_Type == 0u)
         {
             if((CAN_Frame_ID == 1u)&&(BOARD_ADDRESS<5))
@@ -121,7 +136,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
                 CAN_Data_Read_Fg = 1u;
                 CAN_Rx_LED = LED_ON;
             }
-            else if((CAN_Frame_ID == 2u)&&(BOARD_ADDRESS>4u)&&(BOARD_ADDRESS<10u))
+            else if((CAN_Frame_ID == 2u) && (BOARD_ADDRESS > 4u) && (BOARD_ADDRESS < 10u))
             {
                 LED_FeedBack_Fg = ((CAN_RxHeader.StdId>>(BOARD_ADDRESS-5))&0x01u); 
                 for(i=0u;i<8u;i++)
@@ -133,11 +148,19 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     }    
 }
 
-//Error_Handler() CAN收发 指示灯常亮
+/**
+  * @brief  CAN初始化错误；CAN发送或接收错误时对应处理函数
+  * @param  None
+  * @retval 无返回，但是同时让CAN收与发指示灯闪烁 频率1Hz
+  */
 void Error_Handler(void)
 {
     while(1)
     {	
-    
+        CAN_Rx_LED = LED_ON;
+        CAN_Tx_LED = LED_ON;
+        HAL_Delay(1000);
+        CAN_Rx_LED = LED_OFF;
+        CAN_Tx_LED = LED_OFF;
     }
 }

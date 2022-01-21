@@ -23,6 +23,7 @@
 #include "main.h"
 
 extern CAN_HandleTypeDef CAN_Handle;
+extern TIM_HandleTypeDef TIM2_Handler;
 
 /** @addtogroup STM32F1xx_HAL_Examples
   * @{
@@ -154,28 +155,17 @@ void SysTick_Handler(void)
 * @param  None
 * @retval None
 */
-
-void USB_LP_CAN1_RX0_IRQHandler(void)
+void CANx_RX_IRQHandler(void)
 {
   HAL_CAN_IRQHandler(&CAN_Handle);
 }
 
 /**
-  * @brief  This function handles PPP interrupt request.
+  * @brief  This function handles TIM interrupt request.
   * @param  None
   * @retval None
   */
-/*void PPP_IRQHandler(void)
+void TIMx_IRQHandler(void)
 {
-}*/
-
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+  HAL_TIM_IRQHandler(&TIM2_Handler);
+}

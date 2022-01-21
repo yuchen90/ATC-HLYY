@@ -1,7 +1,11 @@
 #include "main.h"
 #include "declaration.h"
 
-//灯控板地址对应管脚初始化
+/**
+  * @brief  地址对应管脚初始化
+  * @param  None
+  * @retval None
+  */
 void Board_Address_Init(void)
 {
      GPIO_InitTypeDef GPIO_Initure;
@@ -18,8 +22,12 @@ void Board_Address_Init(void)
 
 }
 
-//读取灯控板对应地址
-u8 Board_Address_Get(void)
+/**
+  * @brief  读取地址管脚，赋值给BOARD_ADDRESS
+  * @param  None
+  * @retval BOARD_ADDRESS：当前灯控板地址数字 [0,9] 间任意一个整数
+  */
+uint8_t Board_Address_Get(void)
 {
     BOARD_ADDRESS=0;
 	if (ADDR0==1) BOARD_ADDRESS+=1;

@@ -444,9 +444,9 @@
               <FilePath>..\HARDWARE\Board_Address.c</FilePath>
             </File>
             <File>
-              <FileName>Tim2.c</FileName>
+              <FileName>TIM2.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\Tim2.c</FilePath>
+              <FilePath>..\HARDWARE\TIM2.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -569,9 +569,9 @@
               <FilePath>..\HALLib\Src\stm32f1xx_hal_tim_ex.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f1xx_hal_wwdg.c</FileName>
+              <FileName>stm32f1xx_hal_iwdg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HALLib\Src\stm32f1xx_hal_wwdg.c</FilePath>
+              <FilePath>..\HALLib\Src\stm32f1xx_hal_iwdg.c</FilePath>
             </File>
           </Files>
         </Group>
