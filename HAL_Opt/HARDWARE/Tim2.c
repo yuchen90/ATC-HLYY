@@ -50,7 +50,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				Timer_Fg1 = 20000;
 			}
 			
-			LED_Check_Fg = 0u;
+			VACheck_Fg = 0u;
     }
 }
 

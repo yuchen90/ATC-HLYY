@@ -12,21 +12,22 @@ int main(void)
 	OPT_CAN_Init();
 	Led_Init();
 	IWDG_Init(3u,1000u);						//设置独立看门狗约为1s 因为内置低频时钟不准
-	VACheak_GPIO_Init();
+	VACheck_GPIO_Init();
 
 	BOARD_ADDRESS=0u;
 	Board_Address_Get();
-	CAN_Send_Fg=0u;LED_FeedBack_Fg=0u;CAN_Data_Read_Fg=0u;
-	Blink_Id=0u;Blink_Id_Old=0u;
-	Timer_Fg=20000u;Timer_Fg1=20000u;
-	LED_Check_Fg=0u;
+	CAN_Send_Fg=0u; /*LED_FeedBack_Fg=0u;*/ CAN_Data_Read_Fg=0u;
+	Blink_Id=0u; Blink_Id_Old=0u;
+	Timer_Fg=20000u; Timer_Fg1=20000u;
+	// LED_VACheck_Fg=0u;
+	VACheck_Fg = 0u; CAN_VACheck_Send_Fg = 0u;
 	while(1)
 	{
 		IWDG_Feed();
 		
-		if((Timer_Fg1%10000u) < 5000u)		//MCU_RUN 工作指示灯闪烁频率与其余灯组都一样
+		if((Timer_Fg1%10000u) < 5000u)		//MCU_RUN 工作指示灯闪烁频率与其余灯组都一样， 判断与led.c line 66&67 有关
 		{
-			MCU_RUN = LED_ON;				//因Timer_Fg1 比 Timer_Fg 少5000次计数，所以先点亮 才能保证MCU_RUN暗灭与灯组一致
+			MCU_RUN = LED_ON;				//因Timer_Fg1 比 Timer_Fg 少5000次计数，所以先点亮 才能保证MCU_RUN暗灭与灯组一致 
 		}
 		else
 		{
@@ -67,6 +68,13 @@ int main(void)
 		Led_Display();
 		Timer_Fg = 0u;
 		CAN_Data_Read_Fg = 0u;
+		CAN_VACheck_Send_Fg = 2u;			//让灯控板一直反馈点灯结果
+		Clear_Check_Count();
+		CAN_Send_Wait_Time = 400u + BOARD_ADDRESS*20u;
+		}
+		if(CAN_VACheck_Send_Fg == 2u)
+		{
+			VACheck();
 		}
 	}
 }

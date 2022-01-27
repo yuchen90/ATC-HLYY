@@ -130,7 +130,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         {
             if((CAN_Frame_ID == 1u)&&(BOARD_ADDRESS<5))
             {
-                LED_FeedBack_Fg = ((CAN_RxHeader.StdId>>BOARD_ADDRESS)&0x01u);
+                // LED_VACheck_Fg = ((CAN_RxHeader.StdId>>BOARD_ADDRESS)&0x01u);
                 for(i=0u;i<8u;i++)
                     Can_Buff[i] = Rx_data[i]; 
                 CAN_Data_Read_Fg = 1u;
@@ -138,7 +138,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
             }
             else if((CAN_Frame_ID == 2u) && (BOARD_ADDRESS > 4u) && (BOARD_ADDRESS < 10u))
             {
-                LED_FeedBack_Fg = ((CAN_RxHeader.StdId>>(BOARD_ADDRESS-5))&0x01u); 
+                // LED_VACheck_Fg = ((CAN_RxHeader.StdId>>(BOARD_ADDRESS-5))&0x01u); 
                 for(i=0u;i<8u;i++)
                     Can_Buff[i] = Rx_data[i];  
                 CAN_Data_Read_Fg = 1u;

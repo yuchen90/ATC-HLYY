@@ -6,6 +6,7 @@
 #include "sys.h"
 // #include "delay.h"
 
+    #define VERSION 1
 //灯控板工作指示灯显示
     #define MCU_RUN PAout(9)
 
@@ -69,32 +70,36 @@
 
 //电流与电压读取引脚bit-band定义
     // 灯组1
-    #define Voltage_R1_Count PCin(7)
-    #define Current_R1_Count PCin(14)
-    #define Voltage_Y1_Count PCin(8)
-    #define Current_Y1_Count PCin(0)
-    #define Voltage_G1_Count PCin(9)
-    #define Current_G1_Count PCin(2)
+    #define R1_Volatge_State PCin(7)
+    #define R1_Current_State PCin(14)
+    #define Y1_Volatge_State PCin(8)
+    #define Y1_Current_State PCin(0)
+    #define G1_Volatge_State PCin(9)
+    #define G1_Current_State PCin(2)
     // 灯组2
-    #define Voltage_R2_Count PAin(8)
-    #define Current_R2_Count PAin(2)
-    #define Voltage_Y2_Count PAin(15)
-    #define Current_Y2_Count PAin(4)
-    #define Voltage_G2_Count PCin(10)
-    #define Current_G2_Count PAin(6)
+    #define R2_Volatge_State PAin(8)
+    #define R2_Current_State PAin(2)
+    #define Y2_Volatge_State PAin(15)
+    #define Y2_Current_State PAin(4)
+    #define G2_Volatge_State PCin(10)
+    #define G2_Current_State PAin(6)
     // 灯组3
-    #define Voltage_R3_Count PCin(11)
-    #define Current_R3_Count PCin(4)
-    #define Voltage_Y3_Count PCin(12)
-    #define Current_Y3_Count PBin(0)
-    #define Voltage_G3_Count PDin(2)
-    #define Current_G3_Count PBin(10)
+    #define R3_Volatge_State PCin(11)
+    #define R3_Current_State PCin(4)
+    #define Y3_Volatge_State PCin(12)
+    #define Y3_Current_State PBin(0)
+    #define G3_Volatge_State PDin(2)
+    #define G3_Current_State PBin(10)
     // 灯组4
-    #define Voltage_R4_Count PBin(3)
-    #define Current_R4_Count PBin(12)
-    #define Voltage_Y4_Count PBin(4)
-    #define Current_Y4_Count PBin(14)
-    #define Voltage_G4_Count PBin(5)
-    #define Current_G4_Count PCin(6)
+    #define R4_Volatge_State PBin(3)
+    #define R4_Current_State PBin(12)
+    #define Y4_Volatge_State PBin(4)
+    #define Y4_Current_State PBin(14)
+    #define G4_Volatge_State PBin(5)
+    #define G4_Current_State PCin(6)
+    
+    //点灯占比值
+    #define Voltage_Count 200u  //检查400次，电压至少累加到200次
+    #define Current_Count 340u  //检查400次，电流至少累加到340次
 
 #endif
