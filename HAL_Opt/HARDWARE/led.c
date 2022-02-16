@@ -63,10 +63,10 @@ void Led_Display(void)
 	Blink_Id = (Lightdata>>60u)&0x01u;
 
 	//此处若点灯有闪烁状态，那么把Timer_Fg1=0; 此时Timer_Fg1 比 Timer_Fg晚 5000 次 计数值
-	if((Blink_Id == 1) && (Blink_Id_Old == 0))	
+	if((Blink_Id == 1) && (Blink_Id_Before == 0))	
 	Timer_Fg1 = 0;
 
-	Blink_Id_Old = Blink_Id;		  //当前闪烁指示变为旧的标识，用于下一次的对比
+	Blink_Id_Before = Blink_Id;		  //当前闪烁指示变为旧的标识，用于下一次的对比
 
 	//当前灯控板的4个灯组点灯
 	switch(Light_Buff[0])//灯组1输出

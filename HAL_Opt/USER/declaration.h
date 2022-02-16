@@ -6,7 +6,7 @@
 extern uint32_t Timer_Fg;        
 extern uint32_t Timer_Fg1; 
 extern uint8_t Blink_Id;       
-extern uint8_t Blink_Id_Old;  
+extern uint8_t Blink_Id_Before;  
 extern uint8_t BOARD_ADDRESS; 
 extern uint8_t Can_Buff[8];   
 extern uint8_t Light_Buff[4]; 

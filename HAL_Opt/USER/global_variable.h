@@ -6,7 +6,7 @@
 uint32_t Timer_Fg;        //计时器重载中断次数累加值; 与回码
 uint32_t Timer_Fg1;       //计时器重载中断次数累加值; 与CAN报文收取后点灯状态有关，如果闪烁，那么其值会降到10000内，若常亮超过2s后 其值在20000到30000内
 uint8_t Blink_Id;       //点灯闪烁标识 1：闪烁 0：长亮
-uint8_t Blink_Id_Old;   //上一次点灯闪烁标识
+uint8_t Blink_Id_Before;   //上一次点灯闪烁标识
 uint8_t BOARD_ADDRESS; //灯控板地址
 uint8_t Can_Buff[8];    //CAN通讯解析后数据缓存
 uint8_t Light_Buff[4]; //灯控板四个灯组的点灯信息缓存

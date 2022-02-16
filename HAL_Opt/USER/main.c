@@ -7,7 +7,7 @@ int main(void)
 	HAL_Init();                    	 			//初始化HAL库    
 	Stm32_Clock_Init(RCC_PLL_MUL9);   			//设置时钟,72M
 	// delay_init(72); 							//delay.c 定义基于SYSTICK 计数延时函数
-	TIM2_Init(99u,71u);			//Tout=((10000)*(7200))/SYSCLOCK FREQUENCY us
+	TIM2_Init(99u,71u);			//Tout=((100)*(72))/SYSCLOCK FREQUENCY(units: MHz) us
 	Board_Address_Init();
 	OPT_CAN_Init();
 	Led_Init();
@@ -17,7 +17,7 @@ int main(void)
 	BOARD_ADDRESS=0u;
 	Board_Address_Get();
 	CAN_Send_Fg=0u; /*LED_FeedBack_Fg=0u;*/ CAN_Data_Read_Fg=0u;
-	Blink_Id=0u; Blink_Id_Old=0u;
+	Blink_Id=0u; Blink_Id_Before=0u;
 	Timer_Fg=20000u; Timer_Fg1=20000u;
 	// LED_VACheck_Fg=0u;
 	VACheck_Fg = 0u; CAN_VACheck_Send_Fg = 0u;
