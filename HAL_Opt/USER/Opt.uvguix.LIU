@@ -136,8 +136,8 @@
       <flags>2</flags>
       <showCmd>3</showCmd>
       <MinPosition>
-        <xPos>-32000</xPos>
-        <yPos>-32000</yPos>
+        <xPos>-1</xPos>
+        <yPos>-1</yPos>
       </MinPosition>
       <MaxPosition>
         <xPos>-1</xPos>
@@ -145,9 +145,9 @@
       </MaxPosition>
       <NormalPosition>
         <Top>-8</Top>
-        <Left>-645</Left>
+        <Left>-1070</Left>
         <Right>1281</Right>
-        <Bottom>1082</Bottom>
+        <Bottom>1092</Bottom>
       </NormalPosition>
     </WindowPosition>
     <MDIClientArea>
@@ -3667,9 +3667,9 @@
       </Doc>
       <Doc>
         <Name>.\main.c</Name>
-        <ColumnNumber>5</ColumnNumber>
+        <ColumnNumber>0</ColumnNumber>
         <TopLine>19</TopLine>
-        <CurrentLine>33</CurrentLine>
+        <CurrentLine>34</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
