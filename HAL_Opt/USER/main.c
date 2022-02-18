@@ -27,11 +27,11 @@ int main(void)
 		
 		if((Timer_Fg1%10000u) < 5000u)		//MCU_RUN 工作指示灯闪烁频率与其余灯组都一样， 判断与led.c line 66&67 有关
 		{
-			MCU_RUN = LED_ON;				//因Timer_Fg1 比 Timer_Fg 少5000次计数，所以先点亮 才能保证MCU_RUN暗灭与灯组一致 
+			MCU_RUN = LED_OFF;				//因Timer_Fg1 比 Timer_Fg 少5000次计数，所以先点亮 才能保证MCU_RUN暗灭与灯组一致 
 		}
 		else
 		{
-			MCU_RUN = LED_OFF;
+			MCU_RUN = LED_ON;
 		}
 
 		if(Timer_Fg >= 20000u)			//没有CAN通讯 或 CAN通讯中断超过2s 灯组黄闪 //杭州代码这里暗灭与 MCU_RUN 正好相反
