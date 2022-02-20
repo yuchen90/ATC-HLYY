@@ -7,14 +7,14 @@
 ..\obj\led.o: ..\USER\stm32f1xx.h
 ..\obj\led.o: ..\USER\stm32f103xb.h
 ..\obj\led.o: ..\CORE\core_cm3.h
-..\obj\led.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\led.o: D:\Work\MDK\Core\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\led.o: ..\CORE\cmsis_version.h
 ..\obj\led.o: ..\CORE\cmsis_compiler.h
 ..\obj\led.o: ..\CORE\cmsis_armcc.h
 ..\obj\led.o: ..\USER\system_stm32f1xx.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal.h
 ..\obj\led.o: ..\HALLib\Inc\Legacy/stm32_hal_legacy.h
-..\obj\led.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\led.o: D:\Work\MDK\Core\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal_rcc_ex.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal_gpio.h
 ..\obj\led.o: ..\HALLib\Inc\stm32f1xx_hal_gpio_ex.h

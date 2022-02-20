@@ -3,17 +3,17 @@
         {
             "name": "Opt",
             "includePath": [
-                "d:\\Github\\ATC-HLYY\\HAL_Opt\\USER",
-                "d:\\Github\\ATC-HLYY\\HAL_Opt\\CORE",
-                "d:\\Github\\ATC-HLYY\\HAL_Opt\\HALLib\\Inc",
-                "d:\\Github\\ATC-HLYY\\HAL_Opt\\SYSTEM\\delay",
-                "d:\\Github\\ATC-HLYY\\HAL_Opt\\SYSTEM\\sys",
-                "d:\\Github\\ATC-HLYY\\HAL_Opt\\SYSTEM\\usart",
-                "d:\\Github\\ATC-HLYY\\HAL_Opt\\OBJ",
-                "d:\\Github\\ATC-HLYY\\HAL_Opt\\HARDWARE",
-                "D:\\ebedded_system\\Keil5\\Core\\ARM\\ARMCC\\include",
-                "D:\\ebedded_system\\Keil5\\Core\\ARM\\ARMCC\\include\\rw",
-                "d:\\Github\\ATC-HLYY\\HAL_Opt\\HALLib\\Src"
+                "d:\\Work\\Github\\ATC-HLYY\\HAL_Opt\\USER",
+                "d:\\Work\\Github\\ATC-HLYY\\HAL_Opt\\CORE",
+                "d:\\Work\\Github\\ATC-HLYY\\HAL_Opt\\HALLib\\Inc",
+                "d:\\Work\\Github\\ATC-HLYY\\HAL_Opt\\SYSTEM\\delay",
+                "d:\\Work\\Github\\ATC-HLYY\\HAL_Opt\\SYSTEM\\sys",
+                "d:\\Work\\Github\\ATC-HLYY\\HAL_Opt\\SYSTEM\\usart",
+                "d:\\Work\\Github\\ATC-HLYY\\HAL_Opt\\OBJ",
+                "d:\\Work\\Github\\ATC-HLYY\\HAL_Opt\\HARDWARE",
+                "D:\\Work\\MDK\\Core\\ARM\\ARMCC\\include",
+                "D:\\Work\\MDK\\Core\\ARM\\ARMCC\\include\\rw",
+                "d:\\Work\\Github\\ATC-HLYY\\HAL_Opt\\HALLib\\Src"
             ],
             "defines": [
                 "USE_HAL_DRIVER",
