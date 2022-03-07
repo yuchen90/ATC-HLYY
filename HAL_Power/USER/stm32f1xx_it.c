@@ -146,15 +146,17 @@ void SysTick_Handler(void)
 /*  available peripheral interrupt handler's name please refer to the startup */
 /*  file (startup_stm32f1xx.s).                                               */
 /******************************************************************************/
+// 调用中断函数，函数名在CORE文件夹下的startup 文件中的中断函数名称
 extern CAN_HandleTypeDef CAN_Handle;
 extern TIM_HandleTypeDef TIM2_Handle;
+extern UART_HandleTypeDef USART2_Handle;
 
 /**
 * @brief  This function handles CAN1 RX0 interrupt request.
 * @param  None
 * @retval None
 */
-void CANx_RX_IRQHandler(void)
+void USB_LP_CAN1_RX0_IRQHandler(void)
 {
   HAL_CAN_IRQHandler(&CAN_Handle);
 }
@@ -164,7 +166,17 @@ void CANx_RX_IRQHandler(void)
   * @param  None
   * @retval None
   */
-void TIMx_IRQHandler(void)
+void TIM2_IRQHandler(void)
 {
   HAL_TIM_IRQHandler(&TIM2_Handle);
 }
+
+/**
+  * @brief  This function handles TIM interrupt request.
+  * @param  None
+  * @retval None
+  */
+ void USART2_IRQHandler(void)
+ {
+  HAL_UART_IRQHandler(&USART2_Handle);
+ }

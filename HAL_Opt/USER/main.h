@@ -58,7 +58,6 @@
     #define CANx_RELEASE_RESET()           __HAL_RCC_CAN1_RELEASE_RESET()
     // CAN中断
     #define CANx_RX_IRQn                   USB_LP_CAN1_RX0_IRQn
-    #define CANx_RX_IRQHandler             USB_LP_CAN1_RX0_IRQHandler
 
 // TIM相关定义
     //TIM 时钟参数
@@ -66,7 +65,6 @@
     #define TIMx_CLK_ENABLE()              __HAL_RCC_TIM2_CLK_ENABLE()
     //TIM 中断参数
     #define TIMx_IRQn                      TIM2_IRQn
-    #define TIMx_IRQHandler                TIM2_IRQHandler
 
 //电流与电压读取引脚bit-band定义
     // 灯组1

@@ -58,7 +58,6 @@ void Error_Handle(void)
 {
   while(1)
   {
-    Y1 = LED_ON;
   }
 
 }

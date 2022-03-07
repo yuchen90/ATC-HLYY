@@ -3,7 +3,7 @@
 ..\obj\usart.o: ..\USER\stm32f1xx.h
 ..\obj\usart.o: ..\USER\stm32f103xb.h
 ..\obj\usart.o: ..\CORE\core_cm3.h
-..\obj\usart.o: D:\Work\MDK\Core\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\usart.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\usart.o: ..\CORE\cmsis_version.h
 ..\obj\usart.o: ..\CORE\cmsis_compiler.h
 ..\obj\usart.o: ..\CORE\cmsis_armcc.h
@@ -14,7 +14,7 @@
 ..\obj\usart.o: ..\HALLib\Inc\stm32f1xx_hal_def.h
 ..\obj\usart.o: ..\USER\stm32f1xx.h
 ..\obj\usart.o: ..\HALLib\Inc\Legacy/stm32_hal_legacy.h
-..\obj\usart.o: D:\Work\MDK\Core\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\usart.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\usart.o: ..\HALLib\Inc\stm32f1xx_hal_rcc_ex.h
 ..\obj\usart.o: ..\HALLib\Inc\stm32f1xx_hal_gpio.h
 ..\obj\usart.o: ..\HALLib\Inc\stm32f1xx_hal_gpio_ex.h
@@ -55,4 +55,4 @@
 ..\obj\usart.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\usart.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
 ..\obj\usart.o: ..\SYSTEM\usart\usart.h
-..\obj\usart.o: D:\Work\MDK\Core\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\usart.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stdio.h

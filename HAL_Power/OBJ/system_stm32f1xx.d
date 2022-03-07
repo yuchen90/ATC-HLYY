@@ -2,7 +2,7 @@
 ..\obj\system_stm32f1xx.o: stm32f1xx.h
 ..\obj\system_stm32f1xx.o: stm32f103xb.h
 ..\obj\system_stm32f1xx.o: ..\CORE\core_cm3.h
-..\obj\system_stm32f1xx.o: D:\Work\MDK\Core\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\system_stm32f1xx.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\system_stm32f1xx.o: ..\CORE\cmsis_version.h
 ..\obj\system_stm32f1xx.o: ..\CORE\cmsis_compiler.h
 ..\obj\system_stm32f1xx.o: ..\CORE\cmsis_armcc.h
@@ -13,7 +13,7 @@
 ..\obj\system_stm32f1xx.o: ..\HALLib\Inc\stm32f1xx_hal_def.h
 ..\obj\system_stm32f1xx.o: ..\USER\stm32f1xx.h
 ..\obj\system_stm32f1xx.o: ..\HALLib\Inc\Legacy/stm32_hal_legacy.h
-..\obj\system_stm32f1xx.o: D:\Work\MDK\Core\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\system_stm32f1xx.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\system_stm32f1xx.o: ..\HALLib\Inc\stm32f1xx_hal_rcc_ex.h
 ..\obj\system_stm32f1xx.o: ..\HALLib\Inc\stm32f1xx_hal_gpio.h
 ..\obj\system_stm32f1xx.o: ..\HALLib\Inc\stm32f1xx_hal_gpio_ex.h

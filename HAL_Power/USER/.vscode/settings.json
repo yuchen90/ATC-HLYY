@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "declaration.h": "c",
+        "vector": "c"
+    }
+}

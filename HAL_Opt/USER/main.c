@@ -11,7 +11,7 @@ int main(void)
 	Board_Address_Init();
 	OPT_CAN_Init();
 	Led_Init();
-	IWDG_Init(3u,1000u);						//设置独立看门狗约为1s 因为内置低频时钟不准
+	IWDG_Init(64u,500u);						//设置独立看门狗约为1s 因为内置低频时钟不准
 	VACheck_GPIO_Init();
 
 	BOARD_ADDRESS=0u;

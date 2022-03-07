@@ -417,6 +417,43 @@
         </Group>
         <Group>
           <GroupName>HAERDWARE</GroupName>
+          <Files>
+            <File>
+              <FileName>CAN1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\CAN1.c</FilePath>
+            </File>
+            <File>
+              <FileName>IWDG.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\IWDG.c</FilePath>
+            </File>
+            <File>
+              <FileName>Opt_Check.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\Opt_Check.c</FilePath>
+            </File>
+            <File>
+              <FileName>Send_CAN.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\Send_CAN.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIM2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\TIM2.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\USART2.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPIO.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\GPIO.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>CORE</GroupName>
