@@ -8,6 +8,7 @@ Section Cross References
     main.o(i.main) refers to sys.o(i.Stm32_Clock_Init) for Stm32_Clock_Init
     main.o(i.main) refers to iwdg.o(i.IWDG_Init) for IWDG_Init
     main.o(i.main) refers to tim2.o(i.TIM2_Init) for TIM2_Init
+    main.o(i.main) refers to usart2.o(i.USART_Init) for USART_Init
     main.o(i.main) refers to gpio.o(i.GPIO_Init) for GPIO_Init
     main.o(i.main) refers to iwdg.o(i.IWDG_Feed) for IWDG_Feed
     stm32f1xx_hal_msp.o(i.HAL_CAN_MspDeInit) refers to stm32f1xx_hal_gpio.o(i.HAL_GPIO_DeInit) for HAL_GPIO_DeInit
@@ -17,11 +18,18 @@ Section Cross References
     stm32f1xx_hal_msp.o(i.HAL_CAN_MspInit) refers to stm32f1xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ) for HAL_NVIC_EnableIRQ
     stm32f1xx_hal_msp.o(i.HAL_TIM_Base_MspInit) refers to stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriority) for HAL_NVIC_SetPriority
     stm32f1xx_hal_msp.o(i.HAL_TIM_Base_MspInit) refers to stm32f1xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ) for HAL_NVIC_EnableIRQ
-    stm32f1xx_it.o(i.CANx_RX_IRQHandler) refers to stm32f1xx_hal_can.o(i.HAL_CAN_IRQHandler) for HAL_CAN_IRQHandler
-    stm32f1xx_it.o(i.CANx_RX_IRQHandler) refers to can1.o(.bss) for CAN_Handle
+    stm32f1xx_hal_msp.o(i.HAL_UART_MspDeInit) refers to stm32f1xx_hal_gpio.o(i.HAL_GPIO_DeInit) for HAL_GPIO_DeInit
+    stm32f1xx_hal_msp.o(i.HAL_UART_MspDeInit) refers to stm32f1xx_hal_cortex.o(i.HAL_NVIC_DisableIRQ) for HAL_NVIC_DisableIRQ
+    stm32f1xx_hal_msp.o(i.HAL_UART_MspInit) refers to stm32f1xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
+    stm32f1xx_hal_msp.o(i.HAL_UART_MspInit) refers to stm32f1xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ) for HAL_NVIC_EnableIRQ
+    stm32f1xx_hal_msp.o(i.HAL_UART_MspInit) refers to stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriority) for HAL_NVIC_SetPriority
     stm32f1xx_it.o(i.SysTick_Handler) refers to stm32f1xx_hal.o(i.HAL_IncTick) for HAL_IncTick
-    stm32f1xx_it.o(i.TIMx_IRQHandler) refers to stm32f1xx_hal_tim.o(i.HAL_TIM_IRQHandler) for HAL_TIM_IRQHandler
-    stm32f1xx_it.o(i.TIMx_IRQHandler) refers to tim2.o(.bss) for TIM2_Handle
+    stm32f1xx_it.o(i.TIM2_IRQHandler) refers to stm32f1xx_hal_tim.o(i.HAL_TIM_IRQHandler) for HAL_TIM_IRQHandler
+    stm32f1xx_it.o(i.TIM2_IRQHandler) refers to tim2.o(.bss) for TIM2_Handle
+    stm32f1xx_it.o(i.USART2_IRQHandler) refers to usart2.o(.bss) for USART2_Handle
+    stm32f1xx_it.o(i.USART2_IRQHandler) refers to usart2.o(.data) for UART_Rx_Buff
+    stm32f1xx_it.o(i.USB_LP_CAN1_RX0_IRQHandler) refers to stm32f1xx_hal_can.o(i.HAL_CAN_IRQHandler) for HAL_CAN_IRQHandler
+    stm32f1xx_it.o(i.USB_LP_CAN1_RX0_IRQHandler) refers to can1.o(.bss) for CAN_Handle
     system_stm32f1xx.o(i.SystemCoreClockUpdate) refers to system_stm32f1xx.o(.data) for SystemCoreClock
     system_stm32f1xx.o(i.SystemCoreClockUpdate) refers to system_stm32f1xx.o(.constdata) for AHBPrescTable
     can1.o(i.HAL_CAN_RxFifo0MsgPendingCallback) refers to stm32f1xx_hal_can.o(i.HAL_CAN_GetRxMessage) for HAL_CAN_GetRxMessage
@@ -34,13 +42,19 @@ Section Cross References
     can1.o(i.OPT_CAN_Init) refers to stm32f1xx_hal_can.o(i.HAL_CAN_ActivateNotification) for HAL_CAN_ActivateNotification
     can1.o(i.OPT_CAN_Init) refers to can1.o(.bss) for CAN_Handle
     iwdg.o(i.IWDG_Feed) refers to stm32f1xx_hal_iwdg.o(i.HAL_IWDG_Refresh) for HAL_IWDG_Refresh
-    iwdg.o(i.IWDG_Feed) refers to iwdg.o(.bss) for IWDG_Handler
+    iwdg.o(i.IWDG_Feed) refers to iwdg.o(.bss) for IWDG_Handle
     iwdg.o(i.IWDG_Init) refers to stm32f1xx_hal_iwdg.o(i.HAL_IWDG_Init) for HAL_IWDG_Init
-    iwdg.o(i.IWDG_Init) refers to iwdg.o(.bss) for IWDG_Handler
+    iwdg.o(i.IWDG_Init) refers to iwdg.o(.bss) for IWDG_Handle
     tim2.o(i.TIM2_Init) refers to stm32f1xx_hal_tim.o(i.HAL_TIM_Base_Init) for HAL_TIM_Base_Init
     tim2.o(i.TIM2_Init) refers to tim2.o(i.Error_Handler) for Error_Handler
     tim2.o(i.TIM2_Init) refers to stm32f1xx_hal_tim.o(i.HAL_TIM_Base_Start_IT) for HAL_TIM_Base_Start_IT
     tim2.o(i.TIM2_Init) refers to tim2.o(.bss) for TIM2_Handle
+    usart2.o(i.Clear_UART_Rx_Buff) refers to main.o(.bss) for JSY_MK163_ReadBuff
+    usart2.o(i.HAL_UART_RxCpltCallback) refers to usart2.o(.data) for UART_Rx_Buff
+    usart2.o(i.HAL_UART_RxCpltCallback) refers to main.o(.bss) for JSY_MK163_ReadBuff
+    usart2.o(i.HAL_UART_RxCpltCallback) refers to main.o(.data) for JSY_MK163_ReadNum
+    usart2.o(i.USART_Init) refers to usart2.o(.bss) for USART2_Handle
+    usart2.o(i.USART_Init) refers to usart2.o(.data) for UART_Rx_Buff
     gpio.o(i.GPIO_Init) refers to stm32f1xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
     startup_stm32f103xb.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f103xb.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -56,7 +70,9 @@ Section Cross References
     startup_stm32f103xb.o(RESET) refers to stm32f1xx_it.o(i.DebugMon_Handler) for DebugMon_Handler
     startup_stm32f103xb.o(RESET) refers to stm32f1xx_it.o(i.PendSV_Handler) for PendSV_Handler
     startup_stm32f103xb.o(RESET) refers to stm32f1xx_it.o(i.SysTick_Handler) for SysTick_Handler
-    startup_stm32f103xb.o(RESET) refers to usart.o(i.USART1_IRQHandler) for USART1_IRQHandler
+    startup_stm32f103xb.o(RESET) refers to stm32f1xx_it.o(i.USB_LP_CAN1_RX0_IRQHandler) for USB_LP_CAN1_RX0_IRQHandler
+    startup_stm32f103xb.o(RESET) refers to stm32f1xx_it.o(i.TIM2_IRQHandler) for TIM2_IRQHandler
+    startup_stm32f103xb.o(RESET) refers to stm32f1xx_it.o(i.USART2_IRQHandler) for USART2_IRQHandler
     startup_stm32f103xb.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f103xb.o(.text) refers to system_stm32f1xx.o(i.SystemInit) for SystemInit
     startup_stm32f103xb.o(.text) refers to __main.o(!!!main) for __main
@@ -437,27 +453,6 @@ Section Cross References
     delay.o(i.delay_us) refers to delay.o(.data) for fac_us
     sys.o(i.Stm32_Clock_Init) refers to stm32f1xx_hal_rcc.o(i.HAL_RCC_OscConfig) for HAL_RCC_OscConfig
     sys.o(i.Stm32_Clock_Init) refers to stm32f1xx_hal_rcc.o(i.HAL_RCC_ClockConfig) for HAL_RCC_ClockConfig
-    usart.o(.rev16_text) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(.revsh_text) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(.rrx_text) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(i.HAL_UART_MspInit) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(i.HAL_UART_MspInit) refers to stm32f1xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
-    usart.o(i.HAL_UART_MspInit) refers to stm32f1xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ) for HAL_NVIC_EnableIRQ
-    usart.o(i.HAL_UART_MspInit) refers to stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriority) for HAL_NVIC_SetPriority
-    usart.o(i.HAL_UART_RxCpltCallback) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(i.HAL_UART_RxCpltCallback) refers to usart.o(.data) for USART_RX_STA
-    usart.o(i.HAL_UART_RxCpltCallback) refers to usart.o(.bss) for USART_RX_BUF
-    usart.o(i.USART1_IRQHandler) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(i.USART1_IRQHandler) refers to usart.o(.bss) for UART1_Handler
-    usart.o(i.USART1_IRQHandler) refers to usart.o(.data) for aRxBuffer
-    usart.o(i._sys_exit) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(i.fputc) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(i.uart_init) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(i.uart_init) refers to usart.o(.bss) for UART1_Handler
-    usart.o(i.uart_init) refers to usart.o(.data) for aRxBuffer
-    usart.o(.bss) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    usart.o(.data) refers (Special) to use_no_semi_2.o(.text) for __use_no_semihosting
-    use_no_semi_2.o(.text) refers (Special) to use_no_semi.o(.text) for __use_no_semihosting_swi
     __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
@@ -517,11 +512,13 @@ Section Cross References
     libinit2.o(.ARM.Collect$$libinit$$00000026) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
     libinit2.o(.ARM.Collect$$libinit$$00000027) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
     rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
-    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to usart.o(i._sys_exit) for _sys_exit
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
     rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
     rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
     rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
     argv_veneer.o(.emb_text) refers to no_argv.o(.text) for __ARM_get_argv
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
     _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
     _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
     _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
@@ -539,8 +536,8 @@ Section Cross References
     defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
     defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
     rt_raise.o(.text) refers to __raise.o(.text) for __raise
-    rt_raise.o(.text) refers to usart.o(i._sys_exit) for _sys_exit
-    defsig_exit.o(.text) refers to usart.o(i._sys_exit) for _sys_exit
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
     defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
     __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
     defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
@@ -571,11 +568,11 @@ Removing Unused input sections from the image.
     Removing stm32f1xx_hal_msp.o(.rrx_text), (6 bytes).
     Removing stm32f1xx_hal_msp.o(i.HAL_CAN_MspDeInit), (60 bytes).
     Removing stm32f1xx_hal_msp.o(i.HAL_CAN_MspInit), (136 bytes).
+    Removing stm32f1xx_hal_msp.o(i.HAL_UART_MspDeInit), (60 bytes).
+    Removing stm32f1xx_hal_msp.o(i.HAL_UART_MspInit), (140 bytes).
     Removing stm32f1xx_it.o(.rev16_text), (4 bytes).
     Removing stm32f1xx_it.o(.revsh_text), (4 bytes).
     Removing stm32f1xx_it.o(.rrx_text), (6 bytes).
-    Removing stm32f1xx_it.o(i.CANx_RX_IRQHandler), (16 bytes).
-    Removing stm32f1xx_it.o(i.TIMx_IRQHandler), (16 bytes).
     Removing system_stm32f1xx.o(.rev16_text), (4 bytes).
     Removing system_stm32f1xx.o(.revsh_text), (4 bytes).
     Removing system_stm32f1xx.o(.rrx_text), (6 bytes).
@@ -583,9 +580,7 @@ Removing Unused input sections from the image.
     Removing can1.o(.rev16_text), (4 bytes).
     Removing can1.o(.revsh_text), (4 bytes).
     Removing can1.o(.rrx_text), (6 bytes).
-    Removing can1.o(i.HAL_CAN_RxFifo0MsgPendingCallback), (28 bytes).
     Removing can1.o(i.OPT_CAN_Init), (144 bytes).
-    Removing can1.o(.bss), (92 bytes).
     Removing iwdg.o(.rev16_text), (4 bytes).
     Removing iwdg.o(.revsh_text), (4 bytes).
     Removing iwdg.o(.rrx_text), (6 bytes).
@@ -598,10 +593,11 @@ Removing Unused input sections from the image.
     Removing tim2.o(.rev16_text), (4 bytes).
     Removing tim2.o(.revsh_text), (4 bytes).
     Removing tim2.o(.rrx_text), (6 bytes).
-    Removing tim2.o(i.HAL_TIM_PeriodElapsedCallback), (2 bytes).
     Removing usart2.o(.rev16_text), (4 bytes).
     Removing usart2.o(.revsh_text), (4 bytes).
     Removing usart2.o(.rrx_text), (6 bytes).
+    Removing usart2.o(i.Clear_UART_Rx_Buff), (24 bytes).
+    Removing usart2.o(i.HAL_UART_RxCpltCallback), (52 bytes).
     Removing gpio.o(.rev16_text), (4 bytes).
     Removing gpio.o(.revsh_text), (4 bytes).
     Removing gpio.o(.rrx_text), (6 bytes).
@@ -637,14 +633,11 @@ Removing Unused input sections from the image.
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_ConfigFilter), (266 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_DeInit), (46 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_DeactivateNotification), (42 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_ErrorCallback), (2 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_GetError), (6 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_GetRxFifoFillLevel), (40 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_GetRxMessage), (378 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_GetState), (42 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_GetTxMailboxesFreeLevel), (54 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_GetTxTimestamp), (42 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_IRQHandler), (590 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_Init), (372 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_IsSleepActive), (30 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_IsTxMessagePending), (36 bytes).
@@ -652,21 +645,10 @@ Removing Unused input sections from the image.
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_MspInit), (2 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_RequestSleep), (42 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_ResetError), (34 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_RxFifo0FullCallback), (2 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_RxFifo0MsgPendingCallback), (2 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_RxFifo1FullCallback), (2 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_RxFifo1MsgPendingCallback), (2 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_SleepCallback), (2 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_Start), (94 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_Stop), (106 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_TxMailbox0AbortCallback), (2 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_TxMailbox0CompleteCallback), (2 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_TxMailbox1AbortCallback), (2 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_TxMailbox1CompleteCallback), (2 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_TxMailbox2AbortCallback), (2 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_TxMailbox2CompleteCallback), (2 bytes).
     Removing stm32f1xx_hal_can.o(i.HAL_CAN_WakeUp), (92 bytes).
-    Removing stm32f1xx_hal_can.o(i.HAL_CAN_WakeUpFromRxMsgCallback), (2 bytes).
     Removing stm32f1xx_hal_cec.o(.rev16_text), (4 bytes).
     Removing stm32f1xx_hal_cec.o(.revsh_text), (4 bytes).
     Removing stm32f1xx_hal_cec.o(.rrx_text), (6 bytes).
@@ -846,7 +828,6 @@ Removing Unused input sections from the image.
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_GenerateEvent), (54 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_GetActiveChannel), (6 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_GetChannelState), (38 bytes).
-    Removing stm32f1xx_hal_tim.o(i.HAL_TIM_IC_CaptureCallback), (2 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_IC_CaptureHalfCpltCallback), (2 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_IC_ConfigChannel), (212 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_IC_DeInit), (120 bytes).
@@ -860,10 +841,8 @@ Removing Unused input sections from the image.
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_IC_Stop), (138 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_IC_Stop_DMA), (238 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_IC_Stop_IT), (214 bytes).
-    Removing stm32f1xx_hal_tim.o(i.HAL_TIM_IRQHandler), (406 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_OC_ConfigChannel), (104 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_OC_DeInit), (120 bytes).
-    Removing stm32f1xx_hal_tim.o(i.HAL_TIM_OC_DelayElapsedCallback), (2 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_OC_GetState), (8 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_OC_Init), (102 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_OC_MspDeInit), (2 bytes).
@@ -890,7 +869,6 @@ Removing Unused input sections from the image.
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_Init), (102 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_MspDeInit), (2 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_MspInit), (2 bytes).
-    Removing stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_PulseFinishedCallback), (2 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_PulseFinishedHalfCpltCallback), (2 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_Start), (212 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_PWM_Start_DMA), (516 bytes).
@@ -903,7 +881,6 @@ Removing Unused input sections from the image.
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_ReadCapturedValue), (50 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_SlaveConfigSynchro), (108 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_SlaveConfigSynchro_IT), (108 bytes).
-    Removing stm32f1xx_hal_tim.o(i.HAL_TIM_TriggerCallback), (2 bytes).
     Removing stm32f1xx_hal_tim.o(i.HAL_TIM_TriggerHalfCpltCallback), (2 bytes).
     Removing stm32f1xx_hal_tim.o(i.TIM_CCxChannelCmd), (34 bytes).
     Removing stm32f1xx_hal_tim.o(i.TIM_DMACaptureCplt), (122 bytes).
@@ -931,8 +908,6 @@ Removing Unused input sections from the image.
     Removing stm32f1xx_hal_tim_ex.o(.rev16_text), (4 bytes).
     Removing stm32f1xx_hal_tim_ex.o(.revsh_text), (4 bytes).
     Removing stm32f1xx_hal_tim_ex.o(.rrx_text), (6 bytes).
-    Removing stm32f1xx_hal_tim_ex.o(i.HAL_TIMEx_BreakCallback), (2 bytes).
-    Removing stm32f1xx_hal_tim_ex.o(i.HAL_TIMEx_CommutCallback), (2 bytes).
     Removing stm32f1xx_hal_tim_ex.o(i.HAL_TIMEx_CommutHalfCpltCallback), (2 bytes).
     Removing stm32f1xx_hal_tim_ex.o(i.HAL_TIMEx_ConfigBreakDeadTime), (116 bytes).
     Removing stm32f1xx_hal_tim_ex.o(i.HAL_TIMEx_ConfigCommutEvent), (134 bytes).
@@ -1037,12 +1012,5 @@ Removing Unused input sections from the image.
     Removing sys.o(i.INTX_DISABLE), (4 bytes).
     Removing sys.o(i.INTX_ENABLE), (4 bytes).
     Removing sys.o(i.WFI_SET), (4 bytes).
-    Removing usart.o(.rev16_text), (4 bytes).
-    Removing usart.o(.revsh_text), (4 bytes).
-    Removing usart.o(.rrx_text), (6 bytes).
-    Removing usart.o(i.HAL_UART_MspInit), (168 bytes).
-    Removing usart.o(i.HAL_UART_RxCpltCallback), (136 bytes).
-    Removing usart.o(i.fputc), (28 bytes).
-    Removing usart.o(i.uart_init), (56 bytes).
 
-483 unused section(s) (total 43844 bytes) removed from the image.
+454 unused section(s) (total 42154 bytes) removed from the image.

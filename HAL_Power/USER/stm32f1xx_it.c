@@ -150,6 +150,7 @@ void SysTick_Handler(void)
 extern CAN_HandleTypeDef CAN_Handle;
 extern TIM_HandleTypeDef TIM2_Handle;
 extern UART_HandleTypeDef USART2_Handle;
+extern uint8_t UART_Rx_Buff[USART_RxDataSize];
 
 /**
 * @brief  This function handles CAN1 RX0 interrupt request.
@@ -178,5 +179,21 @@ void TIM2_IRQHandler(void)
   */
  void USART2_IRQHandler(void)
  {
+   
+  uint32_t timeout;
   HAL_UART_IRQHandler(&USART2_Handle);
+
+  timeout=0;
+	while (HAL_UART_GetState(&USART2_Handle) != HAL_UART_STATE_READY)//等待就绪
+	{
+	  timeout++;////超时处理
+    if(timeout>HAL_MAX_DELAY) break;		
+	}
+    
+	timeout=0;
+	while(HAL_UART_Receive_IT(&USART2_Handle,UART_Rx_Buff,USART_RxDataSize) != HAL_OK)//一次处理完成之后，重新开启中断并设置为接收1个字节后中断
+	{
+	  timeout++; //超时处理
+		if(timeout>HAL_MAX_DELAY) break;
+	}
  }

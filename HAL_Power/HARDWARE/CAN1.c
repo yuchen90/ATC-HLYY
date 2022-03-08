@@ -30,7 +30,7 @@ void OPT_CAN_Init(void)
     CAN_Handle.Init.TimeSeg2 = CAN_BS2_2TQ;              	//允许1-8间整数 
     CAN_Handle.Init.Prescaler = 6u;                       	//允许输入1-1024间整数，注明一个time quanta的长度,APB1分频后频率除以Prescaler得到的频率的倒数就是一个tq
 
-   
+    #if CAN1_EN 
     if(HAL_CAN_Init(&CAN_Handle)!= HAL_OK)               	//HAL_CAN_Init()是把上述参数装载至寄存器,使能CAN1,判断寄存器装填是否成功，若不成功则执行Error_Handler()
     Error_Handler();    
                               
@@ -48,6 +48,7 @@ void OPT_CAN_Init(void)
     CAN_Filter.FilterActivation = ENABLE;               	//使能Filter
     //CAN_Filter.SlaveStartFilterBank= 14; For single CAN instances, this parameter is meaningless. stm32f103r8t6 单CAN: CAN1
     
+    
     //Configures the CAN reception filter according to the specified parameters in the CAN_FilterInitStruct. 
     if(HAL_CAN_ConfigFilter(&CAN_Handle,&CAN_Filter) != HAL_OK) 
     Error_Handler(); 
@@ -63,6 +64,7 @@ void OPT_CAN_Init(void)
     if(HAL_CAN_ActivateNotification(&CAN_Handle,CAN_IT_BUSOFF)!= HAL_OK)   
     Error_Handler(); 
     */
+   #endif
 }
 
 /**

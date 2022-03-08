@@ -22,11 +22,13 @@ void TIM2_Init(uint16_t arr,uint16_t psc)
 	TIM2_Handle.Init.RepetitionCounter = 0u;
 	TIM2_Handle.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   
+  #if TIM2_EN
 	if(HAL_TIM_Base_Init(&TIM2_Handle) != HAL_OK)
 	Error_Handler();
 
 	if(HAL_TIM_Base_Start_IT(&TIM2_Handle) != HAL_OK)    						//使能定时器2和定时器2更新中断：TIM_IT_UPDATE
 	Error_Handler();
+  #endif
 }
 
 /**

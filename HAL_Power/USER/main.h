@@ -31,15 +31,17 @@
     }STATE;
 
 // CAN相关定义
-    // CAN端口定义
+    // CAN 使能开关
+    #define CAN1_EN                        1u
+    // CAN 端口定义
     #define CANx_TX_PIN                    GPIO_PIN_12
     #define CANx_TX_GPIO_PORT              GPIOA
     #define CANx_RX_PIN                    GPIO_PIN_11
     #define CANx_RX_GPIO_PORT              GPIOA
-    //CAN收，发指示灯
+    //CAN收 发指示灯
     #define CAN_Tx_LED                     PBout(10)
     #define CAN_Rx_LED                     PBout(11)
-    // CAN时钟参数
+    // CAN 时钟参数
     #define CANx                           CAN1
     #define CANx_CLK_ENABLE()              __HAL_RCC_CAN1_CLK_ENABLE()       //msp init
     #define CANx_GPIO_CLK_ENABLE()         __HAL_RCC_GPIOA_CLK_ENABLE()
@@ -50,6 +52,8 @@
     #define CANx_RX_IRQn                   USB_LP_CAN1_RX0_IRQn
 
 // TIM相关定义
+    //TIM 时钟使能
+    #define TIM2_EN                        1u
     //TIM 时钟参数
     #define TIMx                           TIM2
     #define TIMx_CLK_ENABLE()              __HAL_RCC_TIM2_CLK_ENABLE()
@@ -57,6 +61,8 @@
     #define TIMx_IRQn                      TIM2_IRQn
 
 // USART相关定义
+    //USART 使能开关
+    #define USART2_EN                      1u
     //USART 引脚参数
     #define USARTx_Tx_PIN                  GPIO_PIN_2
     #define USARTx_Tx_GPIO_PORT            GPIOA
@@ -71,9 +77,9 @@
     #define USARTx_RELEASE_RESET()         __HAL_RCC_USART2_RELEASE_RESET()
     //USART 中断参数
     #define USARTx_IRQn                    USART2_IRQn
-    #define HAL_MAX_DELAY                  0xFFFFFFFFu
     //USART 接收参数
     #define USART_RxDataSize               1u
+    #define USART_RxBuffSize               20u
 
 //结构体定义
 	typedef struct TakeOver_Structure
