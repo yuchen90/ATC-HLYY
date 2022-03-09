@@ -62,24 +62,23 @@
 
 // USART相关定义
     //USART 使能开关
-    #define USART2_EN                      1u
+    #define UART2_EN                      1u
     //USART 引脚参数
-    #define USARTx_Tx_PIN                  GPIO_PIN_2
-    #define USARTx_Tx_GPIO_PORT            GPIOA
-    #define USARTx_Rx_PIN                  GPIO_PIN_3
-    #define USARTx_Rx_GPIO_PORT            GPIOA
+    #define UARTx_Tx_PIN                  GPIO_PIN_2
+    #define UARTx_Tx_GPIO_PORT            GPIOA
+    #define UARTx_Rx_PIN                  GPIO_PIN_3
+    #define UARTx_Rx_GPIO_PORT            GPIOA
     //USART 外设参数
-    #define USARTx                         USART2
-    #define USARTx_CLK_ENABLE              __HAL_RCC_USART2_CLK_ENABLE()       //msp init
-    #define USARTx_GPIO_CLK_ENABLE()       __HAL_RCC_GPIOA_CLK_ENABLE()
+    #define UARTx                         USART2
+    #define UARTx_CLK_ENABLE              __HAL_RCC_USART2_CLK_ENABLE()       //msp init
+    #define UARTx_GPIO_CLK_ENABLE()       __HAL_RCC_GPIOA_CLK_ENABLE()
 
-    #define USARTx_FORCE_RESET()           __HAL_RCC_USART2_FORCE_RESET()     //msp deinit
-    #define USARTx_RELEASE_RESET()         __HAL_RCC_USART2_RELEASE_RESET()
+    #define UARTx_FORCE_RESET()           __HAL_RCC_USART2_FORCE_RESET()     //msp deinit
+    #define UARTx_RELEASE_RESET()         __HAL_RCC_USART2_RELEASE_RESET()
     //USART 中断参数
-    #define USARTx_IRQn                    USART2_IRQn
+    #define UARTx_IRQn                    USART2_IRQn
     //USART 接收参数
-    #define USART_RxDataSize               1u
-    #define USART_RxBuffSize               20u
+    #define UART_RxDataSize               1u
 
 //结构体定义
 	typedef struct TakeOver_Structure

@@ -7,13 +7,16 @@ int main(void)
 {
 	HAL_Init();
 	Stm32_Clock_Init(RCC_PLL_MUL9);			//systemclk 72MHz
-	IWDG_Init(64u, 500u);
-	TIM2_Init(99u, 71u);
-	USART_Init(4800u);
-	GPIO_Init();
+	// IWDG_Init(64u, 500u);
+	// TIM2_Init(99u, 71u);
+	UART_Init(4800u);
+	// GPIO_Init();
 
+	
 	while (1)
 	{
 		IWDG_Feed();						//Î¹¹·
+		JSY_DataRequest();
+		HAL_Delay(1000u);
 	}
 }

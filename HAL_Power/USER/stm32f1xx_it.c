@@ -21,6 +21,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "stm32f1xx_hal_uart.h"
 
 /** @addtogroup STM32F1xx_HAL_Examples
   * @{
@@ -149,8 +150,8 @@ void SysTick_Handler(void)
 // 调用中断函数，函数名在CORE文件夹下的startup 文件中的中断函数名称
 extern CAN_HandleTypeDef CAN_Handle;
 extern TIM_HandleTypeDef TIM2_Handle;
-extern UART_HandleTypeDef USART2_Handle;
-extern uint8_t UART_Rx_Buff[USART_RxDataSize];
+extern UART_HandleTypeDef UART2_Handle;
+extern uint8_t UART_Rx_Buff[UART_RxDataSize];
 
 /**
 * @brief  This function handles CAN1 RX0 interrupt request.
@@ -181,19 +182,18 @@ void TIM2_IRQHandler(void)
  {
    
   uint32_t timeout;
-  HAL_UART_IRQHandler(&USART2_Handle);
+  HAL_UART_IRQHandler(&UART2_Handle);   
+  timeout=0;
+  while (HAL_UART_GetState(&UART2_Handle) != HAL_UART_STATE_READY)//等待就绪
+  {
+    timeout++;////超时处理
+    if(timeout>HAL_MAX_DELAY) break;		
+  }
 
   timeout=0;
-	while (HAL_UART_GetState(&USART2_Handle) != HAL_UART_STATE_READY)//等待就绪
-	{
-	  timeout++;////超时处理
-    if(timeout>HAL_MAX_DELAY) break;		
-	}
-    
-	timeout=0;
-	while(HAL_UART_Receive_IT(&USART2_Handle,UART_Rx_Buff,USART_RxDataSize) != HAL_OK)//一次处理完成之后，重新开启中断并设置为接收1个字节后中断
-	{
-	  timeout++; //超时处理
-		if(timeout>HAL_MAX_DELAY) break;
-	}
+  while(HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize) != HAL_OK)//一次处理完成之后，重新开启中断并设置为接收1个字节后中断
+  {
+    timeout++; //超时处理
+  	if(timeout>HAL_MAX_DELAY) break;
+  }
  }

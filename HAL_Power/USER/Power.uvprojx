@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\HALLib\Inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\OBJ;..\HARDWARE</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\HALLib\Inc;..\SYSTEM\delay;..\SYSTEM\sys;..\OBJ;..\HARDWARE</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -444,14 +444,14 @@
               <FilePath>..\HARDWARE\TIM2.c</FilePath>
             </File>
             <File>
-              <FileName>USART2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\USART2.c</FilePath>
-            </File>
-            <File>
               <FileName>GPIO.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\GPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>UART2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\UART2.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -579,9 +579,9 @@
               <FilePath>..\HALLib\Src\stm32f1xx_hal_iwdg.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f1xx_hal_usart.c</FileName>
+              <FileName>stm32f1xx_hal_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HALLib\Src\stm32f1xx_hal_usart.c</FilePath>
+              <FilePath>..\HALLib\Src\stm32f1xx_hal_uart.c</FilePath>
             </File>
           </Files>
         </Group>

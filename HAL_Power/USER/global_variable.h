@@ -67,6 +67,7 @@
     void IWDG_Feed(void);
     void TIM2_Init(uint16_t arr,uint16_t psc);
     void GPIO_Init(void);
-    void USART_Init(uint32_t baudrate);
+    void UART_Init(uint32_t baudrate);
+    void JSY_DataRequest(void);
 
 #endif

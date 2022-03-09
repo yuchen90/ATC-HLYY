@@ -99,26 +99,26 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 {
   GPIO_InitTypeDef GPIO_Init;
 
-	if(huart->Instance==USARTx)                         //如果是串口2，进行串口2 MSP初始化
+	if(huart->Instance==UARTx)                         //如果是串口2，进行串口2 MSP初始化
 	{
-		USARTx_GPIO_CLK_ENABLE();			                    //使能GPIOA时钟
-		USARTx_CLK_ENABLE;			                          //使能USART2时钟
+		UARTx_GPIO_CLK_ENABLE();			                    //使能GPIOA时钟
+		UARTx_CLK_ENABLE;			                          //使能USART2时钟
 	
     //发  
-		GPIO_Init.Pin = USARTx_Tx_PIN;			              //PA2 
+		GPIO_Init.Pin = UARTx_Tx_PIN;			              //PA2 
 		GPIO_Init.Mode = GPIO_MODE_AF_PP;		              //复用推挽输出
 		GPIO_Init.Pull = GPIO_NOPULL;			                //不拉
 		GPIO_Init.Speed = GPIO_SPEED_FREQ_LOW;            //低速
-		HAL_GPIO_Init(USARTx_Tx_GPIO_PORT,&GPIO_Init);	  //初始化PA2
+		HAL_GPIO_Init(UARTx_Tx_GPIO_PORT,&GPIO_Init);	  //初始化PA2
 
     //收
-		GPIO_Init.Pin = USARTx_Rx_PIN;			              //PA3 
+		GPIO_Init.Pin = UARTx_Rx_PIN;			              //PA3 
 		GPIO_Init.Mode = GPIO_MODE_INPUT;	                //浮空输入
-		HAL_GPIO_Init(USARTx_Rx_GPIO_PORT,&GPIO_Init);	  //初始化PA3
+		HAL_GPIO_Init(UARTx_Rx_GPIO_PORT,&GPIO_Init);	  //初始化PA3
 
 //#if EN_USART1_RX
-		HAL_NVIC_EnableIRQ(USARTx_IRQn);				          //使能USART2中断通道
-		HAL_NVIC_SetPriority(USARTx_IRQn,0,2);			      //抢占优先级0，子优先级2
+		HAL_NVIC_EnableIRQ(UARTx_IRQn);				          //使能USART2中断通道
+		HAL_NVIC_SetPriority(UARTx_IRQn,0,2);			      //抢占优先级0，子优先级2
 //#endif	
   }
 }
@@ -134,13 +134,13 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 void HAL_UART_MspDeInit(UART_HandleTypeDef *huart)
 {
   //重置外设
-  USARTx_FORCE_RESET();
-  USARTx_RELEASE_RESET();
+  UARTx_FORCE_RESET();
+  UARTx_RELEASE_RESET();
 
   //失能管脚时钟
-  HAL_GPIO_DeInit(USARTx_Tx_GPIO_PORT, USARTx_Tx_PIN);
-  HAL_GPIO_DeInit(USARTx_Rx_GPIO_PORT, USARTx_Rx_PIN);
+  HAL_GPIO_DeInit(UARTx_Tx_GPIO_PORT, UARTx_Tx_PIN);
+  HAL_GPIO_DeInit(UARTx_Rx_GPIO_PORT, UARTx_Rx_PIN);
 
   //失能中断
-  HAL_NVIC_DisableIRQ(USARTx_IRQn);
+  HAL_NVIC_DisableIRQ(UARTx_IRQn);
 }

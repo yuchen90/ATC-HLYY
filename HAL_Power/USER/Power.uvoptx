@@ -135,7 +135,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name></Name>
+          <Name>d</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -158,27 +158,12 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Blink_Id</ItemText>
+          <ItemText>JSY_MK163_ReadBuff</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Blink_Id_Old</ItemText>
-        </Ww>
-        <Ww>
-          <count>2</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CAN_Data_Read_Fg</ItemText>
-        </Ww>
-        <Ww>
-          <count>3</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>Can_Buff</ItemText>
-        </Ww>
-        <Ww>
-          <count>4</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CAN_RxHeader</ItemText>
+          <ItemText>JSY_MK163_ReadNum</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -250,31 +235,7 @@
       <pMultCmdsp></pMultCmdsp>
       <SystemViewers>
         <Entry>
-          <Name>System Viewer\CAN</Name>
-          <WinId>35905</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\GPIOA</Name>
-          <WinId>35902</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\GPIOB</Name>
-          <WinId>35901</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\GPIOC</Name>
-          <WinId>35900</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\GPIOD</Name>
-          <WinId>35899</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\RCC</Name>
-          <WinId>35904</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\TIM2</Name>
+          <Name>System Viewer\USART2</Name>
           <WinId>35903</WinId>
         </Entry>
       </SystemViewers>
@@ -441,8 +402,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\HARDWARE\USART2.c</PathWithFileName>
-      <FilenameWithoutPath>USART2.c</FilenameWithoutPath>
+      <PathWithFileName>..\HARDWARE\GPIO.c</PathWithFileName>
+      <FilenameWithoutPath>GPIO.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -453,8 +414,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\HARDWARE\GPIO.c</PathWithFileName>
-      <FilenameWithoutPath>GPIO.c</FilenameWithoutPath>
+      <PathWithFileName>..\HARDWARE\UART2.c</PathWithFileName>
+      <FilenameWithoutPath>UART2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -757,8 +718,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\HALLib\Src\stm32f1xx_hal_usart.c</PathWithFileName>
-      <FilenameWithoutPath>stm32f1xx_hal_usart.c</FilenameWithoutPath>
+      <PathWithFileName>..\HALLib\Src\stm32f1xx_hal_uart.c</PathWithFileName>
+      <FilenameWithoutPath>stm32f1xx_hal_uart.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
