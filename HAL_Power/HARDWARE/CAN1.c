@@ -4,6 +4,7 @@
 CAN_HandleTypeDef CAN_Handle;
 CAN_TxHeaderTypeDef CAN_TxHeader;
 CAN_RxHeaderTypeDef CAN_RxHeader;
+
 extern void Error_Handler(void);
 
 /**

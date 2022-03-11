@@ -44,9 +44,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
 }
 
+/**
+  * @brief  外设初始化，错误处理函数
+  * @param  None
+  * @retval None
+  */
 void Error_Handler(void)
 {
 	while(1)
 	{
+    e++;
 	}
 }

@@ -1,4 +1,5 @@
 #include "sys.h"
+#include "declaration.h"
 
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -19,8 +20,8 @@
 void Stm32_Clock_Init(u32 PLL)
 {
     HAL_StatusTypeDef ret = HAL_OK;
-    RCC_OscInitTypeDef RCC_OscInitStructure; 
-    RCC_ClkInitTypeDef RCC_ClkInitStructure;
+    RCC_OscInitTypeDef RCC_OscInitStructure = {0u}; 
+    RCC_ClkInitTypeDef RCC_ClkInitStructure = {0u};
     
     RCC_OscInitStructure.OscillatorType=RCC_OSCILLATORTYPE_HSE;    	//时钟源为HSE
     RCC_OscInitStructure.HSEState=RCC_HSE_ON;                      	//打开HSE
@@ -30,7 +31,7 @@ void Stm32_Clock_Init(u32 PLL)
     RCC_OscInitStructure.PLL.PLLMUL=PLL; 							//主PLL倍频因子
     ret=HAL_RCC_OscConfig(&RCC_OscInitStructure);//初始化
 	
-    if(ret!=HAL_OK) while(1);
+    if(ret!=HAL_OK) Error_Handler();
     
     //选中PLL作为系统时钟源并且配置HCLK,PCLK1和PCLK2
     RCC_ClkInitStructure.ClockType=(RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2);
@@ -40,7 +41,7 @@ void Stm32_Clock_Init(u32 PLL)
     RCC_ClkInitStructure.APB2CLKDivider=RCC_HCLK_DIV1; 				//APB2分频系数为1
     ret=HAL_RCC_ClockConfig(&RCC_ClkInitStructure,FLASH_LATENCY_2);	//同时设置FLASH延时周期为2WS，也就是3个CPU周期。(需根据系统时钟频率选择)
 		
-    if(ret!=HAL_OK) while(1);
+    if(ret!=HAL_OK) Error_Handler();
 }
 
 #ifdef  USE_FULL_ASSERT

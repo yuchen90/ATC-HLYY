@@ -22,6 +22,25 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim)
 	}
 }
 
+/**
+* @brief TIM_Base MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param htim: TIM_Base handle pointer
+* @retval None
+*/
+void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim)
+{
+  if(htim->Instance==TIMx)
+  {
+    //关闭TIM2时钟
+    __HAL_RCC_TIM2_CLK_DISABLE();
+
+    //关闭TIM2中断
+    HAL_NVIC_DisableIRQ(TIM2_IRQn);
+  }
+
+}
+
 /*------------------------------------------------------------------------------------------------------------------------------------
 CAN
 ------------------------------------------------------------------------------------------------------------------------------------*/
@@ -37,7 +56,7 @@ CAN
   */
 void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan)
 {
-  GPIO_InitTypeDef GPIO_Init;
+  GPIO_InitTypeDef GPIO_Init = {0u};
 
   CANx_CLK_ENABLE();
   CANx_GPIO_CLK_ENABLE();
@@ -51,8 +70,7 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan)
   //Tx
   GPIO_Init.Pin = CANx_TX_PIN;
   GPIO_Init.Mode = GPIO_MODE_AF_PP;
-  GPIO_Init.Speed = GPIO_SPEED_FREQ_MEDIUM;         //10M带宽 信号速度为0.6MHz
-  GPIO_Init.Pull = GPIO_NOPULL;
+  GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;         //10M带宽 信号速度为0.6MHz
   HAL_GPIO_Init(CANx_TX_GPIO_PORT,&GPIO_Init); 
 
   //CAN1 Rx Interrupt Init
@@ -70,13 +88,11 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan)
   */
 void HAL_CAN_MspDeInit(CAN_HandleTypeDef *hcan)
 {
-  // 重置外设
-  CANx_FORCE_RESET();
-  CANx_RELEASE_RESET();
+  // 外设时钟关闭
+  __HAL_RCC_CAN1_CLK_DISABLE();
 
   // 失能外设时钟
-  HAL_GPIO_DeInit(CANx_TX_GPIO_PORT, CANx_TX_PIN);
-  HAL_GPIO_DeInit(CANx_RX_GPIO_PORT, CANx_RX_PIN);
+  HAL_GPIO_DeInit(CANx_TX_GPIO_PORT, CANx_TX_PIN|CANx_RX_PIN);
 
   // 失能中断
   HAL_NVIC_DisableIRQ(CANx_RX_IRQn);
@@ -97,7 +113,7 @@ USART
   */
 void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 {
-  GPIO_InitTypeDef GPIO_Init;
+  GPIO_InitTypeDef GPIO_Init = {0u};
 
 	if(huart->Instance==UARTx)                         //如果是串口2，进行串口2 MSP初始化
 	{
@@ -107,18 +123,18 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
     //发  
 		GPIO_Init.Pin = UARTx_Tx_PIN;			              //PA2 
 		GPIO_Init.Mode = GPIO_MODE_AF_PP;		              //复用推挽输出
-		GPIO_Init.Pull = GPIO_NOPULL;			                //不拉
-		GPIO_Init.Speed = GPIO_SPEED_FREQ_LOW;            //低速
+		GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;            //低速
 		HAL_GPIO_Init(UARTx_Tx_GPIO_PORT,&GPIO_Init);	  //初始化PA2
 
     //收
 		GPIO_Init.Pin = UARTx_Rx_PIN;			              //PA3 
-		GPIO_Init.Mode = GPIO_MODE_INPUT;	                //浮空输入
+		GPIO_Init.Mode = GPIO_MODE_INPUT;	               //输入
+    GPIO_Init.Pull = GPIO_NOPULL;                    //浮空
 		HAL_GPIO_Init(UARTx_Rx_GPIO_PORT,&GPIO_Init);	  //初始化PA3
 
 //#if EN_USART1_RX
-		HAL_NVIC_EnableIRQ(UARTx_IRQn);				          //使能USART2中断通道
 		HAL_NVIC_SetPriority(UARTx_IRQn,0,2);			      //抢占优先级0，子优先级2
+    HAL_NVIC_EnableIRQ(UARTx_IRQn);				          //使能USART2中断通道
 //#endif	
   }
 }
@@ -133,13 +149,11 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
   */
 void HAL_UART_MspDeInit(UART_HandleTypeDef *huart)
 {
-  //重置外设
-  UARTx_FORCE_RESET();
-  UARTx_RELEASE_RESET();
-
+  //关闭外设时钟
+  __HAL_RCC_USART2_CLK_DISABLE();
+  
   //失能管脚时钟
-  HAL_GPIO_DeInit(UARTx_Tx_GPIO_PORT, UARTx_Tx_PIN);
-  HAL_GPIO_DeInit(UARTx_Rx_GPIO_PORT, UARTx_Rx_PIN);
+  HAL_GPIO_DeInit(UARTx_Tx_GPIO_PORT, UARTx_Tx_PIN|UARTx_Rx_PIN);
 
   //失能中断
   HAL_NVIC_DisableIRQ(UARTx_IRQn);

@@ -1,6 +1,24 @@
 {
     "files.associations": {
         "declaration.h": "c",
-        "vector": "c"
+        "vector": "c",
+        "limits": "c",
+        "stdexcept": "c",
+        "*.tcc": "c",
+        "optional": "c",
+        "cmath": "c",
+        "iosfwd": "c",
+        "istream": "c",
+        "streambuf": "c",
+        "typeinfo": "c",
+        "algorithm": "c",
+        "memory": "c",
+        "deque": "c",
+        "string": "c",
+        "functional": "c",
+        "fstream": "c",
+        "ostream": "c",
+        "string_view": "c",
+        "type_traits": "c"
     }
 }

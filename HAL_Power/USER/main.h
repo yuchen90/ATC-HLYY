@@ -45,9 +45,6 @@
     #define CANx                           CAN1
     #define CANx_CLK_ENABLE()              __HAL_RCC_CAN1_CLK_ENABLE()       //msp init
     #define CANx_GPIO_CLK_ENABLE()         __HAL_RCC_GPIOA_CLK_ENABLE()
-
-    #define CANx_FORCE_RESET()             __HAL_RCC_CAN1_FORCE_RESET()     //msp deinit
-    #define CANx_RELEASE_RESET()           __HAL_RCC_CAN1_RELEASE_RESET()
     // CAN中断
     #define CANx_RX_IRQn                   USB_LP_CAN1_RX0_IRQn
 
@@ -72,9 +69,6 @@
     #define UARTx                         USART2
     #define UARTx_CLK_ENABLE              __HAL_RCC_USART2_CLK_ENABLE()       //msp init
     #define UARTx_GPIO_CLK_ENABLE()       __HAL_RCC_GPIOA_CLK_ENABLE()
-
-    #define UARTx_FORCE_RESET()           __HAL_RCC_USART2_FORCE_RESET()     //msp deinit
-    #define UARTx_RELEASE_RESET()         __HAL_RCC_USART2_RELEASE_RESET()
     //USART 中断参数
     #define UARTx_IRQn                    USART2_IRQn
     //USART 接收参数
