@@ -54,5 +54,9 @@ void Error_Handler(void)
 	while(1)
 	{
     e++;
+    MCU_RUN = LED_ON;
+    HAL_Delay(500);
+    MCU_RUN = LED_OFF;
+    HAL_Delay(500);
 	}
 }

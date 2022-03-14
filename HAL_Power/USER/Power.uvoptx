@@ -183,15 +183,10 @@
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>timeout</ItemText>
-        </Ww>
-        <Ww>
-          <count>6</count>
-          <WinNumber>1</WinNumber>
           <ItemText>t</ItemText>
         </Ww>
         <Ww>
-          <count>7</count>
+          <count>6</count>
           <WinNumber>1</WinNumber>
           <ItemText>r</ItemText>
         </Ww>

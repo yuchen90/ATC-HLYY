@@ -23,10 +23,6 @@ void UART_Init(uint32_t baudrate)
 	{
     	Error_Handler();											
 	}
-
-	// HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize);//这个函数的第2个和第3个参数可以修改，可以把第二个接收缓存直接改
-	// 																//为全局变量JSY_MK163_ReadBuff，第三个变量改为JSY收到查询信息后返回的字节数
-	// 																//现在是收到一个字节就调用一次中断，修改后是完成接收规定字节数后才调用中断
 	#endif
 }
 
@@ -42,13 +38,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	{
 		JSY_MK163_ReadBuff[JSY_MK163_ReadNum++] = UART_Rx_Buff[0];
 	}
-	HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize);
+	while(HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize) != HAL_OK)
+	e++;
 }
 
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-{
-	HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize);
-}
+// void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+// {
+// 	while(HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize) != HAL_OK);
+// }
 
 /**
   * @brief  通过串口发送读命令给JSY
@@ -57,9 +54,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   */
 void JSY_DataRequest(void)
 {
-	if(HAL_UART_GetState(&UART2_Handle) == HAL_UART_STATE_READY)
-	{
-		while(HAL_UART_Transmit_IT(&UART2_Handle,SendBuff,8u) != HAL_OK);
-		JSY_MK163_ReadNum = 0u;
-	}
+	r = HAL_UART_GetState(&UART2_Handle);
+	HAL_UART_Transmit(&UART2_Handle,SendBuff,8u,50);
+	HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize);
 }

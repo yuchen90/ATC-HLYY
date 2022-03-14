@@ -181,19 +181,5 @@ void TIM2_IRQHandler(void)
   */
  void USART2_IRQHandler(void)
  {
-   	// uint32_t timeout;
     HAL_UART_IRQHandler(&UART2_Handle);  
-    // timeout=0;
-	  // while (HAL_UART_GetState(&UART2_Handle) != HAL_UART_STATE_READY)//等待就绪
-    // {
-		//   timeout++;////超时处理
-  	//   if(timeout>HAL_MAX_DELAY) break;		
-    // }
-
- 	  // timeout=0;
-    // while(HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize) != HAL_OK)//一次处理完成之后，重新开启中断并设置为接收1个字节后中断
-    // {
-  	//   timeout++; //超时处理
-  	//   if(timeout>HAL_MAX_DELAY) break;
-    // } 
  }
