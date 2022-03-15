@@ -72,7 +72,7 @@
     //USART 中断参数
     #define UARTx_IRQn                    USART2_IRQn
     //USART 接收参数
-    #define UART_RxDataSize               1u
+    #define UART_RxDataSize               17u
 
 //结构体定义
 	typedef struct TakeOver_Structure

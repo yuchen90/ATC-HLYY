@@ -24,6 +24,6 @@ int main(void)
 		w++;
 		JSY_DataRequest();
 		JSY_MK163_ReadNum = 0u;
-		HAL_Delay(2000);
+		HAL_Delay(1000);
 	}
 }

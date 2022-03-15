@@ -3,6 +3,8 @@
 
 UART_HandleTypeDef UART2_Handle;
 uint8_t UART_Rx_Buff[UART_RxDataSize];
+HAL_UART_StateTypeDef HAL_UART_GetRxState(UART_HandleTypeDef *huart);
+HAL_UART_StateTypeDef HAL_UART_GetgState(UART_HandleTypeDef *huart);
 
 /**
   * @brief  USART2 句柄参数配置，以及外设使能，开启接收中断
@@ -32,20 +34,29 @@ void UART_Init(uint32_t baudrate)
   * @retval None
   */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
+{	
+	int i;
 	//处理接收到的所有数据
-	if(huart->Instance == USART2)									//如果是USART2
+	// if(huart->Instance == USART2)									//如果是USART2
+	// {
+	// 	JSY_MK163_ReadBuff[JSY_MK163_ReadNum++] = UART_Rx_Buff[0];
+	// }
+	// while(HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize) != HAL_OK)
+	// e++;
+	if(huart->Instance == USART2)
 	{
-		JSY_MK163_ReadBuff[JSY_MK163_ReadNum++] = UART_Rx_Buff[0];
+		for(i=0;i<17;i++)
+		{
+			JSY_MK163_ReadBuff[i] = UART_Rx_Buff[i];
+			JSY_MK163_ReadNum++;
+		}	
 	}
-	while(HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize) != HAL_OK)
-	e++;
 }
 
-// void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-// {
-// 	while(HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize) != HAL_OK);
-// }
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+	HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize);
+}
 
 /**
   * @brief  通过串口发送读命令给JSY
@@ -54,7 +65,37 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   */
 void JSY_DataRequest(void)
 {
-	r = HAL_UART_GetState(&UART2_Handle);
-	HAL_UART_Transmit(&UART2_Handle,SendBuff,8u,50);
-	HAL_UART_Receive_IT(&UART2_Handle,UART_Rx_Buff,UART_RxDataSize);
+	HAL_UART_Transmit_IT(&UART2_Handle,SendBuff,8u);
+	t++;
 }
+
+
+//下面两个函数是把HAL库函数HAL_UART_GetState（）拆分开来使用
+
+/**
+  * @brief  查询串口gState（发）
+  * @param  huart 串口句柄地址
+  * @retval gState
+  */
+HAL_UART_StateTypeDef HAL_UART_GetgState(UART_HandleTypeDef *huart)
+{
+  uint32_t temp1 = 0x00U;
+  temp1 = huart->gState;
+
+  return (HAL_UART_StateTypeDef)(temp1);
+}
+
+/**
+  * @brief  查询串口RxState（收）
+  * @param  huart 串口句柄地址
+  * @retval RxState
+  */
+HAL_UART_StateTypeDef HAL_UART_GetRxState(UART_HandleTypeDef *huart)
+{
+  uint32_t temp2 = 0x00U;
+  temp2 = huart->RxState;
+
+  return (HAL_UART_StateTypeDef)(temp2);
+}
+
+

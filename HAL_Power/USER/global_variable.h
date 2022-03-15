@@ -71,4 +71,7 @@
     void UART_Init(uint32_t baudrate);
     void JSY_DataRequest(void);
 
+    extern HAL_UART_StateTypeDef HAL_UART_GetRxState(UART_HandleTypeDef *huart);
+    extern HAL_UART_StateTypeDef HAL_UART_GetgState(UART_HandleTypeDef *huart);
+
 #endif

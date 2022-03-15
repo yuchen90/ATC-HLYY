@@ -64,7 +64,7 @@
 
 //外设初始化错误处理函数声明
     
-    void Error_Handler(void);
+    extern void Error_Handler(void);
 
 //DEBUG 参数
     extern uint32_t e,t,r;
