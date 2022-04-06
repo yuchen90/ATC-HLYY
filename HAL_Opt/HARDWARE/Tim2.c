@@ -2,8 +2,8 @@
 #include "main.h"
 #include "declaration.h"
 
-TIM_HandleTypeDef TIM2_Handler;
-void Error_Handle(void);
+TIM_HandleTypeDef TIM2_Handle;
+void TIM_Error_Handle(void);
 
 /**
   * @brief  TIMW2对应外设功能初始化
@@ -15,19 +15,19 @@ void Error_Handle(void);
   */
 void TIM2_Init(uint16_t arr,uint16_t psc)
 {
-  TIM2_Handler.Instance = TIMx;                                             //通用定时器2
-  TIM2_Handler.Init.Prescaler = psc;                                        //分频系数
-  TIM2_Handler.Init.CounterMode = TIM_COUNTERMODE_UP;                       //计数模式 向上
-  TIM2_Handler.Init.Period = arr;                                        //自动重装值
-  TIM2_Handler.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  TIM2_Handler.Init.RepetitionCounter = 0u;
-  TIM2_Handler.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  TIM2_Handle.Instance = TIM2;                                             //通用定时器2
+  TIM2_Handle.Init.Prescaler = psc;                                        //分频系数
+  TIM2_Handle.Init.CounterMode = TIM_COUNTERMODE_UP;                       //计数模式 向上
+  TIM2_Handle.Init.Period = arr;                                           //自动重装值
+  TIM2_Handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  TIM2_Handle.Init.RepetitionCounter = 0u;
+  TIM2_Handle.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   
-  if(HAL_TIM_Base_Init(&TIM2_Handler) != HAL_OK)
-  Error_Handle();
+  if(HAL_TIM_Base_Init(&TIM2_Handle) != HAL_OK)
+  TIM_Error_Handle();
 
-  if(HAL_TIM_Base_Start_IT(&TIM2_Handler) != HAL_OK)    //使能定时器2和定时器2更新中断：TIM_IT_UPDATE
-  Error_Handle();
+  if(HAL_TIM_Base_Start_IT(&TIM2_Handle) != HAL_OK)    //使能定时器2和定时器2更新中断：TIM_IT_UPDATE
+  TIM_Error_Handle();
 }
 
 /**
@@ -37,27 +37,30 @@ void TIM2_Init(uint16_t arr,uint16_t psc)
   */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if(htim==(&TIM2_Handler))
+    if(htim==(&TIM2_Handle))
     {
-      Timer_Fg++;
-			Timer_Fg1++;
-			if(Timer_Fg >= 30000) //半秒后重置回20000
+      Sytem_Timer_Fg++;
+			Sytem_Timer_Fg1++;
+			if(Sytem_Timer_Fg >= 30000) //半秒后重置回20000
 			{
-				Timer_Fg = 20000;
+				Sytem_Timer_Fg = 20000;
 			}
-			if(Timer_Fg1 >= 30000)
+			if(Sytem_Timer_Fg1 >= 30000)
 			{
-				Timer_Fg1 = 20000;
+				Sytem_Timer_Fg1 = 20000;
 			}
 			
 			VACheck_Fg = 0u;
     }
 }
 
-void Error_Handle(void)
+void TIM_Error_Handle(void)
 {
   while(1)
   {
+    MCU_RUN = LED_ON;
+    HAL_Delay(500);
+    MCU_RUN = LED_OFF;
   }
 
 }

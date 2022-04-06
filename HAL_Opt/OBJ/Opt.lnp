@@ -9,6 +9,7 @@
 "..\obj\vacheck.o"
 "..\obj\board_address.o"
 "..\obj\tim2.o"
+"..\obj\system_clock.o"
 "..\obj\startup_stm32f103xb.o"
 "..\obj\stm32f1xx_hal.o"
 "..\obj\stm32f1xx_hal_can.o"
@@ -27,8 +28,6 @@
 "..\obj\stm32f1xx_hal_tim.o"
 "..\obj\stm32f1xx_hal_tim_ex.o"
 "..\obj\stm32f1xx_hal_iwdg.o"
-"..\obj\delay.o"
-"..\obj\sys.o"
 --strict --scatter "..\OBJ\Opt.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

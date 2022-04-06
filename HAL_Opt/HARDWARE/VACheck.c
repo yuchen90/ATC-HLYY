@@ -54,9 +54,9 @@ void VACheck_GPIO_Init(void)
   */
 void VACheck(void)
 {
-    if(Timer_Fg < 400)      //40ms查询400次，0.1ms一次
+    if(Sytem_Timer_Fg < 400)      //40ms查询400次，0.1ms一次
     {
-        if(Timer_Fg == 10u)
+        if(Sytem_Timer_Fg == 10u)
             CAN_Rx_LED = LED_OFF;
         if(VACheck_Fg == 0u)
         {
@@ -195,7 +195,7 @@ void VACheck(void)
             }
         }   
     }
-    else if(Timer_Fg == CAN_Send_Wait_Time) // 到达回码时间后计算电压，电流占比，1：正常， 0：异常
+    else if(Sytem_Timer_Fg == CAN_Send_Wait_Time) // 到达回码时间后计算电压，电流占比，1：正常， 0：异常
     {
         if(R1_Volatge_Count > Voltage_Count)    R1_Volatge_Fg = 1u; else    R1_Volatge_Fg = 0u;   
         if(R1_Current_Count > Current_Count)    R1_Current_Fg = 1u; else    R1_Current_Fg = 0u;   
@@ -274,19 +274,19 @@ void VACheck(void)
             {
                 j = 0u;
                 j =  VACheck_Data[i];
-                switch(Light_Buff[i])                           //注意组装最低3位时，杭州代码没有加对应点灯编号，都默认为0，此处把其加入最低3位
+                switch(Channel_State[i])                           //注意组装最低3位时，杭州代码没有加对应点灯编号，都默认为0，此处把其加入最低3位
                 {
                     case 0:                     //灭灯
                         if(j==0u)
                         {
                             j=j<<6u;
-                            j+=Light_Buff[i];
+                            j+=Channel_State[i];
                         }
                         else
                         {
                             j=j<<6u;
                             j=j+0x08u;          
-                            j+=Light_Buff[i];
+                            j+=Channel_State[i];
                         }
                     break;
 
@@ -294,7 +294,7 @@ void VACheck(void)
                         if(j==0x30u)            //正常
                         {
                             j=j<<6u;
-                            j+=Light_Buff[i];
+                            j+=Channel_State[i];
                         }
                         else                    //异常
                         {
@@ -302,25 +302,25 @@ void VACheck(void)
                             {                        
                                 j=j<<6u;
                                 j=j+0x08u;      
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else if((j&0x30u)==0x10u) //有电流，无电压
                             {
                                 j=j<<6u;
                                 j=j+0x28u;          
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else if((j&0x30u)==0x20u) //有电压，无电流
                             {                            
                                 j=j<<6u;
                                 j=j+0x18u;          
-                                j+=Light_Buff[i]; 
+                                j+=Channel_State[i]; 
                             }
                             else
                             {
                                 j=j<<6u;
                                 j=j+0x38u;          
-                                j+=Light_Buff[i]; 
+                                j+=Channel_State[i]; 
                             }
                         }
                     break;
@@ -329,7 +329,7 @@ void VACheck(void)
                         if(j==0x0cu)            //正常
                         {
                             j=j<<6u;
-                            j+=Light_Buff[i];
+                            j+=Channel_State[i];
                         }
                         else                    //异常
                         {
@@ -337,25 +337,25 @@ void VACheck(void)
                             {                        
                                 j=j<<6u;
                                 j=j+0x08u;      
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else if((j&0x0cu)==0x04u) //有电流，无电压
                             {
                                 j=j<<6u;
                                 j=j+0x28u;          
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else if((j&0x0cu)==0x08u) //有电压，无电流
                             {                            
                                 j=j<<6u;
                                 j=j+0x18u;          
-                                j+=Light_Buff[i]; 
+                                j+=Channel_State[i]; 
                             }
                             else
                             {
                                 j=j<<6u;
                                 j=j+0x38u;          
-                                j+=Light_Buff[i]; 
+                                j+=Channel_State[i]; 
                             }
                         }
                     break;
@@ -364,7 +364,7 @@ void VACheck(void)
                         if(j==0x03u)            //正常
                         {
                             j=j<<6u;
-                            j+=Light_Buff[i];
+                            j+=Channel_State[i];
                         }
                         else                    //异常
                         {
@@ -372,25 +372,25 @@ void VACheck(void)
                             {                        
                                 j=j<<6u;
                                 j=j+0x08u;      
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else if((j&0x03u)==0x04u) //有电流，无电压
                             {
                                 j=j<<6u;
                                 j=j+0x28u;          
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else if((j&0x03u)==0x08u) //有电压，无电流
                             {                            
                                 j=j<<6u;
                                 j=j+0x18u;          
-                                j+=Light_Buff[i]; 
+                                j+=Channel_State[i]; 
                             }
                             else
                             {
                                 j=j<<6u;
                                 j=j+0x38u;          
-                                j+=Light_Buff[i]; 
+                                j+=Channel_State[i]; 
                             }
                         }
                     break;
@@ -400,13 +400,13 @@ void VACheck(void)
                         {
                             if (j==0u)             //正常
                             {
-                                j+=Light_Buff[i]; 
+                                j+=Channel_State[i]; 
                             }
                             else                   //异常
                             {
                                 j=j<<6u;
                                 j=j+0x08u;         
-                                j+=Light_Buff[i]; 
+                                j+=Channel_State[i]; 
                             }
                         }
                         else                   //亮
@@ -415,7 +415,7 @@ void VACheck(void)
                             {
                                 j=j<<6u;
                                 j=j+0x08u;
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else                    //异常
                             {
@@ -423,25 +423,25 @@ void VACheck(void)
                                 {                        
                                     j=j<<6u;
                                     j=j+0x08u;      
-                                    j+=Light_Buff[i];
+                                    j+=Channel_State[i];
                                 }
                                 else if((j&0x30u)==0x10u) //有电流，无电压
                                 {
                                     j=j<<6u;
                                     j=j+0x28u;          
-                                    j+=Light_Buff[i];
+                                    j+=Channel_State[i];
                                 }
                                 else if((j&0x30u)==0x20u) //有电压，无电流
                                 {                            
                                     j=j<<6u;
                                     j=j+0x18u;          
-                                    j+=Light_Buff[i]; 
+                                    j+=Channel_State[i]; 
                                 }
                                 else
                                 {
                                     j=j<<6u;
                                     j=j+0x38u;          
-                                    j+=Light_Buff[i]; 
+                                    j+=Channel_State[i]; 
                                 }
                             }  
                         }
@@ -453,13 +453,13 @@ void VACheck(void)
                             if(j==0u)               //正常
                             {
                                 j=j<<6u;
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else
                             {
                                 j=j<<6u;
                                 j=j+0x08u;
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                         }
                         else
@@ -467,7 +467,7 @@ void VACheck(void)
                             if(j==0x0cu)            //正常
                             {
                                 j=j<<6u;
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else                    //异常
                             {
@@ -475,25 +475,25 @@ void VACheck(void)
                                 {                        
                                     j=j<<6u;
                                     j=j+0x08u;      
-                                    j+=Light_Buff[i];
+                                    j+=Channel_State[i];
                                 }
                                 else if((j&0x0cu)==0x04u) //有电流，无电压
                                 {
                                     j=j<<6u;
                                     j=j+0x28u;          
-                                    j+=Light_Buff[i];
+                                    j+=Channel_State[i];
                                 }
                                 else if((j&0x0cu)==0x08u) //有电压，无电流
                                 {                            
                                     j=j<<6u;
                                     j=j+0x18u;          
-                                    j+=Light_Buff[i]; 
+                                    j+=Channel_State[i]; 
                                 }
                                 else
                                 {
                                     j=j<<6u;
                                     j=j+0x38u;          
-                                    j+=Light_Buff[i]; 
+                                    j+=Channel_State[i]; 
                                 }
                             }
                         }
@@ -505,13 +505,13 @@ void VACheck(void)
                             if(j==0u)
                             {
                                 j=j<<6u;
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else
                             {
                                 j=j<<6u;
                                 j+=0x08u;
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                         }
                         else
@@ -519,7 +519,7 @@ void VACheck(void)
                             if(j==0x03u)            //正常
                             {
                                 j=j<<6u;
-                                j+=Light_Buff[i];
+                                j+=Channel_State[i];
                             }
                             else                    //异常
                             {
@@ -527,25 +527,25 @@ void VACheck(void)
                                 {                        
                                     j=j<<6u;
                                     j=j+0x08u;      
-                                    j+=Light_Buff[i];
+                                    j+=Channel_State[i];
                                 }
                                 else if((j&0x03u)==0x04u) //有电流，无电压
                                 {
                                     j=j<<6u;
                                     j=j+0x28u;          
-                                    j+=Light_Buff[i];
+                                    j+=Channel_State[i];
                                 }
                                 else if((j&0x03u)==0x08u) //有电压，无电流
                                 {                            
                                     j=j<<6u;
                                     j=j+0x18u;          
-                                    j+=Light_Buff[i]; 
+                                    j+=Channel_State[i]; 
                                 }
                                 else
                                 {
                                     j=j<<6u;
                                     j=j+0x38u;          
-                                    j+=Light_Buff[i]; 
+                                    j+=Channel_State[i]; 
                                 }
                             }
                         }
@@ -555,13 +555,13 @@ void VACheck(void)
                         if(j==0x0fu)
                         {
                             j=j<<6u;
-                            j+=Light_Buff[i];
+                            j+=Channel_State[i];
                         }
                         else
                         {
                             j=j<<6u;
                             j+=0x08u;
-                            j+=Light_Buff[i];
+                            j+=Channel_State[i];
                         }
                     break;
                 }
@@ -570,25 +570,25 @@ void VACheck(void)
 
             // 把点灯结果以CAN结构发送
             {
-                int32_t SID;
-                uint8_t RxData[8];
+                int32_t sid;
+                uint8_t tx_data[8];
                 CAN_Tx_LED = LED_ON;
 
-                SID = BOARD_ADDRESS;
-                SID = SID<<3;
-                SID += 0x80u;
-                SID += VERSION;
+                sid = Board_Address;
+                sid = sid<<3;
+                sid += 0x80u;
+                sid += VERSION;
 
-                RxData[0] = VACheck_Data[0]&0xff;
-                RxData[1] = (VACheck_Data[0]>>8)&0xff;
-                RxData[2] = VACheck_Data[1]&0xff;
-                RxData[3] = (VACheck_Data[1]>>8)&0xff;
-                RxData[4] = VACheck_Data[2]&0xff;
-                RxData[5] = (VACheck_Data[2]>>8)&0xff;
-                RxData[6] = VACheck_Data[3]&0xff;
-                RxData[7] = (VACheck_Data[3]>>8)&0xff;
+                tx_data[0] = VACheck_Data[0]&0xff;
+                tx_data[1] = (VACheck_Data[0]>>8)&0xff;
+                tx_data[2] = VACheck_Data[1]&0xff;
+                tx_data[3] = (VACheck_Data[1]>>8)&0xff;
+                tx_data[4] = VACheck_Data[2]&0xff;
+                tx_data[5] = (VACheck_Data[2]>>8)&0xff;
+                tx_data[6] = VACheck_Data[3]&0xff;
+                tx_data[7] = (VACheck_Data[3]>>8)&0xff;
 
-                OPT_CAN_Send(SID,RxData);
+                OPT_CAN_Send(sid,tx_data);
                 CAN_VACheck_Send_Fg = 0u;
                 CAN_Tx_LED = LED_OFF;
             }

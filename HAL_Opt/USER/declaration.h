@@ -2,16 +2,17 @@
 #define __DECLARARTION_H
 
 #include "stdint.h"
+#include "stm32f1xx.h"
 
-extern uint32_t Timer_Fg;        
-extern uint32_t Timer_Fg1; 
+extern uint32_t Sytem_Timer_Fg;        
+extern uint32_t Sytem_Timer_Fg1; 
 extern uint8_t Blink_Id;       
 extern uint8_t Blink_Id_Before;  
-extern uint8_t BOARD_ADDRESS; 
-extern uint8_t Can_Buff[8];   
-extern uint8_t Light_Buff[4]; 
+extern uint8_t Board_Address; 
+extern uint8_t CAN_Buff[8];   
+extern uint8_t Channel_State[4]; 
 extern uint8_t CAN_Send_Fg;   
-extern uint8_t CAN_Data_Read_Fg;  
+extern uint8_t CAN_DataRead_Fg;  
 // extern uint8_t LED_VACheck_Fg; 
 extern uint8_t VACheck_Fg;
 extern uint16_t CAN_Send_Wait_Time;

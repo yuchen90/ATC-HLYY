@@ -3,11 +3,11 @@
 <title>Static Call Graph - [..\OBJ\Opt.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Opt.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sun Feb 20 10:24:55 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Apr 06 16:34:47 2022
 <BR><P>
 <H3>Maximum Stack Usage =        152 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; Stm32_Clock_Init &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
+__rt_entry_main &rArr; main &rArr; System_Clock_Init &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 <P>
 <H3>
 Functions with no stack information
@@ -197,7 +197,7 @@ Global Symbols
 
 <P><STRONG><a name="[43]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Stm32_Clock_Init &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; System_Clock_Init &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -406,7 +406,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4d]"></a>Board_Address_Init</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, board_address.o(i.Board_Address_Init))
+<P><STRONG><a name="[4d]"></a>Board_Address_Init</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, board_address.o(i.Board_Address_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = Board_Address_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -417,19 +417,8 @@ Global Symbols
 <P><STRONG><a name="[7]"></a>BusFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.BusFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[92]"></a>Clear_Check_Count</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, vacheck.o(i.Clear_Check_Count))
-<BR><BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.DebugMon_Handler))
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
-</UL>
-<P><STRONG><a name="[8d]"></a>Error_Handle</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, tim2.o(i.Error_Handle))
-<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Init
-</UL>
-
-<P><STRONG><a name="[4f]"></a>Error_Handler</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, can.o(i.Error_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Error_Handler &rArr; HAL_Delay
+<P><STRONG><a name="[4f]"></a>CAN_Error_Handler</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, can.o(i.CAN_Error_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CAN_Error_Handler &rArr; HAL_Delay
 </UL>
 <BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
@@ -438,6 +427,13 @@ Global Symbols
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OPT_CAN_Init
 </UL>
 
+<P><STRONG><a name="[92]"></a>Clear_Check_Count</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, vacheck.o(i.Clear_Check_Count))
+<BR><BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[a]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.DebugMon_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
+</UL>
 <P><STRONG><a name="[85]"></a>HAL_CAN_ActivateNotification</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, stm32f1xx_hal_can.o(i.HAL_CAN_ActivateNotification))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_CAN_ActivateNotification
 </UL>
@@ -523,7 +519,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = HAL_CAN_RxFifo0MsgPendingCallback &rArr; HAL_CAN_GetRxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_GetRxMessage
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IRQHandler
 </UL>
@@ -581,7 +577,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Error_Handle
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Error_Handler
 </UL>
 
 <P><STRONG><a name="[4e]"></a>HAL_GPIO_Init</STRONG> (Thumb, 766 bytes, Stack size 36 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_Init))
@@ -594,12 +591,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[61]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_GetTick))
-<BR><BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IWDG_Init
+<BR><BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IWDG_Init
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Start
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 </UL>
 
 <P><STRONG><a name="[66]"></a>HAL_IWDG_Init</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, stm32f1xx_hal_iwdg.o(i.HAL_IWDG_Init))
@@ -614,7 +611,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IWDG_Feed
 </UL>
 
-<P><STRONG><a name="[8b]"></a>HAL_IncTick</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_IncTick))
+<P><STRONG><a name="[8a]"></a>HAL_IncTick</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_IncTick))
 <BR><BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
@@ -634,8 +631,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
 </UL>
-<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 
 <P><STRONG><a name="[6a]"></a>HAL_MspInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_MspInit))
@@ -669,7 +666,7 @@ Global Symbols
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stm32_Clock_Init
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Clock_Init
 </UL>
 
 <P><STRONG><a name="[6f]"></a>HAL_RCC_GetSysClockFreq</STRONG> (Thumb, 116 bytes, Stack size 40 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq))
@@ -684,7 +681,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_Delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stm32_Clock_Init
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Clock_Init
 </UL>
 
 <P><STRONG><a name="[6b]"></a>HAL_SYSTICK_Config</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, stm32f1xx_hal_cortex.o(i.HAL_SYSTICK_Config))
@@ -800,14 +797,14 @@ Global Symbols
 <P><STRONG><a name="[4]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.NMI_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[83]"></a>OPT_CAN_Init</STRONG> (Thumb, 134 bytes, Stack size 48 bytes, can.o(i.OPT_CAN_Init))
+<P><STRONG><a name="[83]"></a>OPT_CAN_Init</STRONG> (Thumb, 136 bytes, Stack size 48 bytes, can.o(i.OPT_CAN_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = OPT_CAN_Init &rArr; HAL_CAN_Init &rArr; HAL_CAN_MspInit &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Start
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_ConfigFilter
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_ActivateNotification
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -818,7 +815,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IsTxMessagePending
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_GetTxMailboxesFreeLevel
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VACheck
 </UL>
@@ -829,8 +826,18 @@ Global Symbols
 <P><STRONG><a name="[9]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[8a]"></a>Stm32_Clock_Init</STRONG> (Thumb, 86 bytes, Stack size 72 bytes, sys.o(i.Stm32_Clock_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = Stm32_Clock_Init &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
+<P><STRONG><a name="[c]"></a>SysTick_Handler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32f1xx_it.o(i.SysTick_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SysTick_Handler
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
+</UL>
+<P><STRONG><a name="[38]"></a>SystemInit</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, system_stm32f1xx.o(i.SystemInit))
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(.text)
+</UL>
+<P><STRONG><a name="[8b]"></a>System_Clock_Init</STRONG> (Thumb, 86 bytes, Stack size 72 bytes, system_clock.o(i.System_Clock_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = System_Clock_Init &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
@@ -838,16 +845,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c]"></a>SysTick_Handler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32f1xx_it.o(i.SysTick_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SysTick_Handler
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
-</UL>
-<P><STRONG><a name="[38]"></a>SystemInit</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, system_stm32f1xx.o(i.SystemInit))
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(.text)
-</UL>
 <P><STRONG><a name="[29]"></a>TIM2_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f1xx_it.o(i.TIM2_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM2_IRQHandler &rArr; HAL_TIM_IRQHandler
 </UL>
@@ -860,7 +857,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handle
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Error_Handle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -869,6 +866,14 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TIM_Base_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
+</UL>
+
+<P><STRONG><a name="[8d]"></a>TIM_Error_Handle</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, tim2.o(i.TIM_Error_Handle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_Error_Handle &rArr; HAL_Delay
+</UL>
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Init
 </UL>
 
 <P><STRONG><a name="[21]"></a>USB_LP_CAN1_RX0_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f1xx_it.o(i.USB_LP_CAN1_RX0_IRQHandler))
@@ -897,13 +902,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[44]"></a>main</STRONG> (Thumb, 332 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = main &rArr; Stm32_Clock_Init &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
+<P><STRONG><a name="[44]"></a>main</STRONG> (Thumb, 298 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = main &rArr; System_Clock_Init &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VACheck_GPIO_Init
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VACheck
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Init
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stm32_Clock_Init
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Clock_Init
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OPT_CAN_Init
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Init
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Display

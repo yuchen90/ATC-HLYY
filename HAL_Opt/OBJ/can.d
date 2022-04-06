@@ -7,14 +7,14 @@
 ..\obj\can.o: ..\USER\stm32f1xx.h
 ..\obj\can.o: ..\USER\stm32f103xb.h
 ..\obj\can.o: ..\CORE\core_cm3.h
-..\obj\can.o: D:\Work\MDK\Core\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\can.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\can.o: ..\CORE\cmsis_version.h
 ..\obj\can.o: ..\CORE\cmsis_compiler.h
 ..\obj\can.o: ..\CORE\cmsis_armcc.h
 ..\obj\can.o: ..\USER\system_stm32f1xx.h
 ..\obj\can.o: ..\HALLib\Inc\stm32f1xx_hal.h
 ..\obj\can.o: ..\HALLib\Inc\Legacy/stm32_hal_legacy.h
-..\obj\can.o: D:\Work\MDK\Core\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\can.o: D:\ebedded_system\Keil5\Core\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\can.o: ..\HALLib\Inc\stm32f1xx_hal_rcc_ex.h
 ..\obj\can.o: ..\HALLib\Inc\stm32f1xx_hal_gpio.h
 ..\obj\can.o: ..\HALLib\Inc\stm32f1xx_hal_gpio_ex.h
