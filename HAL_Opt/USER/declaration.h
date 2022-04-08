@@ -4,6 +4,13 @@
 #include "stdint.h"
 #include "stm32f1xx.h"
 
+//ÍâÉè¾ä±ú
+extern CAN_HandleTypeDef CAN_Handle;
+extern CAN_TxHeaderTypeDef CAN_TxHeader;
+extern CAN_RxHeaderTypeDef CAN_RxHeader;
+extern IWDG_HandleTypeDef IWDG_Handler;
+extern TIM_HandleTypeDef TIM2_Handle;
+
 extern uint32_t Sytem_Timer_Fg;        
 extern uint32_t Sytem_Timer_Fg1; 
 extern uint8_t Blink_Id;       

@@ -3,10 +3,6 @@
 #include "main.h"
 #include "declaration.h"
 
-CAN_HandleTypeDef CAN_Handle;
-CAN_TxHeaderTypeDef CAN_TxHeader;
-CAN_RxHeaderTypeDef CAN_RxHeader;
-
 void CAN_Error_Handler(void);
 
 /**

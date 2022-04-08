@@ -3,6 +3,15 @@
 
 #include "stdint.h"
 
+//外设句柄
+CAN_HandleTypeDef CAN_Handle;
+CAN_TxHeaderTypeDef CAN_TxHeader;
+CAN_RxHeaderTypeDef CAN_RxHeader;
+
+IWDG_HandleTypeDef IWDG_Handler;
+
+TIM_HandleTypeDef TIM2_Handle;
+
 uint32_t Sytem_Timer_Fg;        //计时器重载中断次数累加值; 与回码
 uint32_t Sytem_Timer_Fg1;       //计时器重载中断次数累加值; 与CAN报文收取后点灯状态有关，如果闪烁，那么其值会降到10000内，若常亮超过2s后 其值在20000到30000内
 uint8_t Blink_Id;               //点灯闪烁标识 1：闪烁 0：长亮

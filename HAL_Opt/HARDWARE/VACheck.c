@@ -2,6 +2,7 @@
 #include "main.h"
 #include "declaration.h"
 
+
 void OPT_CAN_Send(unsigned int SID,unsigned char data[]);
 
 /**
@@ -62,32 +63,32 @@ void VACheck(void)
                 if(R1_Volatge_State == 0u)
                 {
                     if(R1_Volatge_Count < Voltage_Count)
-                    R1_Volatge_Count++;
+                        R1_Volatge_Count++;
                 }
                 if(R1_Current_State == 0u)
                 {
                     if(R1_Current_Count < Current_Count)
-                    R1_Current_Count++;
+                        R1_Current_Count++;
                 }
                 if(Y1_Volatge_State == 0u)
                 {
                     if(Y1_Volatge_Count < Voltage_Count)
-                    Y1_Volatge_Count++;
+                        Y1_Volatge_Count++;
                 }
                 if(Y1_Current_State == 0u)
                 {
                     if(Y1_Current_Count < Current_Count)
-                    Y1_Current_Count++;
+                        Y1_Current_Count++;
                 }
                 if(G1_Volatge_State == 0u)
                 {
                     if(G1_Volatge_Count < Voltage_Count)
-                    G1_Volatge_Count++;
+                        G1_Volatge_Count++;
                 }
                 if(G1_Current_State == 0u)
                 {
                     if(G1_Current_Count < Current_Count)
-                    G1_Current_Count++;
+                        G1_Current_Count++;
                 }
             }
             // ตฦื้2    
@@ -95,32 +96,32 @@ void VACheck(void)
                 if(R2_Volatge_State == 0u)
                 {
                     if(R2_Volatge_Count < Voltage_Count)
-                    R2_Volatge_Count++;
+                        R2_Volatge_Count++;
                 }
                 if(R2_Current_State == 0u)
                 {
                     if(R2_Current_Count < Current_Count)
-                    R2_Current_Count++;
+                        R2_Current_Count++;
                 }
                 if(Y2_Volatge_State == 0u)
                 {
                     if(Y2_Volatge_Count < Voltage_Count)
-                    Y2_Volatge_Count++;
+                        Y2_Volatge_Count++;
                 }
                 if(Y2_Current_State == 0u)
                 {
-                    if(Y2_Current_Count < Current_Count
-                    Y2_Current_Count++;
+                    if(Y2_Current_Count < Current_Count)
+                        Y2_Current_Count++;
                 }
                 if(G2_Volatge_State == 0u)
                 {
                     if(G2_Volatge_Count < Voltage_Count)
-                    G2_Volatge_Count++;
+                        G2_Volatge_Count++;
                 }
                 if(G2_Current_State == 0u)
                 {
                     if(G2_Current_Count < Current_Count)
-                    G2_Current_Count++;
+                        G2_Current_Count++;
                 }
             }
             // ตฦื้3    
@@ -128,32 +129,32 @@ void VACheck(void)
                 if(R3_Volatge_State == 0u)
                 {
                     if(R3_Volatge_Count < Voltage_Count)
-                    R3_Volatge_Count++;
+                        R3_Volatge_Count++;
                 }
                 if(R3_Current_State == 0u)
                 {
                     if(R3_Current_Count < Current_Count)
-                    R3_Current_Count++;
+                        R3_Current_Count++;
                 }
                 if(Y3_Volatge_State == 0u)
                 {
                     if(Y3_Volatge_Count < Voltage_Count)
-                    Y3_Volatge_Count++;
+                        Y3_Volatge_Count++;
                 }
                 if(Y3_Current_State == 0u)
                 {
                     if(Y3_Current_Count < Current_Count)
-                    Y3_Current_Count++;
+                        Y3_Current_Count++;
                 }
                 if(G3_Volatge_State == 0u)
                 {
                     if(G3_Volatge_Count < Voltage_Count)
-                    G3_Volatge_Count++;
+                        G3_Volatge_Count++;
                 }
                 if(G3_Current_State == 0u)
                 {
                     if(G3_Current_Count < Current_Count)
-                    G3_Current_Count++;
+                        G3_Current_Count++;
                 }
             }
             // ตฦื้4    
@@ -161,32 +162,32 @@ void VACheck(void)
                 if(R4_Volatge_State == 0u)
                 {
                     if(R4_Volatge_Count < Voltage_Count)
-                    R4_Volatge_Count++;
+                        R4_Volatge_Count++;
                 }
                 if(R4_Current_State == 0u)
                 {
                     if(R4_Current_Count < Current_Count)
-                    R4_Current_Count++;
+                        R4_Current_Count++;
                 }
                 if(Y4_Volatge_State == 0u)
                 {
                     if(Y4_Volatge_Count < Voltage_Count)
-                    Y4_Volatge_Count++;
+                        Y4_Volatge_Count++;
                 }
                 if(Y4_Current_State == 0u)
                 {
                     if(Y4_Current_Count < Current_Count)
-                    Y4_Current_Count++;
+                        Y4_Current_Count++;
                 }
                 if(G4_Volatge_State == 0u)
                 {
                     if(G4_Volatge_Count < Voltage_Count)
-                    G4_Volatge_Count++;
+                        G4_Volatge_Count++;
                 }
                 if(G4_Current_State == 0u)
                 {
                     if(G4_Current_Count < Current_Count)
-                    G4_Current_Count++;
+                        G4_Current_Count++;
                 }
             }
         }   

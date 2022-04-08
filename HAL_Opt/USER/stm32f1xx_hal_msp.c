@@ -19,6 +19,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "declaration.h"
 
 /**
   * @brief CAN MSP Initialization

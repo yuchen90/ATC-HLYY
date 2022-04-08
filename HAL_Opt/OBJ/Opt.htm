@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Opt.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Opt.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Apr 07 10:51:11 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Apr 08 08:26:30 2022
 <BR><P>
 <H3>Maximum Stack Usage =        152 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -402,7 +402,7 @@ Global Symbols
 
 <P><STRONG><a name="[bf]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[91]"></a>Board_Address_Get</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, board_address.o(i.Board_Address_Get))
+<P><STRONG><a name="[91]"></a>Board_Address_Get</STRONG> (Thumb, 120 bytes, Stack size 0 bytes, board_address.o(i.Board_Address_Get))
 <BR><BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -577,8 +577,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Error_Handle
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Error_Handler
+<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Error_Handler
 </UL>
 
 <P><STRONG><a name="[4e]"></a>HAL_GPIO_Init</STRONG> (Thumb, 766 bytes, Stack size 36 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_Init))
@@ -868,12 +867,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
 </UL>
 
-<P><STRONG><a name="[8d]"></a>TIM_Error_Handle</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, tim2.o(i.TIM_Error_Handle))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_Error_Handle &rArr; HAL_Delay
-</UL>
-<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-</UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Init
+<P><STRONG><a name="[8d]"></a>TIM_Error_Handle</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, tim2.o(i.TIM_Error_Handle))
+<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Init
 </UL>
 
 <P><STRONG><a name="[21]"></a>USB_LP_CAN1_RX0_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f1xx_it.o(i.USB_LP_CAN1_RX0_IRQHandler))
@@ -886,7 +881,7 @@ Global Symbols
 <P><STRONG><a name="[8]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.UsageFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[8f]"></a>VACheck</STRONG> (Thumb, 3332 bytes, Stack size 32 bytes, vacheck.o(i.VACheck))
+<P><STRONG><a name="[8f]"></a>VACheck</STRONG> (Thumb, 3432 bytes, Stack size 32 bytes, vacheck.o(i.VACheck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = VACheck &rArr; OPT_CAN_Send &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OPT_CAN_Send

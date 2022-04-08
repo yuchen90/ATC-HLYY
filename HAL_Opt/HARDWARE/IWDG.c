@@ -1,8 +1,6 @@
 #include "main.h"
 #include "declaration.h"
 
-IWDG_HandleTypeDef IWDG_Handler;        //独立看门狗句柄
-
 /**
   * @brief  初始化独立看门狗
   * @param  pre：分频数:IWDG_PRESCALER_4~IWDG_PRESCALER_256

@@ -21,6 +21,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "declaration.h"
 
 /** @addtogroup STM32F1xx_HAL_Examples
   * @{
@@ -146,8 +147,6 @@ void SysTick_Handler(void)
 /*  available peripheral interrupt handler's name please refer to the startup */
 /*  file (startup_stm32f1xx.s).                                               */
 /******************************************************************************/
-extern CAN_HandleTypeDef CAN_Handle;
-extern TIM_HandleTypeDef TIM2_Handle;
 
 /**
 * @brief  This function handles CAN1 RX0 interrupt request.

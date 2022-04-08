@@ -2,7 +2,6 @@
 #include "main.h"
 #include "declaration.h"
 
-TIM_HandleTypeDef TIM2_Handle;
 void TIM_Error_Handle(void);
 
 /**
