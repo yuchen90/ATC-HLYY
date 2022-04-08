@@ -49,8 +49,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			{
 				Sytem_Timer_Fg1 = 20000;
 			}
-			
-			VACheck_Fg = 0u;
+			VACheck_Fg=0u;
     }
 }
 
@@ -59,8 +58,5 @@ void TIM_Error_Handle(void)
   while(1)
   {
     MCU_RUN = LED_ON;
-    HAL_Delay(500);
-    MCU_RUN = LED_OFF;
   }
-
 }

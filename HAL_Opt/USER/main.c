@@ -4,13 +4,13 @@
 //主函数
 int main(void)
 {
-	HAL_Init();                    	 			//初始化HAL库    
-	System_Clock_Init(RCC_PLL_MUL9);   			//设置时钟,72M
-	TIM2_Init(99u,71u);							//Tout=((100)*(72))/SYSCLOCK FREQUENCY(units: MHz) us
+	HAL_Init();                    	 				//初始化HAL库    
+	System_Clock_Init(RCC_PLL_MUL9);   				//设置时钟,72M
+	TIM2_Init(99u,71u);								//Tout=((100)*(72))/SYSCLOCK FREQUENCY(units: MHz) us
 	Board_Address_Init();
 	OPT_CAN_Init();
 	Led_Init();
-	IWDG_Init(4u,500u);							//设置独立看门狗约为1s 因为内置低频时钟不准
+	IWDG_Init(4u,500u);								//设置独立看门狗约为1s 因为内置低频时钟不准
 	VACheck_GPIO_Init();
 
 	Board_Address_Get();
@@ -20,16 +20,16 @@ int main(void)
 	{
 		IWDG_Feed();
 		
-		if((Sytem_Timer_Fg1%10000u) < 5000u)			//MCU_RUN 工作指示灯闪烁频率与其余灯组都一样， 判断与led.c line 66&67 有关
+		if((Sytem_Timer_Fg1%10000u) < 5000u)		
 		{
-			MCU_RUN=LED_OFF;					//因Sytem_Timer_Fg1 比 Sytem_Timer_Fg 少5000次计数，所以先点亮 才能保证MCU_RUN暗灭与灯组一致 
+			MCU_RUN=LED_ON;							//MCU工作指示灯
 		}
 		else
 		{
-			MCU_RUN=LED_ON;
+			MCU_RUN=LED_OFF;
 		}
 
-		if(Sytem_Timer_Fg >= 20000u)					//没有CAN通讯 或 CAN通讯中断超过2s 灯组黄闪 //杭州代码这里暗灭与 MCU_RUN 正好相反
+		if(Sytem_Timer_Fg >= 20000u)				//没有CAN通讯 或 CAN通讯中断超过2s 灯组黄闪
 		{
 			if((Sytem_Timer_Fg%10000) == 0u) 
 			{
@@ -40,7 +40,7 @@ int main(void)
 				CAN_Buff[4]=0xdbu;
 				CAN_Buff[5]=0xb6u;
 				CAN_Buff[6]=0x6du;
-				CAN_Buff[7]=0x0bu;			//全部黄闪 灭灯
+				CAN_Buff[7]=0x0bu;					//全部黄闪 灭灯
 				Led_Display();
 			}
 			else if((Sytem_Timer_Fg%10000) == 5000u)
@@ -52,7 +52,7 @@ int main(void)
 				CAN_Buff[4]=0xdbu;
 				CAN_Buff[5]=0xb6u;
 				CAN_Buff[6]=0x6du;
-				CAN_Buff[7]=0x1bu;			//全部黄闪 亮灯
+				CAN_Buff[7]=0x1bu;					//全部黄闪 亮灯
 				Led_Display();
 			}
 		}
@@ -60,10 +60,11 @@ int main(void)
 		// CAN通讯接收后，按报文要求点灯，同时清除CAN收标识符
 		if(CAN_DataRead_Fg == 1u)
 		{
+			CAN_Rx_LED = LED_OFF;
 			Led_Display();
 			Sytem_Timer_Fg=0u;
 			CAN_DataRead_Fg=0u;
-			CAN_VACheck_Send_Fg=2u;				//让灯控板一直反馈点灯结果
+			CAN_VACheck_Send_Fg=2u;					//让灯控板一直反馈点灯结果
 			Clear_Check_Count();
 			CAN_Send_Wait_Time=400u+Board_Address*20u;
 		}

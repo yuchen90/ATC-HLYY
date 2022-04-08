@@ -10,14 +10,16 @@ uint8_t Blink_Id_Before;        //上一次点灯闪烁标识
 uint8_t Board_Address;          //灯控板地址
 uint8_t CAN_Buff[8];            //CAN通讯解析后数据缓存
 uint8_t Channel_State[4];       //灯控板四个灯组的点灯信息缓存
-uint8_t CAN_Send_Fg;            //CAN 发送flag
+uint8_t CAN_Frame_ID;           //第几帧点灯指令
 uint8_t CAN_DataRead_Fg;        //1：表示已经接收CAN数据至CAN_Buff[8]； 0：与‘1’相反
-// uint8_t LED_VACheck_Fg;   //灯控板 当前点灯消息 标识符 由CAN报文解析出来,是否需要反馈给主控板，1：是； 0：否     // 暂时可以不需要，此段数据主要告诉电源板，在接管时，点灯情况
+// uint8_t LED_VACheck_Fg;      //灯控板 当前点灯消息 标识符 由CAN报文解析出来,是否需要反馈给主控板，1：是； 0：否     // 暂时可以不需要，此段数据主要告诉电源板，在接管时，点灯情况
 uint8_t VACheck_Fg;             //占比查询标识 为0时，需要查， 每次查询都 置1 TIM2每次中断都会置0
 uint16_t CAN_Send_Wait_Time;    //灯控板按编号对应的回码时间
 uint8_t CAN_VACheck_Send_Fg;    //灯控板点灯结果 CAN反馈标识
 
 // 占比检查电压，电流次数统计
+uint16_t Voltage_Count;
+uint16_t Current_Count;
 // 灯组1
 uint16_t R1_Volatge_Count;
 uint16_t R1_Current_Count;

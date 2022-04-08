@@ -32,5 +32,7 @@ uint8_t Board_Address_Get(void)
     if (ADDR1==1) Board_Address+=2;
     if (ADDR2==1) Board_Address+=4;
     if (ADDR3==1) Board_Address+=8;
+    Voltage_Count=200u+10u*Board_Address;
+    Current_Count=200u+10u*Board_Address;
     return Board_Address;
 }

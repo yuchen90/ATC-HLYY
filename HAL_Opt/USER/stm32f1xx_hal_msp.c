@@ -38,27 +38,24 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan)
   CAN1_GPIO_CLK_ENABLE();
 
   //PA11 Rx
-  GPIO_Init.Pin = CAN1_Rx_PIN;
-  GPIO_Init.Mode = GPIO_MODE_INPUT;
-  GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;
-  // GPIO_Init.Pull = GPIO_PULLUP;
+  GPIO_Init.Pin=CAN1_Rx_PIN;
+  GPIO_Init.Mode=GPIO_MODE_INPUT;
+  GPIO_Init.Pull=GPIO_PULLUP;
   HAL_GPIO_Init(CAN1_Rx_GPIO_PORT,&GPIO_Init);
 
   //PA12 Tx
-  GPIO_Init.Pin = CAN1_Tx_PIN;
-  GPIO_Init.Mode = GPIO_MODE_AF_PP;
-  GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;
-  // GPIO_Init.Pull = GPIO_PULLUP;
+  GPIO_Init.Pin=CAN1_Tx_PIN;
+  GPIO_Init.Mode=GPIO_MODE_AF_PP;
+  GPIO_Init.Speed=GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(CAN1_Tx_GPIO_PORT,&GPIO_Init); 
 
   //CAN1 Rx Interrupt Init
-  HAL_NVIC_SetPriority(CAN1_Rx_IRQn,1,0); //抢占优先级：1 
+  HAL_NVIC_SetPriority(CAN1_Rx_IRQn,1,2);         //抢占优先级：1 
   HAL_NVIC_EnableIRQ(CAN1_Rx_IRQn);
 }
 
 /**
   * @brief CAN MSP De-Initialization
-  *        This function frees the hardware resources used in this example:
   *          - Disable the Peripheral's clock
   *          - Revert GPIO to their default state
   * @param hcan: CAN handle pointer
@@ -66,7 +63,7 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan)
   */
 void HAL_CAN_MspDeInit(CAN_HandleTypeDef *hcan)
 {
-  // 重置外设
+  // 重置,释放外设
   CAN1_FORCE_RESET();
   CAN1_RELEASE_RESET();
 
@@ -88,10 +85,23 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef *hcan)
   */
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim)
 {
-    if(htim->Instance==TIM2)                //确认开启时钟为TIM2
+    if(htim->Instance == TIM2)                      //确认开启时钟为TIM2
 	{
-		TIM2_CLK_ENABLE();                      //使能TIM2时钟
-		HAL_NVIC_SetPriority(TIM2_IRQn,0,0);    //设置中断优先级，抢占优先级0，子优先级0
-		HAL_NVIC_EnableIRQ(TIM2_IRQn);          //开启ITM2中断   
+		TIM2_CLK_ENABLE();                              //使能TIM2时钟
+		HAL_NVIC_SetPriority(TIM2_IRQn,0,0);            //设置中断优先级，抢占优先级0，子优先级0
+		HAL_NVIC_EnableIRQ(TIM2_IRQn);                  //开启ITM2中断   
 	}
+}
+
+/**
+  * @brief  DeInitializes TIM Base MSP.
+  * @param  htim TIM Base handle
+  * @retval None
+  */
+void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef *htim)
+{
+  TIM2_FORCE_RESET();
+  TIM2_RELEASE_RESET();
+
+  HAL_NVIC_DisableIRQ(TIM2_IRQn);
 }

@@ -60,7 +60,7 @@ void OPT_CAN_Init(void)
 
 /**
   * @brief  把CAN发生报文，装载至对应寄存器，发送对应CAN报文
-  * @param  std:标准标识符对应数据
+  * @param  sid:标准标识符对应数据
   * @param  data:数据数组对应的指针
   * @retval None
   */
@@ -92,7 +92,7 @@ void OPT_CAN_Send(uint32_t sid,uint8_t data[8])
     while((HAL_CAN_IsTxMessagePending(&CAN_Handle,can_tx_mailbox) != 0u) && (i < 0x7FFF))
     i++;
    
-    CAN_Send_Fg = 1u;   //确认发送完毕后赋值
+    // CAN_Send_Fg = 1u;   //确认发送完毕后赋值
 }
 
 //如果你用的CAN引脚是PA11和PA12，接收中断用CAN1_RX0_IRQn。如果CAN引脚用的是PB8和PB9，也就是用重定义的引脚，接收中断用CAN1_RX1_IRQn。
@@ -105,7 +105,7 @@ void OPT_CAN_Send(uint32_t sid,uint8_t data[8])
   */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
-    uint8_t rx_data[8],CAN_Frame_Type,CAN_Frame_ID,i;
+    uint8_t rx_data[8],i; //CAN_Frame_Type
 
     if(HAL_CAN_GetRxMessage(hcan,CAN_RX_FIFO0,&CAN_RxHeader,rx_data) != HAL_OK)//Get an CAN frame from the Rx FIFO zone into the message RAM. release fifox after read
     CAN_Error_Handler();
@@ -113,25 +113,25 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     // 判断接收的CAN报文是否合法，若合法则取出赋值给CAN_Buff[]，CAN_Data_Read_Fg 置1， 点亮CAN收指示灯
     if(CAN_RxHeader.IDE == 0u)
     {
-        CAN_Frame_Type=((CAN_RxHeader.StdId>>7u)&0x0Fu);
+        // CAN_Frame_Type=((CAN_RxHeader.StdId>>7u)&0x0Fu); 注释掉，因为在CAN接收时已经硬件屏蔽了其它帧
         CAN_Frame_ID=((CAN_RxHeader.StdId>>5u)&0x03u);
-        if(CAN_Frame_Type == 0u)
+        // if(CAN_Frame_Type == 0u)
         {
             if((CAN_Frame_ID == 1u) && (Board_Address < 5u))
             {
-                // LED_VACheck_Fg = ((CAN_RxHeader.StdId>>Board_Address)&0x01u);
+                CAN_Rx_LED=LED_ON;
+                // LED_VACheck_Fg = ((CAN_RxHeader.StdId>>Board_Address)&0x01u);    未使用
                 for(i=0u;i<8u;i++)
                     CAN_Buff[i]=rx_data[i]; 
-                CAN_DataRead_Fg=1u;
-                CAN_Rx_LED=LED_ON;
+                CAN_DataRead_Fg=1u;  
             }
             else if((CAN_Frame_ID == 2u) && (Board_Address > 4u) && (Board_Address < 10u))
             {
+                CAN_Rx_LED=LED_ON;
                 // LED_VACheck_Fg = ((CAN_RxHeader.StdId>>(Board_Address-5))&0x01u); 
                 for(i=0u;i<8u;i++)
                     CAN_Buff[i]=rx_data[i];  
                 CAN_DataRead_Fg=1u;
-                CAN_Rx_LED=LED_ON;
             }
         }    
     }    

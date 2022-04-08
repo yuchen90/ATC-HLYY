@@ -1,8 +1,7 @@
 #include "main.h"
 #include "declaration.h"
 
-TIM_HandleTypeDef TIM2_Handle;
-void Error_Handler(void);
+void TIM2_Error_Handler(void);
 
 /**
   * @brief  TIMW2对应外设功能初始化
@@ -14,7 +13,7 @@ void Error_Handler(void);
   */
 void TIM2_Init(uint16_t arr,uint16_t psc)
 {
-	TIM2_Handle.Instance = TIMx;                                             	//通用定时器2
+	TIM2_Handle.Instance = TIM2;                                             	//通用定时器2
 	TIM2_Handle.Init.Prescaler = psc;                                        	//分频系数
 	TIM2_Handle.Init.CounterMode = TIM_COUNTERMODE_UP;                       	//计数模式 向上
 	TIM2_Handle.Init.Period = arr;                                          	//自动重装值
@@ -24,10 +23,10 @@ void TIM2_Init(uint16_t arr,uint16_t psc)
   
   #if TIM2_EN
 	if(HAL_TIM_Base_Init(&TIM2_Handle) != HAL_OK)
-	Error_Handler();
+	TIM2_Error_Handler();
 
 	if(HAL_TIM_Base_Start_IT(&TIM2_Handle) != HAL_OK)    						//使能定时器2和定时器2更新中断：TIM_IT_UPDATE
-	Error_Handler();
+	TIM2_Error_Handler();
   #endif
 }
 
@@ -45,18 +44,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 }
 
 /**
-  * @brief  外设初始化，错误处理函数
+  * @brief  TIM2初始化，错误MCU_RUN常亮
   * @param  None
   * @retval None
   */
-void Error_Handler(void)
+void TIM2_Error_Handler(void)
 {
 	while(1)
 	{
-    e++;
-    MCU_RUN = LED_ON;
-    HAL_Delay(500);
-    MCU_RUN = LED_OFF;
-    HAL_Delay(500);
+    MCU_RUN=LED_ON;
 	}
 }

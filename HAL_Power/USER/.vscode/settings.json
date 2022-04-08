@@ -19,6 +19,10 @@
         "fstream": "c",
         "ostream": "c",
         "string_view": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "stm32f1xx_hal.h": "c",
+        "stm32f1xx_hal_conf.h": "c",
+        "stm32f1xx_hal_rcc.h": "c",
+        "sys.h": "c"
     }
 }

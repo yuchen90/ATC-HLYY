@@ -3,7 +3,7 @@
 #include "declaration.h"
 
 /**
-  * @brief  初始化灯组对应管脚
+  * @brief  初始化灯组对应管脚，低速推挽输出
   * @param  None
   * @retval None
   */
@@ -17,25 +17,24 @@ void Led_Init(void)
 
     //PA3,PA5,PA7,PA9(mcu_run) PA0,PA1(CAN_TX_LED&CAN_Rx_LED)
     GPIO_Init.Pin = GPIO_PIN_3|GPIO_PIN_5|GPIO_PIN_7|GPIO_PIN_9|GPIO_PIN_0|GPIO_PIN_1; 	
-    GPIO_Init.Mode = GPIO_MODE_OUTPUT_PP;  	//推挽输出
-    GPIO_Init.Pull = GPIO_PULLUP;          	//上拉
-    GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;    //高速
+    GPIO_Init.Mode = GPIO_MODE_OUTPUT_PP;  		//推挽输出
+    GPIO_Init.Pull = GPIO_NOPULL;          	
+    GPIO_Init.Speed = GPIO_SPEED_FREQ_LOW;    	//低速DC
     HAL_GPIO_Init(GPIOA,&GPIO_Init);
 
     //PB1,PB11,PB13,PB15
     GPIO_Init.Pin = GPIO_PIN_1|GPIO_PIN_11|GPIO_PIN_13|GPIO_PIN_15; 
-    GPIO_Init.Mode = GPIO_MODE_OUTPUT_PP;  	//推挽输出
-    GPIO_Init.Pull = GPIO_PULLUP;          	//上拉
-    GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;    //高速
+    GPIO_Init.Mode = GPIO_MODE_OUTPUT_PP;  		//推挽输出
+    GPIO_Init.Pull = GPIO_NOPULL;           	
+    GPIO_Init.Speed = GPIO_SPEED_FREQ_LOW;    	//低速DC
     HAL_GPIO_Init(GPIOB,&GPIO_Init);
 
     //PC1,PC3,PC5,PC13,PC15,
     GPIO_Init.Pin = GPIO_PIN_1|GPIO_PIN_3|GPIO_PIN_5|GPIO_PIN_13|GPIO_PIN_15;
-    GPIO_Init.Mode = GPIO_MODE_OUTPUT_PP;  	//推挽输出
-    GPIO_Init.Pull = GPIO_PULLUP;          	//上拉
-    GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;    //高速
+    GPIO_Init.Mode = GPIO_MODE_OUTPUT_PP;  		//推挽输出
+    GPIO_Init.Pull = GPIO_NOPULL;           	
+    GPIO_Init.Speed = GPIO_SPEED_FREQ_LOW;    	//低速DC
     HAL_GPIO_Init(GPIOC,&GPIO_Init);
-
 }
 
 

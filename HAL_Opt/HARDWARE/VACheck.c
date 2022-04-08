@@ -20,30 +20,26 @@ void VACheck_GPIO_Init(void)
 
     //PA 2,4,6,8，15
     GPIO_Init.Pin = GPIO_PIN_2|GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_8|GPIO_PIN_15; 	
-    GPIO_Init.Mode = GPIO_MODE_INPUT;  	    //输入
-    GPIO_Init.Pull = GPIO_PULLUP;          	//上拉
-    GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;    //高速
+    GPIO_Init.Mode = GPIO_MODE_INPUT;  	        //输入
+    GPIO_Init.Pull = GPIO_PULLUP;          	    //上拉
     HAL_GPIO_Init(GPIOA,&GPIO_Init);
 
     //PB 0，3，4，5，10，12，14
     GPIO_Init.Pin = GPIO_PIN_0|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_10|GPIO_PIN_12|GPIO_PIN_14; 
-    GPIO_Init.Mode = GPIO_MODE_INPUT;  	    //输入
-    GPIO_Init.Pull = GPIO_PULLUP;          	//上拉
-    GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;    //高速
+    GPIO_Init.Mode = GPIO_MODE_INPUT;  	        //输入
+    GPIO_Init.Pull = GPIO_PULLUP;          	    //上拉
     HAL_GPIO_Init(GPIOB,&GPIO_Init);
 
     //PC 0，2，4，6，7，8，9，10，11，12，14
     GPIO_Init.Pin = GPIO_PIN_0|GPIO_PIN_2|GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_14;
-    GPIO_Init.Mode = GPIO_MODE_INPUT;  	     //输入
-    GPIO_Init.Pull = GPIO_PULLUP;          	//上拉
-    GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;    //高速
+    GPIO_Init.Mode = GPIO_MODE_INPUT;  	        //输入
+    GPIO_Init.Pull = GPIO_PULLUP;          	    //上拉
     HAL_GPIO_Init(GPIOC,&GPIO_Init);
 
     //PD 2
     GPIO_Init.Pin = GPIO_PIN_2; 	
-    GPIO_Init.Mode = GPIO_MODE_INPUT;  	    //输入
-    GPIO_Init.Pull = GPIO_PULLUP;          	//上拉
-    GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;    //高速
+    GPIO_Init.Mode = GPIO_MODE_INPUT;  	        //输入
+    GPIO_Init.Pull = GPIO_PULLUP;          	    //上拉
     HAL_GPIO_Init(GPIOD,&GPIO_Init);
 }
 
@@ -54,43 +50,43 @@ void VACheck_GPIO_Init(void)
   */
 void VACheck(void)
 {
-    if(Sytem_Timer_Fg < 400)      //40ms查询400次，0.1ms一次
+    while(Sytem_Timer_Fg < CAN_Send_Wait_Time)                    //40ms查询400次，0.1ms一次 (理论值)    
     {
-        if(Sytem_Timer_Fg == 10u)
-            CAN_Rx_LED = LED_OFF;
+        // if(Sytem_Timer_Fg == 10u)        改到main.c 点亮点灯帧时灭灯
+        //     CAN_Rx_LED = LED_OFF;
         if(VACheck_Fg == 0u)
-        {
-            VACheck_Fg = 1u;    
+        {    
+            VACheck_Fg = 1u;
         // 灯组1    
             {
                 if(R1_Volatge_State == 0u)
                 {
-                    if(R1_Volatge_Count < 400u)
+                    if(R1_Volatge_Count < Voltage_Count)
                     R1_Volatge_Count++;
                 }
                 if(R1_Current_State == 0u)
                 {
-                    if(R1_Current_Count < 400u)
+                    if(R1_Current_Count < Current_Count)
                     R1_Current_Count++;
                 }
                 if(Y1_Volatge_State == 0u)
                 {
-                    if(Y1_Volatge_Count < 400u)
+                    if(Y1_Volatge_Count < Voltage_Count)
                     Y1_Volatge_Count++;
                 }
                 if(Y1_Current_State == 0u)
                 {
-                    if(Y1_Current_Count < 400u)
+                    if(Y1_Current_Count < Current_Count)
                     Y1_Current_Count++;
                 }
                 if(G1_Volatge_State == 0u)
                 {
-                    if(G1_Volatge_Count < 400u)
+                    if(G1_Volatge_Count < Voltage_Count)
                     G1_Volatge_Count++;
                 }
                 if(G1_Current_State == 0u)
                 {
-                    if(G1_Current_Count < 400u)
+                    if(G1_Current_Count < Current_Count)
                     G1_Current_Count++;
                 }
             }
@@ -98,32 +94,32 @@ void VACheck(void)
             {
                 if(R2_Volatge_State == 0u)
                 {
-                    if(R2_Volatge_Count < 400u)
+                    if(R2_Volatge_Count < Voltage_Count)
                     R2_Volatge_Count++;
                 }
                 if(R2_Current_State == 0u)
                 {
-                    if(R2_Current_Count < 400u)
+                    if(R2_Current_Count < Current_Count)
                     R2_Current_Count++;
                 }
                 if(Y2_Volatge_State == 0u)
                 {
-                    if(Y2_Volatge_Count < 400u)
+                    if(Y2_Volatge_Count < Voltage_Count)
                     Y2_Volatge_Count++;
                 }
                 if(Y2_Current_State == 0u)
                 {
-                    if(Y2_Current_Count < 400u)
+                    if(Y2_Current_Count < Current_Count
                     Y2_Current_Count++;
                 }
                 if(G2_Volatge_State == 0u)
                 {
-                    if(G2_Volatge_Count < 400u)
+                    if(G2_Volatge_Count < Voltage_Count)
                     G2_Volatge_Count++;
                 }
                 if(G2_Current_State == 0u)
                 {
-                    if(G2_Current_Count < 400u)
+                    if(G2_Current_Count < Current_Count)
                     G2_Current_Count++;
                 }
             }
@@ -131,32 +127,32 @@ void VACheck(void)
             {
                 if(R3_Volatge_State == 0u)
                 {
-                    if(R3_Volatge_Count < 400u)
+                    if(R3_Volatge_Count < Voltage_Count)
                     R3_Volatge_Count++;
                 }
                 if(R3_Current_State == 0u)
                 {
-                    if(R3_Current_Count < 400u)
+                    if(R3_Current_Count < Current_Count)
                     R3_Current_Count++;
                 }
                 if(Y3_Volatge_State == 0u)
                 {
-                    if(Y3_Volatge_Count < 400u)
+                    if(Y3_Volatge_Count < Voltage_Count)
                     Y3_Volatge_Count++;
                 }
                 if(Y3_Current_State == 0u)
                 {
-                    if(Y3_Current_Count < 400u)
+                    if(Y3_Current_Count < Current_Count)
                     Y3_Current_Count++;
                 }
                 if(G3_Volatge_State == 0u)
                 {
-                    if(G3_Volatge_Count < 400u)
+                    if(G3_Volatge_Count < Voltage_Count)
                     G3_Volatge_Count++;
                 }
                 if(G3_Current_State == 0u)
                 {
-                    if(G3_Current_Count < 400u)
+                    if(G3_Current_Count < Current_Count)
                     G3_Current_Count++;
                 }
             }
@@ -164,66 +160,66 @@ void VACheck(void)
             {
                 if(R4_Volatge_State == 0u)
                 {
-                    if(R4_Volatge_Count < 400u)
+                    if(R4_Volatge_Count < Voltage_Count)
                     R4_Volatge_Count++;
                 }
                 if(R4_Current_State == 0u)
                 {
-                    if(R4_Current_Count < 400u)
+                    if(R4_Current_Count < Current_Count)
                     R4_Current_Count++;
                 }
                 if(Y4_Volatge_State == 0u)
                 {
-                    if(Y4_Volatge_Count < 400u)
+                    if(Y4_Volatge_Count < Voltage_Count)
                     Y4_Volatge_Count++;
                 }
                 if(Y4_Current_State == 0u)
                 {
-                    if(Y4_Current_Count < 400u)
+                    if(Y4_Current_Count < Current_Count)
                     Y4_Current_Count++;
                 }
                 if(G4_Volatge_State == 0u)
                 {
-                    if(G4_Volatge_Count < 400u)
+                    if(G4_Volatge_Count < Voltage_Count)
                     G4_Volatge_Count++;
                 }
                 if(G4_Current_State == 0u)
                 {
-                    if(G4_Current_Count < 400u)
+                    if(G4_Current_Count < Current_Count)
                     G4_Current_Count++;
                 }
             }
         }   
     }
-    else if(Sytem_Timer_Fg == CAN_Send_Wait_Time) // 到达回码时间后计算电压，电流占比，1：正常， 0：异常
+    if(Sytem_Timer_Fg == CAN_Send_Wait_Time)                   // 到达回码时间后计算电压，电流占比，1：正常， 0：异常
     {
-        if(R1_Volatge_Count > Voltage_Count)    R1_Volatge_Fg = 1u; else    R1_Volatge_Fg = 0u;   
-        if(R1_Current_Count > Current_Count)    R1_Current_Fg = 1u; else    R1_Current_Fg = 0u;   
-        if(Y1_Volatge_Count > Voltage_Count)    Y1_Volatge_Fg = 1u; else    Y1_Volatge_Fg = 0u;   
-        if(Y1_Current_Count > Current_Count)    Y1_Current_Fg = 1u; else    Y1_Current_Fg = 0u;   
-        if(G1_Volatge_Count > Voltage_Count)    G1_Volatge_Fg = 1u; else    G1_Volatge_Fg = 0u;   
-        if(G1_Current_Count > Current_Count)    G1_Current_Fg = 1u; else    G1_Current_Fg = 0u;  
+        if(R1_Volatge_Count > Voltage_Count_Std)    R1_Volatge_Fg = 1u; else    R1_Volatge_Fg = 0u;   
+        if(R1_Current_Count > Current_Count_Std)    R1_Current_Fg = 1u; else    R1_Current_Fg = 0u;   
+        if(Y1_Volatge_Count > Voltage_Count_Std)    Y1_Volatge_Fg = 1u; else    Y1_Volatge_Fg = 0u;   
+        if(Y1_Current_Count > Current_Count_Std)    Y1_Current_Fg = 1u; else    Y1_Current_Fg = 0u;   
+        if(G1_Volatge_Count > Voltage_Count_Std)    G1_Volatge_Fg = 1u; else    G1_Volatge_Fg = 0u;   
+        if(G1_Current_Count > Current_Count_Std)    G1_Current_Fg = 1u; else    G1_Current_Fg = 0u;  
 
-        if(R2_Volatge_Count > Voltage_Count)    R2_Volatge_Fg = 1u; else    R2_Volatge_Fg = 0u;   
-        if(R2_Current_Count > Current_Count)    R2_Current_Fg = 1u; else    R2_Current_Fg = 0u;   
-        if(Y2_Volatge_Count > Voltage_Count)    Y2_Volatge_Fg = 1u; else    Y2_Volatge_Fg = 0u;   
-        if(Y2_Current_Count > Current_Count)    Y2_Current_Fg = 1u; else    Y2_Current_Fg = 0u;   
-        if(G2_Volatge_Count > Voltage_Count)    G2_Volatge_Fg = 1u; else    G2_Volatge_Fg = 0u;   
-        if(G2_Current_Count > Current_Count)    G2_Current_Fg = 1u; else    G2_Current_Fg = 0u;
+        if(R2_Volatge_Count > Voltage_Count_Std)    R2_Volatge_Fg = 1u; else    R2_Volatge_Fg = 0u;   
+        if(R2_Current_Count > Current_Count_Std)    R2_Current_Fg = 1u; else    R2_Current_Fg = 0u;   
+        if(Y2_Volatge_Count > Voltage_Count_Std)    Y2_Volatge_Fg = 1u; else    Y2_Volatge_Fg = 0u;   
+        if(Y2_Current_Count > Current_Count_Std)    Y2_Current_Fg = 1u; else    Y2_Current_Fg = 0u;   
+        if(G2_Volatge_Count > Voltage_Count_Std)    G2_Volatge_Fg = 1u; else    G2_Volatge_Fg = 0u;   
+        if(G2_Current_Count > Current_Count_Std)    G2_Current_Fg = 1u; else    G2_Current_Fg = 0u;
 
-        if(R3_Volatge_Count > Voltage_Count)    R3_Volatge_Fg = 1u; else    R3_Volatge_Fg = 0u;   
-        if(R3_Current_Count > Current_Count)    R3_Current_Fg = 1u; else    R3_Current_Fg = 0u;   
-        if(Y3_Volatge_Count > Voltage_Count)    Y3_Volatge_Fg = 1u; else    Y3_Volatge_Fg = 0u;   
-        if(Y3_Current_Count > Current_Count)    Y3_Current_Fg = 1u; else    Y3_Current_Fg = 0u;   
-        if(G3_Volatge_Count > Voltage_Count)    G3_Volatge_Fg = 1u; else    G3_Volatge_Fg = 0u;   
-        if(G3_Current_Count > Current_Count)    G3_Current_Fg = 1u; else    G3_Current_Fg = 0u;
+        if(R3_Volatge_Count > Voltage_Count_Std)    R3_Volatge_Fg = 1u; else    R3_Volatge_Fg = 0u;   
+        if(R3_Current_Count > Current_Count_Std)    R3_Current_Fg = 1u; else    R3_Current_Fg = 0u;   
+        if(Y3_Volatge_Count > Voltage_Count_Std)    Y3_Volatge_Fg = 1u; else    Y3_Volatge_Fg = 0u;   
+        if(Y3_Current_Count > Current_Count_Std)    Y3_Current_Fg = 1u; else    Y3_Current_Fg = 0u;   
+        if(G3_Volatge_Count > Voltage_Count_Std)    G3_Volatge_Fg = 1u; else    G3_Volatge_Fg = 0u;   
+        if(G3_Current_Count > Current_Count_Std)    G3_Current_Fg = 1u; else    G3_Current_Fg = 0u;
 
-        if(R4_Volatge_Count > Voltage_Count)    R4_Volatge_Fg = 1u; else    R4_Volatge_Fg = 0u;   
-        if(R4_Current_Count > Current_Count)    R4_Current_Fg = 1u; else    R4_Current_Fg = 0u;   
-        if(Y4_Volatge_Count > Voltage_Count)    Y4_Volatge_Fg = 1u; else    Y4_Volatge_Fg = 0u;   
-        if(Y4_Current_Count > Current_Count)    Y4_Current_Fg = 1u; else    Y4_Current_Fg = 0u;   
-        if(G4_Volatge_Count > Voltage_Count)    G4_Volatge_Fg = 1u; else    G4_Volatge_Fg = 0u;   
-        if(G4_Current_Count > Current_Count)    G4_Current_Fg = 1u; else    G4_Current_Fg = 0u; 
+        if(R4_Volatge_Count > Voltage_Count_Std)    R4_Volatge_Fg = 1u; else    R4_Volatge_Fg = 0u;   
+        if(R4_Current_Count > Current_Count_Std)    R4_Current_Fg = 1u; else    R4_Current_Fg = 0u;   
+        if(Y4_Volatge_Count > Voltage_Count_Std)    Y4_Volatge_Fg = 1u; else    Y4_Volatge_Fg = 0u;   
+        if(Y4_Current_Count > Current_Count_Std)    Y4_Current_Fg = 1u; else    Y4_Current_Fg = 0u;   
+        if(G4_Volatge_Count > Voltage_Count_Std)    G4_Volatge_Fg = 1u; else    G4_Volatge_Fg = 0u;   
+        if(G4_Current_Count > Current_Count_Std)    G4_Current_Fg = 1u; else    G4_Current_Fg = 0u; 
     
         // 按反馈情况添加反馈CAN数据到相应位置
         {
@@ -290,13 +286,13 @@ void VACheck(void)
                         }
                     break;
 
-                    case 1:                    //绿灯
+                    case 1:                     //绿灯
                         if(j==0x30u)            //正常
                         {
                             j=j<<6u;
                             j+=Channel_State[i];
                         }
-                        else                    //异常
+                        else                     //异常
                         {
                             if((j&0x30u)==0x30u) //电压电流正常，但其它值异常
                             {                        

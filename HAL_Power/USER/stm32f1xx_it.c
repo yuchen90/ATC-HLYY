@@ -149,10 +149,6 @@ void SysTick_Handler(void)
 /*  file (startup_stm32f1xx.s).                                               */
 /******************************************************************************/
 // 调用中断函数，函数名在CORE文件夹下的startup 文件中的中断函数名称
-extern CAN_HandleTypeDef CAN_Handle;
-extern TIM_HandleTypeDef TIM2_Handle;
-extern UART_HandleTypeDef UART2_Handle;
-extern uint8_t UART_Rx_Buff[UART_RxDataSize];
 
 /**
 * @brief  This function handles CAN1 RX0 interrupt request.
@@ -160,6 +156,16 @@ extern uint8_t UART_Rx_Buff[UART_RxDataSize];
 * @retval None
 */
 void USB_LP_CAN1_RX0_IRQHandler(void)
+{
+  HAL_CAN_IRQHandler(&CAN_Handle);
+}
+
+/**
+* @brief  This function handles CAN1 RX1 interrupt request.
+* @param  None
+* @retval None
+*/
+void CAN1_RX1_IRQHandler(void)
 {
   HAL_CAN_IRQHandler(&CAN_Handle);
 }
@@ -175,11 +181,31 @@ void TIM2_IRQHandler(void)
 }
 
 /**
-  * @brief  This function handles TIM interrupt request.
+  * @brief  This function handles DMA RX interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel6_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(POWER_UART2_Handle.hdmarx);
+}
+
+/**
+  * @brief  This function handles DMA TX interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel7_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(POWER_UART2_Handle.hdmatx);
+}
+
+/**
+  * @brief  This function handles USART2 interrupt request.
   * @param  None
   * @retval None
   */
  void USART2_IRQHandler(void)
  {
-    HAL_UART_IRQHandler(&UART2_Handle);  
+    HAL_UART_IRQHandler(&POWER_UART2_Handle);  
  }

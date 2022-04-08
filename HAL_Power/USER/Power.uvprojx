@@ -453,6 +453,11 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\UART2.c</FilePath>
             </File>
+            <File>
+              <FileName>System_Clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\System_Clock.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -582,21 +587,6 @@
               <FileName>stm32f1xx_hal_uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HALLib\Src\stm32f1xx_hal_uart.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>SYSTEM</GroupName>
-          <Files>
-            <File>
-              <FileName>delay.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SYSTEM\delay\delay.c</FilePath>
-            </File>
-            <File>
-              <FileName>sys.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SYSTEM\sys\sys.c</FilePath>
             </File>
           </Files>
         </Group>
