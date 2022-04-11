@@ -13,8 +13,11 @@
     CAN_HandleTypeDef CAN_Handle;
     CAN_TxHeaderTypeDef CAN_TxHeader;
     CAN_RxHeaderTypeDef CAN_RxHeader;
+    CAN_RxHeaderTypeDef CAN_RxHeader1;
 
     TIM_HandleTypeDef TIM2_Handle;
+
+    IWDG_HandleTypeDef IWDG_Handle;
 
 //系统变量
     uint32_t System_Time_Fg;                                    //TIM2中断（100us一次）++； TFg(TimeFlag 缩写)
@@ -32,13 +35,13 @@
     uint8_t Blink_Id;                                           //点灯信息，闪烁灯是否亮起标识， 0：灭； 1：亮
     uint8_t Blink_Id_Before;                                    //上一次闪烁标识
     uint8_t Opt_CheckReply_Fg;                                  //灯控板点灯反馈标识，缓存
-    uint8_t Opt_CheckReply_1st;                                 //第一包数据灯控板点灯反馈标识
-    uint8_t Opt_CheckReply_2nd;                                 //第二包数据灯控板点灯反馈标识
+    uint8_t Opt_CheckReplyState_1st;                            //第一包数据灯控板点灯反馈标识，不用每块灯控板保存一次，凡是需要点灯反馈，所有通道都要求反馈（即使是灭灯）
+    uint8_t Opt_CheckReplyState_2nd;                            //第二包数据灯控板点灯反馈标识
     uint8_t Opt_BoardId;                                        //灯控板编号
         
     //接管信息
     uint32_t CheckSum;                                          //接管信息的4字节校验值
-    uint16_t ArrayNum;                                          //接管信息 接管数据个数
+    uint16_t ArrayNum;                                          //接管信息 接管数据个数，二分之一 FrameNum
     uint16_t FrameNum;                                          //接管信息 之后接收的帧个数
    
     struct TakeOver_Structure TakeOver_Structure_Use[160];      //接管信息 最终使用信息
@@ -62,7 +65,7 @@
     uint8_t Opt_ACheck_Enable;                                  //灯控板是否需电流检测
 
     //灯控板反馈信息
-    struct Opt_Light_Reply_Structure Opt_Reply_Buff[10];        //灯控板反馈点灯信息缓存,10块板子
+    struct Opt_Light_Reply_Structure  Opt_Reply_Buff[10];        //灯控板反馈点灯信息缓存,10块板子
     struct Opt_Light_Reply_ResultCount Opt_Reply_State[10];     //灯控板反馈点灯信息内容，10块板子
     
     //硬黄闪信息 ??
@@ -80,6 +83,11 @@
     void TIM2_Init(uint16_t arr,uint16_t psc);
     void GPIO_Init(void);
     void CAN1_Init(void);
+    void Power_CAN_Send(uint16_t sid,uint8_t data[8]);
     void UART2_Init(uint32_t baudrate);
     void JSY_DataRequest(void);
+    void Seek_Pointer(void);
+    void Power_Reply(void);
+    void Light_Opt(uint8_t n);
+    void Check_Opt_Reply(void);
 #endif

@@ -54,5 +54,4 @@
 ..\obj\iwdg.o: ..\HALLib\Inc\stm32f1xx_ll_usb.h
 ..\obj\iwdg.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\iwdg.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
-..\obj\iwdg.o: ..\SYSTEM\sys\sys.h
 ..\obj\iwdg.o: ..\USER\declaration.h

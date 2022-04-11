@@ -54,5 +54,4 @@
 ..\obj\send_can.o: ..\HALLib\Inc\stm32f1xx_ll_usb.h
 ..\obj\send_can.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\send_can.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
-..\obj\send_can.o: ..\SYSTEM\sys\sys.h
 ..\obj\send_can.o: ..\USER\declaration.h

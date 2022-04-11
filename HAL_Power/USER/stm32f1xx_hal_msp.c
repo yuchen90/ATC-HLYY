@@ -18,7 +18,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim)
 {
   if(htim->Instance == TIM2)                          //确认开启时钟为TIM2
 	{
-	  TIMx_CLK_ENABLE();                                //使能TIM2时钟
+	    TIM2_CLK_ENABLE();                                //使能TIM2时钟
 		HAL_NVIC_SetPriority(TIM2_IRQn,1u,0u);            //设置中断优先级，抢占优先级3，子优先级3
 		HAL_NVIC_EnableIRQ(TIM2_IRQn);                    //开启ITM2中断   
 	}
@@ -61,8 +61,8 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan)
 {
   GPIO_InitTypeDef GPIO_Init={0u};
 
-  CANx_CLK_ENABLE();
-  CANx_GPIO_CLK_ENABLE();
+  CAN1_CLK_ENABLE();
+  CAN1_GPIO_CLK_ENABLE();
 
   //Rx
   GPIO_Init.Pin=CAN1_Rx_PIN;

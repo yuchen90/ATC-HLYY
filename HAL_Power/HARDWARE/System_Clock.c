@@ -6,7 +6,7 @@
   * @param  pll£º±¶ÆµÒò×Ó
   * @retval None
   */
-void System_Clock_Init(u32 pll)
+void System_Clock_Init(uint32_t pll)
 {
     HAL_StatusTypeDef ret = HAL_OK;
     RCC_OscInitTypeDef RCC_OscInitStructure; 

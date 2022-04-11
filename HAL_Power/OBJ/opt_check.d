@@ -54,5 +54,4 @@
 ..\obj\opt_check.o: ..\HALLib\Inc\stm32f1xx_ll_usb.h
 ..\obj\opt_check.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\opt_check.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
-..\obj\opt_check.o: ..\SYSTEM\sys\sys.h
 ..\obj\opt_check.o: ..\USER\declaration.h

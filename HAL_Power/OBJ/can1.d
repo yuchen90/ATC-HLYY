@@ -54,5 +54,4 @@
 ..\obj\can1.o: ..\HALLib\Inc\stm32f1xx_ll_usb.h
 ..\obj\can1.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\can1.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
-..\obj\can1.o: ..\SYSTEM\sys\sys.h
 ..\obj\can1.o: ..\USER\declaration.h

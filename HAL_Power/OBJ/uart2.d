@@ -54,5 +54,4 @@
 ..\obj\uart2.o: ..\HALLib\Inc\stm32f1xx_ll_usb.h
 ..\obj\uart2.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\uart2.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
-..\obj\uart2.o: ..\SYSTEM\sys\sys.h
 ..\obj\uart2.o: ..\USER\declaration.h

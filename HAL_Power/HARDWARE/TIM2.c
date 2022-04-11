@@ -23,10 +23,10 @@ void TIM2_Init(uint16_t arr,uint16_t psc)
   
   #if TIM2_EN
 	if(HAL_TIM_Base_Init(&TIM2_Handle) != HAL_OK)
-	TIM2_Error_Handler();
+	    TIM2_Error_Handler();
 
 	if(HAL_TIM_Base_Start_IT(&TIM2_Handle) != HAL_OK)    						//使能定时器2和定时器2更新中断：TIM_IT_UPDATE
-	TIM2_Error_Handler();
+	    TIM2_Error_Handler();
   #endif
 }
 
@@ -37,10 +37,24 @@ void TIM2_Init(uint16_t arr,uint16_t psc)
   */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if(htim==(&TIM2_Handle))
+  // if(htim == (&TIM2_Handle))
+  {
+    System_Time_Fg++;
+    if(System_Time_Fg >= 25000u)
+        System_Time_Fg=15000u;
+    
+        System_Time_Fg1++;
+    if(System_Time_Fg1 >= 20000u)
+        System_Time_Fg1=10000u;
+    
+    if(((System_Time_Fg < 15000u) || (TakeOver_DataNum > 0u)) && (TakeOver_Enable == 1u) && (Y_FLASH_ENABLE == 0u))
     {
-
-    }
+        if(System_Time_Fg%80 < 41u)     //为什么是%80<41u
+	        Y_FLASH_ENABLE=ON;
+        else
+            Y_FLASH_ENABLE=OFF;
+    }    
+  }
 }
 
 /**
@@ -52,6 +66,6 @@ void TIM2_Error_Handler(void)
 {
 	while(1)
 	{
-    MCU_RUN=LED_ON;
+        MCU_RUN=LED_ON;
 	}
 }

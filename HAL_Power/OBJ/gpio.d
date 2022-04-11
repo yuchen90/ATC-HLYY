@@ -54,5 +54,4 @@
 ..\obj\gpio.o: ..\HALLib\Inc\stm32f1xx_ll_usb.h
 ..\obj\gpio.o: ..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h
 ..\obj\gpio.o: ..\HALLib\Inc\stm32f1xx_hal_hcd.h
-..\obj\gpio.o: ..\SYSTEM\sys\sys.h
 ..\obj\gpio.o: ..\USER\declaration.h

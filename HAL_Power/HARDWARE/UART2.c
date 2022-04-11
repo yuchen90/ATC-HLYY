@@ -8,7 +8,7 @@ void UART_Error_Handler(void);
   * @param  baudrate：串口通讯速率
   * @retval None
   */
-void UART_Init(uint32_t baudrate)
+void UART2_Init(uint32_t baudrate)
 {
 	POWER_UART2_Handle.Instance = USART2;									//USART2
 	POWER_UART2_Handle.Init.BaudRate = baudrate;							//波特率

@@ -14,8 +14,11 @@
     extern CAN_HandleTypeDef CAN_Handle;
     extern CAN_TxHeaderTypeDef CAN_TxHeader;
     extern CAN_RxHeaderTypeDef CAN_RxHeader;
+    extern CAN_RxHeaderTypeDef CAN_RxHeader1;
 
     extern TIM_HandleTypeDef TIM2_Handle;
+
+    extern IWDG_HandleTypeDef IWDG_Handle;
 //系统变量
     extern uint32_t System_Time_Fg;                                      //TIM2中断（100us一次）++； TFg(TimeFlag 缩写)
     extern uint32_t System_Time_Fg1;                                     //灯控板闪烁先亮后灭时，置0.
@@ -32,8 +35,8 @@
     extern uint8_t Blink_Id;                                            //点灯信息，闪烁灯是否亮起标识， 0：灭； 1：亮
     extern uint8_t Blink_Id_Before;                                     //上一次闪烁标识
     extern uint8_t Opt_CheckReply_Fg;                                   //灯控板点灯反馈标识，缓存
-    extern uint8_t Opt_CheckReply_1st;                                  //第一包数据灯控板点灯反馈标识
-    extern uint8_t Opt_CheckReply_2nd;                                  //第二包数据灯控板点灯反馈标识
+    extern uint8_t Opt_CheckReplyState_1st;                                  //第一包数据灯控板点灯反馈标识
+    extern uint8_t Opt_CheckReplyState_2nd;                                  //第二包数据灯控板点灯反馈标识
     extern uint8_t Opt_BoardId;                                         //灯控板编号
     
     //电源板

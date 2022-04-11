@@ -1,7 +1,7 @@
 Dependencies for Project 'Power', Target 'Power': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x62304CD8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
-I (main.h)(0x62304152)
+F (.\main.c)(0x625390F6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+I (main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -55,10 +55,9 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (global_variable.h)(0x62303CBB)
-F (.\stm32f1xx_hal_msp.c)(0x622AB904)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\stm32f1xx_hal_msp.o --omf_browse ..\obj\stm32f1xx_hal_msp.crf --depend ..\obj\stm32f1xx_hal_msp.d)
-I (main.h)(0x62304152)
+I (global_variable.h)(0x62538DAF)
+F (.\stm32f1xx_hal_msp.c)(0x625390D9)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\stm32f1xx_hal_msp.o --omf_browse ..\obj\stm32f1xx_hal_msp.crf --depend ..\obj\stm32f1xx_hal_msp.d)
+I (main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -112,9 +111,9 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-F (.\stm32f1xx_it.c)(0x622EEF42)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\stm32f1xx_it.o --omf_browse ..\obj\stm32f1xx_it.crf --depend ..\obj\stm32f1xx_it.d)
-I (main.h)(0x62304152)
+I (declaration.h)(0x624FA177)
+F (.\stm32f1xx_it.c)(0x624EA13D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\stm32f1xx_it.o --omf_browse ..\obj\stm32f1xx_it.crf --depend ..\obj\stm32f1xx_it.d)
+I (main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -168,8 +167,7 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (declaration.h)(0x62303EA2)
+I (declaration.h)(0x624FA177)
 F (.\system_stm32f1xx.c)(0x61D3AE8D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\system_stm32f1xx.o --omf_browse ..\obj\system_stm32f1xx.crf --depend ..\obj\system_stm32f1xx.d)
 I (stm32f1xx.h)(0x61D3AE8D)
 I (stm32f103xb.h)(0x61E13B79)
@@ -225,10 +223,10 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-F (.\declaration.h)(0x62303EA2)()
-F (.\global_variable.h)(0x62303CBB)()
-F (..\HARDWARE\CAN1.c)(0x622AE099)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\can1.o --omf_browse ..\obj\can1.crf --depend ..\obj\can1.d)
-I (..\USER\main.h)(0x62304152)
+F (.\declaration.h)(0x624FA177)()
+F (.\global_variable.h)(0x62538DAF)()
+F (..\HARDWARE\CAN1.c)(0x6253908A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\can1.o --omf_browse ..\obj\can1.crf --depend ..\obj\can1.d)
+I (..\USER\main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -282,10 +280,9 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (..\USER\declaration.h)(0x62303EA2)
-F (..\HARDWARE\IWDG.c)(0x622177D5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\iwdg.o --omf_browse ..\obj\iwdg.crf --depend ..\obj\iwdg.d)
-I (..\USER\main.h)(0x62304152)
+I (..\USER\declaration.h)(0x624FA177)
+F (..\HARDWARE\IWDG.c)(0x624F9948)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\iwdg.o --omf_browse ..\obj\iwdg.crf --depend ..\obj\iwdg.d)
+I (..\USER\main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -339,10 +336,9 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (..\USER\declaration.h)(0x62303EA2)
-F (..\HARDWARE\Opt_Check.c)(0x62202E60)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\opt_check.o --omf_browse ..\obj\opt_check.crf --depend ..\obj\opt_check.d)
-I (..\USER\main.h)(0x62304152)
+I (..\USER\declaration.h)(0x624FA177)
+F (..\HARDWARE\Opt_Check.c)(0x62538E65)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\opt_check.o --omf_browse ..\obj\opt_check.crf --depend ..\obj\opt_check.d)
+I (..\USER\main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -396,10 +392,9 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (..\USER\declaration.h)(0x62303EA2)
-F (..\HARDWARE\Send_CAN.c)(0x62202E65)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\send_can.o --omf_browse ..\obj\send_can.crf --depend ..\obj\send_can.d)
-I (..\USER\main.h)(0x62304152)
+I (..\USER\declaration.h)(0x624FA177)
+F (..\HARDWARE\Send_CAN.c)(0x62538D2B)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\send_can.o --omf_browse ..\obj\send_can.crf --depend ..\obj\send_can.d)
+I (..\USER\main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -453,10 +448,9 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (..\USER\declaration.h)(0x62303EA2)
-F (..\HARDWARE\TIM2.c)(0x622EA9B0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\tim2.o --omf_browse ..\obj\tim2.crf --depend ..\obj\tim2.d)
-I (..\USER\main.h)(0x62304152)
+I (..\USER\declaration.h)(0x624FA177)
+F (..\HARDWARE\TIM2.c)(0x62539127)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\tim2.o --omf_browse ..\obj\tim2.crf --depend ..\obj\tim2.d)
+I (..\USER\main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -510,10 +504,9 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (..\USER\declaration.h)(0x62303EA2)
+I (..\USER\declaration.h)(0x624FA177)
 F (..\HARDWARE\GPIO.c)(0x62202883)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\gpio.o --omf_browse ..\obj\gpio.crf --depend ..\obj\gpio.d)
-I (..\USER\main.h)(0x62304152)
+I (..\USER\main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -567,10 +560,9 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (..\USER\declaration.h)(0x62303EA2)
-F (..\HARDWARE\UART2.c)(0x62304CA3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\uart2.o --omf_browse ..\obj\uart2.crf --depend ..\obj\uart2.d)
-I (..\USER\main.h)(0x62304152)
+I (..\USER\declaration.h)(0x624FA177)
+F (..\HARDWARE\UART2.c)(0x6253919C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\uart2.o --omf_browse ..\obj\uart2.crf --depend ..\obj\uart2.d)
+I (..\USER\main.h)(0x62537A5B)
 I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
 I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
@@ -624,8 +616,63 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (..\USER\declaration.h)(0x62303EA2)
+I (..\USER\declaration.h)(0x624FA177)
+F (..\HARDWARE\System_Clock.c)(0x62539108)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\system_clock.o --omf_browse ..\obj\system_clock.crf --depend ..\obj\system_clock.d)
+I (..\USER\main.h)(0x62537A5B)
+I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
+I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_def.h)(0x61D3AE8D)
+I (..\USER\stm32f1xx.h)(0x61D3AE8D)
+I (..\USER\stm32f103xb.h)(0x61E13B79)
+I (..\CORE\core_cm3.h)(0x61D3AE8D)
+I (D:\ebedded_system\Keil5\Core\ARM\ARMCC\include\stdint.h)(0x6025237E)
+I (..\CORE\cmsis_version.h)(0x61D3AE8D)
+I (..\CORE\cmsis_compiler.h)(0x61D3AE8D)
+I (..\CORE\cmsis_armcc.h)(0x61D3AE8D)
+I (..\USER\system_stm32f1xx.h)(0x61D3AE8D)
+I (..\HALLib\Inc\Legacy/stm32_hal_legacy.h)(0x61D3AE8D)
+I (D:\ebedded_system\Keil5\Core\ARM\ARMCC\include\stddef.h)(0x6025237E)
+I (..\HALLib\Inc\stm32f1xx_hal_rcc_ex.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_gpio.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_gpio_ex.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_exti.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_dma.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_dma_ex.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_eth.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_can.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_cec.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_cortex.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_adc.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_adc_ex.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_crc.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_dac.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_flash.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_flash_ex.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_sram.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_nor.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_i2c.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_i2s.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_iwdg.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_pwr.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_rtc.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_rtc_ex.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_pccard.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_sd.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_nand.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_spi.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_tim.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_tim_ex.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_uart.h)(0x622EF473)
+I (..\HALLib\Inc\stm32f1xx_hal_usart.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_irda.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_smartcard.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_wwdg.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
+I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
+I (..\USER\declaration.h)(0x624FA177)
 F (..\CORE\cmsis_armcc.h)(0x61D3AE8D)()
 F (..\CORE\cmsis_armclang.h)(0x61D3AE8D)()
 F (..\CORE\cmsis_compiler.h)(0x61D3AE8D)()
@@ -1604,115 +1651,3 @@ I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
 I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-F (..\SYSTEM\delay\delay.c)(0x61D3AE8D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
-I (..\SYSTEM\delay\delay.h)(0x61D3AE8D)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (..\USER\stm32f1xx.h)(0x61D3AE8D)
-I (..\USER\stm32f103xb.h)(0x61E13B79)
-I (..\CORE\core_cm3.h)(0x61D3AE8D)
-I (D:\ebedded_system\Keil5\Core\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\CORE\cmsis_version.h)(0x61D3AE8D)
-I (..\CORE\cmsis_compiler.h)(0x61D3AE8D)
-I (..\CORE\cmsis_armcc.h)(0x61D3AE8D)
-I (..\USER\system_stm32f1xx.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
-I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_def.h)(0x61D3AE8D)
-I (..\HALLib\Inc\Legacy/stm32_hal_legacy.h)(0x61D3AE8D)
-I (D:\ebedded_system\Keil5\Core\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (..\HALLib\Inc\stm32f1xx_hal_rcc_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_gpio.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_gpio_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_exti.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_dma.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_dma_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_eth.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_can.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_cec.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_cortex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_adc.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_adc_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_crc.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_dac.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_flash.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_flash_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_sram.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_nor.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_i2c.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_i2s.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_iwdg.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_pwr.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_rtc.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_rtc_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_pccard.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_sd.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_nand.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_spi.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_tim.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_tim_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_uart.h)(0x622EF473)
-I (..\HALLib\Inc\stm32f1xx_hal_usart.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_irda.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_smartcard.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_wwdg.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-F (..\SYSTEM\sys\sys.c)(0x622AB99A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\HALLib\Inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\OBJ -I ..\HARDWARE-ID:\ebedded_system\Keil5\Pack\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
-I (..\SYSTEM\sys\sys.h)(0x61E7A828)
-I (..\USER\stm32f1xx.h)(0x61D3AE8D)
-I (..\USER\stm32f103xb.h)(0x61E13B79)
-I (..\CORE\core_cm3.h)(0x61D3AE8D)
-I (D:\ebedded_system\Keil5\Core\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\CORE\cmsis_version.h)(0x61D3AE8D)
-I (..\CORE\cmsis_compiler.h)(0x61D3AE8D)
-I (..\CORE\cmsis_armcc.h)(0x61D3AE8D)
-I (..\USER\system_stm32f1xx.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal.h)(0x61D3AE8D)
-I (..\USER\stm32f1xx_hal_conf.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_rcc.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_def.h)(0x61D3AE8D)
-I (..\HALLib\Inc\Legacy/stm32_hal_legacy.h)(0x61D3AE8D)
-I (D:\ebedded_system\Keil5\Core\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (..\HALLib\Inc\stm32f1xx_hal_rcc_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_gpio.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_gpio_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_exti.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_dma.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_dma_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_eth.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_can.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_cec.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_cortex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_adc.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_adc_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_crc.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_dac.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_flash.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_flash_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_sram.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_nor.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_i2c.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_i2s.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_iwdg.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_pwr.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_rtc.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_rtc_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_pccard.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_sd.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_nand.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_spi.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_tim.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_tim_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_uart.h)(0x622EF473)
-I (..\HALLib\Inc\stm32f1xx_hal_usart.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_irda.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_smartcard.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_wwdg.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_pcd.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_ll_usb.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_pcd_ex.h)(0x61D3AE8D)
-I (..\HALLib\Inc\stm32f1xx_hal_hcd.h)(0x61D3AE8D)
-I (..\USER\declaration.h)(0x62303EA2)

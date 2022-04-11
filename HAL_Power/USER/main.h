@@ -51,8 +51,8 @@
 #define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  //输入
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define VERSION 1
-#define ERROR_TIME 12
+#define VERSION 1u
+#define ERROR_TIME 12u
 
 //GPIO 引脚使用
     //GPIO 输出
@@ -153,7 +153,7 @@
 	typedef struct Opt_Light_Reply_ResultCount
 	{
 		uint8_t Check_Enable;		//是否需要检测
-		uint8_t	No_Of_Reply_Times;       //需要检查，但没有收到灯控板回复点灯状态的次数
+		uint8_t	No_Reply_Times;       //需要检查，但没有收到灯控板回复点灯状态的次数
 
 		uint8_t	Red_Received_RV_times[4];       //点红灯时，有红灯电压计数
 		uint8_t	Yellow_Received_YV_times[4];    //点黄灯时，有黄灯电压计数

@@ -9,8 +9,8 @@ uint32_t w,e,t,r;
 //主函数
 int main(void)
 {
-	HAL_Init();
-	Stm32_Clock_Init(RCC_PLL_MUL9);			//systemclk 72MHz
+  	HAL_Init();
+	System_Clock_Init(RCC_PLL_MUL9);			//systemclk 72MHz
 	IWDG_Init(4u, 500u);
 	TIM2_Init(99u, 71u);					//1us 1次中断
 	GPIO_Init();
@@ -18,6 +18,7 @@ int main(void)
 	UART2_Init(4800u);
 
 	JSY_DataRequest();
+	TakeOver_Enable=1u;
 	while (1)
 	{
 		IWDG_Feed();						//喂狗
@@ -29,7 +30,7 @@ int main(void)
 
 		if(CAN_DataRead_Fg == 1u)
 		{
-			Seek_Pointer();
+		    Seek_Pointer();
 			JSY_MK163_ReadRequest_Fg++;
 			if(JSY_MK163_ReadRequest_Fg >= 4u)
 			{
@@ -59,18 +60,10 @@ int main(void)
 				YBlink_Count3++;
 		}
 
-		////////////////////////////////////////////////////接管////////////////////////////////////////////
+		////////////////////////////////////////////////////接管////////////////////////////////////////////////////
 		if((TakeOver_Enable == 1u) && (TakeOver_DataNum > 0u))
 		{
 			if(System_Time_Fg == 15000u)
-			{
-				CAN_Tx_LED=LED_ON;
-				CAN_Rx_LED=LED_OFF;
-				Light_Opt(0u);
-				CAN_Tx_LED=LED_OFF;
-				CAN_Rx_LED=LED_ON;
-			}
-			else if(System_Time_Fg == 17500u)
 			{
 				CAN_Tx_LED=LED_ON;
 				CAN_Rx_LED=LED_OFF;
@@ -78,7 +71,7 @@ int main(void)
 				CAN_Tx_LED=LED_OFF;
 				CAN_Rx_LED=LED_ON;
 			}
-			else if(System_Time_Fg == 20000u)
+			else if(System_Time_Fg == 17500u)
 			{
 				CAN_Tx_LED=LED_ON;
 				CAN_Rx_LED=LED_OFF;
@@ -86,11 +79,19 @@ int main(void)
 				CAN_Tx_LED=LED_OFF;
 				CAN_Rx_LED=LED_ON;
 			}
-			else if(System_Time_Fg == 22500u)
+			else if(System_Time_Fg == 20000u)
 			{
 				CAN_Tx_LED=LED_ON;
 				CAN_Rx_LED=LED_OFF;
 				Light_Opt(3u);
+				CAN_Tx_LED=LED_OFF;
+				CAN_Rx_LED=LED_ON;
+			}
+			else if(System_Time_Fg == 22500u)
+			{
+				CAN_Tx_LED=LED_ON;
+				CAN_Rx_LED=LED_OFF;
+				Light_Opt(4u);
 				CAN_Tx_LED=LED_OFF;
 				CAN_Rx_LED=LED_ON;
 				RunTime++;
@@ -103,7 +104,7 @@ int main(void)
 				}
 			}
 			
-			if((System_Time_Fg >= 15000u) && (System_Time_Fg%2500 == 1000u))
+			if((System_Time_Fg >= 15000u) && (System_Time_Fg%2500 == 1000u))            //1s 4次
 			{
 				Check_Opt_Reply();
 			}
